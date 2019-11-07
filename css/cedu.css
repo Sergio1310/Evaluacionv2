@@ -1,0 +1,31 @@
+
+
+
+
+label {
+  /* To make sure that all label have the same size and are properly align */
+  display: inline-block;
+  width: 100px;
+  text-align: right;
+  border-radius: 6px;
+}
+
+input, textarea {
+  /* To make sure that all text field have the same font settings
+     By default, textarea are set with a monospace font */
+  font: 1.3em sans-serif;
+
+ 
+  width: 600px;
+
+  border: 1.5px solid black;
+}
+
+input:focus, textarea:focus {
+
+  border-color: white;
+}
+
+.let {
+  color: white;
+}

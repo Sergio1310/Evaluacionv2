@@ -1,0 +1,207 @@
+body{
+	background: url(../imagenes/fondo.jpg) no-repeat center center fixed;
+	background-size: cover;
+	height: 100vh;
+}
+
+.principal-content {
+	height: 100vh;
+	font-family: Verdana,sans-serif;
+}
+
+.p-content {
+	position: relative;
+}
+
+.matricula {
+	color: white;
+	position: absolute;
+	top: 20px;
+	left: 18px;
+	font-size: 17px;
+}
+
+.matricula i {
+	font-size: 2.1em;
+	color: #afafaf;
+}
+
+.title {
+	padding-bottom: 24px;
+}
+
+.h1{
+	color: white;
+	font-size: 40px;
+}
+
+
+.black-container {
+	background-color: rgba(0, 0, 0, 0.6);
+	height: 500px;
+	width: 75%;
+	border-radius: 6px;
+}
+
+.black-containerQ {
+	background-color: rgba(0, 0, 0, 0.6);
+	width: 75%;
+	border-radius: 6px;
+	padding: 50px 0 60px 0;
+}
+
+.black-containerCedu {
+	background-color: rgba(0, 0, 0, 0.6);
+	/*height: 600px;*/
+	width: 65%;
+	border-radius: 6px;
+	padding: 74px 0;
+}
+
+
+.subjects {
+	width: 100%;
+	padding: 45px 45px 0 45px;
+	display: grid !important;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 1.2rem;
+}
+
+.subjects-question{
+	width: 100%;
+	padding: 45px 45px 0 45px;
+	display: grid !important;
+	grid-gap: 1.2rem;
+}
+
+.math-questionname {
+	height: 400px;
+	width: 85%;
+	background-color: white;
+	background-position: center;
+	border-radius: 4px;
+	font-size: 0.8em;
+	padding: 20px 40px;
+}
+
+.subjects-cedula{
+	width: 100%;
+	padding: 33px 30px 0 45px;
+}
+
+.card {
+	cursor: pointer;
+
+}
+
+.card:hover {
+	box-shadow: 0 1px 5px 0 #eee;
+}
+
+.subject-name {
+	height: 140px;
+	background-color: white;
+	background-position: center;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	font-size: 0.8em;
+}
+
+.subject-questionname
+{
+	height: 500px;
+	background-color: white;
+	background-position: center;
+	border-radius: 4px;
+	font-size: 0.8em;
+}
+
+.q-box {
+	height: 270px;
+}
+
+.color-line {
+	height: 24px;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+
+.cedula, .reporte {
+	padding: 32px 0;
+	background-color: transparent;
+}
+
+.Tercedula{
+	padding: 40px 0 0 0;
+}
+
+.cedula {
+	color: black;
+}
+
+.ci label {
+	text-align: left;
+	padding-right: 10px;
+	color: white;
+}
+
+.ci input {
+	border-radius: 4px;
+	border-color: black;
+}
+
+.btn-eval {
+	width: 40%;
+	padding: 10px;
+	color: white;
+	background-color: #ae8760;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.btn-eval:hover {
+  background-color: #9a6e42 !important;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 5px 0 #eee;
+}
+
+.btn-question {
+	width: 20%;
+	padding: 10px;
+	color: white;
+	background-color: #ae8760;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.btn-question:hover {
+  background-color: #9a6e42 !important;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 5px 0 #eee;
+}
+
+
+/*#separar {
+  padding: 3%;
+  display: inline-block;
+}
+.boton4 {
+	position: absolute;
+	right: 60%;
+
+
+  color: #50CEEB !important;
+  font-size: 22px;
+  font-weight: 150;
+  padding: 0.6em 0.9em;
+
+  background: white;
+  border: 1px solid;
+  border-color:white;
+  position: center;
+  border-radius: 5px;
+}
+.boton4:hover {
+  color: #50CEEB !important;
+  box-shadow: 0 4px 16px #79D9F0 ;
+  transition: all 0.2s ease;
+}*/
