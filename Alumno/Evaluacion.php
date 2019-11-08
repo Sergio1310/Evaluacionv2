@@ -33,6 +33,9 @@ $paginas = ceil($paginas);
 	if(!$_GET){
 		header('Location:Evaluacion.php?pregunta=1');
 	}
+	if($_GET['pregunta']>$paginas){
+		header('Location:Evaluacion.php?pregunta=1');
+	}
 
 	$inciar = ($_GET['pregunta']-1)*$articulos_x_pagina;
 	
@@ -118,7 +121,9 @@ $paginas = ceil($paginas);
 												</a>
 											</li>
 										<?php endfor ?>
-											<li class="page-item<?php echo $_GET['pregunta']>=$paginas? 'disabled': ''?>"><a class="page-link" href="Evaluacion.php?pregunta=<?php echo $_GET['pregunta']+1 ?>">Siguiente
+											<li class="page-item
+											<?php echo $_GET['pregunta']>=$paginas? 'disabled': ''?>">
+											<a class="page-link" href="Evaluacion.php?pregunta=<?php echo $_GET['pregunta']+1 ?>">Siguiente
 												</a>
 											</li>
 										</ul>
