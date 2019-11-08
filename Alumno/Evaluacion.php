@@ -105,7 +105,7 @@ $paginas = ceil($paginas);
 									</div>
 
 								</div>	
-								<div class="paginacion">
+								<div class="paginas">
 									<nav aria-label="Page navigation example">
 										<ul class="pagination">
 											<li class="page-item <?php echo $_GET['pregunta']<=1? 'disabled': ''?>">
