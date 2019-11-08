@@ -28,6 +28,7 @@ body{
 
 .title {
 	padding-bottom: 24px;
+	padding: 5%;
 }
 
 .h1{
@@ -207,3 +208,10 @@ body{
 }*/
 
 
+.paginas{
+	width: auto;
+	height: auto;
+	display: flex;
+	padding: 0% 5%;
+	margin: 3% 0;
+}

@@ -1,4 +1,9 @@
-<?php
+<?php 
+    session_start();
+
+    if((!isset($_SESSION['matricula']) && !isset($_SESSION['tipo_user'])) || $_SESSION['tipo_user'] != 1){
+        header("Location: ../index.php");
+    }
 require("conexion.php");
 
 $sql= 'SELECT pregunta,opcion1,opcion2,opcion3,opcion4 FROM preguntas  where asignatura_idasignatura=1 ORDER BY RAND() LIMIT 3';
@@ -105,7 +110,7 @@ $paginas = ceil($paginas);
 									</div>
 
 								</div>	
-								<div class="paginacion">
+								<div class="paginas">
 									<nav aria-label="Page navigation example">
 										<ul class="pagination">
 											<li class="page-item <?php echo $_GET['pregunta']<=1? 'disabled': ''?>">
