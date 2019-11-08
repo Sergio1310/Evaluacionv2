@@ -1,4 +1,9 @@
-<?php
+<?php 
+    session_start();
+
+    if((!isset($_SESSION['matricula']) && !isset($_SESSION['tipo_user'])) || $_SESSION['tipo_user'] != 1){
+        header("Location: ../index.php");
+    }
 require("conexion.php");
 
 $sql= 'SELECT * FROM preguntas';
