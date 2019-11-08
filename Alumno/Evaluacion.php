@@ -1,7 +1,7 @@
 <?php
 require("conexion.php");
 
-$sql= 'SELECT * FROM preguntas';
+$sql= 'SELECT pregunta,opcion1,opcion2,opcion3,opcion4 FROM preguntas  where asignatura_idasignatura=1 ORDER BY RAND() LIMIT 3';
 $sentencia = $pdo->prepare($sql);
 $sentencia->execute();
 
