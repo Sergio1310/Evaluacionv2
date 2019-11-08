@@ -8,11 +8,17 @@
 		 	<th colspan="6" style="text-align: center; color: white">Matricula</th>
 		</tr>
 	 </thead>
-	 @foreach($registros as $registros2)
-	 	<tr>
-	 		<td><a href="">{{$registros2->userr}}</a></td>
-	 	</tr>
-	 @endforeach
+	 <?php
+			require('../../php/conexion.php');
+			$consulta = $mysqli->query("SELECT * FROM usuarios");
+			while($resultado = mysqli_fetch_assoc($consulta)){
+        ?>
+			<tr>
+				<td><?php echo $resultado['userr']; ?></td>
+			</tr>
+    	<?php
+    	 	} 
+    	?>
 	  </tbody>
 	  <!--Table body-->
 	</table>

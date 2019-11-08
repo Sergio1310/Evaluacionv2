@@ -1,4 +1,4 @@
-<table class="table table-striped table-hover col-sm-6" >
+<table class="table table-striped table-hover col-sm-6">
     <thead>
         <tr>
             <th>ID</th>
@@ -13,24 +13,30 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($registros as $registros2)
-            <tr>
-                <td>{{$registros2->id_pregunta}}</td>
-                <td>{{$registros2->nombre}}</td>
-                <td>{{$registros2->pregunta}}</td>
-                <td>{{$registros2->opcion1}}</td>
-                <td>{{$registros2->opcion2}}</td>
-                <td>{{$registros2->opcion3}}</td>
-                <td>{{$registros2->opcion4}}</td>
-                <td>{{$registros2->respuesta}}</td>
-                <td>
-                <a href="#EditarPregunta" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar" id="btnEditar">&#xE254;</i></a>
-                <input type="text" id="inputIDeditar" value="{{$registros2->id_pregunta}}">
-                <a href="#EliminarPregunta" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" id="btneliminar" title="Eliminar">&#xE872;</i></a>
-                <input type="text" id="inputIDeliminar" value="{{$registros2->id_pregunta}}">
-            </td>
-            </tr>
-        @endforeach
+        <?php
+			require('../../php/conexion.php');
+			$consulta = $mysqli->query("SELECT P.id_pregunta, A.nombre, P.pregunta, P.opcion1, P.opcion2, P.opcion3, P.opcion4, P.respuesta FROM preguntas as P INNER JOIN asignaturas as A ON P.asignatura_idasignatura = A.id_asignatura");
+			while($resultado = mysqli_fetch_assoc($consulta)){
+        ?>
+			<tr>
+				<td><?php echo $resultado['id_pregunta']; ?></td>
+				<td><?php echo $resultado['nombre']; ?></td>
+				<td><?php echo $resultado['pregunta']; ?></td>
+				<td><?php echo $resultado['opcion1']; ?></td>
+				<td><?php echo $resultado['opcion2']; ?></td>
+				<td><?php echo $resultado['opcion3']; ?></td>
+				<td><?php echo $resultado['opcion4']; ?></td>
+				<td><?php echo $resultado['respuesta']; ?></td>
+				<td>
+					<a href="#EditarPregunta" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar" id="btnEditar">&#xE254;</i></a>
+                	<input type="text" id="inputIDeditar" value="<?php echo $resultado['id_pregunta'] ?>">
+                	<a href="#EliminarPregunta" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" id="btneliminar" title="Eliminar">&#xE872;</i></a>
+                	<input type="text" id="inputIDeliminar" value="<?php echo $resultado['id_pregunta'] ?>">
+				</td>
+			</tr>
+    	<?php
+    	 	} 
+    	?>
     </tbody>
 </table>
 
@@ -46,9 +52,15 @@
                     <div class="modal-body">                    
                         <label for="sel1">Sección</label>
                             <select class="form-control" id="sel1">
-                                @foreach($asignaturas as $asignaturas2)
-                                    <option value="{{$asignaturas2->id_asignatura}}">{{$asignaturas2->nombre}}</option>}
-                                @endforeach
+                                <?php
+                                    require('../../php/conexion.php');
+                                    $consulta = $mysqli->query("SELECT * FROM asignaturas");
+                                    while($resultado = mysqli_fetch_assoc($consulta)){
+                                ?>
+                                    <option value="<?php echo $resultado['id_pregunta'] ?>"><?php echo $resultado['nombre']; ?></option>
+                                <?php
+                                    } 
+                                ?>
                             </select>
                         <div class="form-group">
                             <label>Pregunta</label>
@@ -109,79 +121,3 @@
             </div>
         </div>
     </div>
-
-<script>
-    
-    $('#btneliminar2').on('click', function(){
-
-        var id = $('#inputIDeliminar').val();
-
-        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-        var route = "{{route('eliminar.Pregunta')}}";
-        
-        $.ajax({
-            url: route,
-            type: 'get',
-            data: {_token: CSRF_TOKEN, id: id},
-            success:function(data){
-                $('#tabla_preguntas').load('/administrador/TablaPreguntas');
-                alert("Se elimino aca bien vergas.");
-            }
-        });
-
-    });
-
-    $('#btnEditar').on('click', function(){
-
-        var id = $('#inputIDeditar').val();
-
-        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-        var route = "{{route('buscar.Pregunta')}}";
-        
-        $.ajax({
-            url: route,
-            type: 'get',
-            data: {_token: CSRF_TOKEN, id: id},
-            success:function(data){
-
-                $('#preguntaUpdate').val(data[0].pregunta);
-                $('#opcion1Update').val(data[0].opcion1);
-                $('#opcion2Update').val(data[0].opcion2);
-                $('#opcion3Update').val(data[0].opcion3);
-                $('#opcion4Update').val(data[0].opcion4);
-                $('#sel1').val(data[0].asignatura_idasignatura);
-            }
-        });
-
-    });
-
-    $('#btnEditarModal').on('click', function(){
-
-        var asignatura = $('#sel1').val();
-        var pregunta = $('#preguntaUpdate').val();
-        var opcion1 = $('#opcion1Update').val();
-        var opcion2 = $('#opcion2Update').val();
-        var opcion3 = $('#opcion3Update').val();
-        var opcion4 = $('#opcion4Update').val();
-        var respuesta = $('#sel2').val();
-
-        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-        var route = "{{route('editar.Pregunta')}}";
-        
-        $.ajax({
-            url: route,
-            type: 'get',
-            data: {_token: CSRF_TOKEN, asignatura: asignatura, pregunta: pregunta, opcion1: opcion1, opcion2: opcion2, opcion3: opcion3, opcion4: opcion4, respuesta: respuesta},
-            success:function(data){
-                    $('#tabla_preguntas').load('/administrador/TablaPreguntas');
-                    alert("Se edito aca bien vergas.");
-                    $('#preguntaUpdate').val("");
-                    $('#opcion1Update').val("");
-                    $('#opcion2Update').val("");
-                    $('#opcion3Update').val("");
-                    $('#opcion4Update').val("");
-            }
-        });
-
-    });
-</script>

@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
   <title>Usuarios</title>
   <script
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script>
-  <script src="{{url('js/administrador.js')}}"></script>
   <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{{url('css/AdministradorUsuarios.css')}}">
+    <link rel="stylesheet" type="text/css" href="../css/AdminMatriculas.css">
+    <script src="../js/adminMatriculas.js"></script>
 </head>
 <body>
     <div class="container" style="padding: 15% 0% 0% 15%;">
@@ -43,37 +44,14 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary"  id="guardarMatricula">Guardar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="guardarMatricula">Guardar</button>
       </div>
     </div>
   </div>
 </div>
 
-<div id="tabla_usuarios"></div>
+<div id="tabla_matriculas"></div>
 
-<script>
-  $('#tabla_usuarios').load('/administrador/TablaUsuarios');
-
-  $('#guardarMatricula').on('click', function(){
-    var matricula = $('#input_matricula').val();
-      var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-      var route = "{{route('insert.Matricula')}}";
-    
-    $.ajax({
-      url: route,
-      type: 'get',
-      data: {_token: CSRF_TOKEN, matricula: matricula},
-      success:function(data){
-        if(data == 1){
-          $('#tabla_usuarios').load('/administrador/TablaUsuarios');
-          alert("Se inserto aca bien vergas.");
-        }else{
-          alert("La matricula ya existe.");
-        }
-      }
-    });
-  });
-</script>
 </body>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
