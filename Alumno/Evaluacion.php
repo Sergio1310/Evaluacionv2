@@ -38,6 +38,9 @@ $paginas = ceil($paginas);
 	if(!$_GET){
 		header('Location:Evaluacion.php?pregunta=1');
 	}
+	if($_GET['pregunta']>$paginas){
+		header('Location:Evaluacion.php?pregunta=1');
+	}
 
 	$inciar = ($_GET['pregunta']-1)*$articulos_x_pagina;
 	
@@ -107,7 +110,7 @@ $paginas = ceil($paginas);
 									</div>
 
 								</div>	
-								<div class="paginacion">
+								<div class="paginas">
 									<nav aria-label="Page navigation example">
 										<ul class="pagination">
 											<li class="page-item <?php echo $_GET['pregunta']<=1? 'disabled': ''?>">
@@ -123,7 +126,9 @@ $paginas = ceil($paginas);
 												</a>
 											</li>
 										<?php endfor ?>
-											<li class="page-item<?php echo $_GET['pregunta']>=$paginas? 'disabled': ''?>"><a class="page-link" href="Evaluacion.php?pregunta=<?php echo $_GET['pregunta']+1 ?>">Siguiente
+											<li class="page-item
+											<?php echo $_GET['pregunta']>=$paginas? 'disabled': ''?>">
+											<a class="page-link" href="Evaluacion.php?pregunta=<?php echo $_GET['pregunta']+1 ?>">Siguiente
 												</a>
 											</li>
 										</ul>
