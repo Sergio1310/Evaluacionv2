@@ -1,7 +1,7 @@
 <?php 
     session_start();
 
-    if((!isset($_SESSION['matricula']) && !isset($_SESSION['tipo_user'])) || $_SESSION['tipo_user'] != 1){
+    if((!isset($_SESSION['matricula']) && !isset($_SESSION['tipo_user'])) || $_SESSION['tipo_user'] != 2){
         header("Location: ../index.php");
     }
 ?>
@@ -21,7 +21,7 @@
 	<div class="principal-content flex">
 		<div class="p-content column justify-center">
 			<div class="matricula align-center ">
-				<i class="fas fa-user-circle"></i>matricula
+				<i class="fas fa-user-circle"></i><?php echo $_SESSION['matricula']; ?><a href="../php/cerrarSesion.php" style="color: blue;">Cerrar Sesion</a>
 			</div>
 			<div class="title justify-center">
 				<h1 class="h1 text-center">EVALUACIONES</h1>
@@ -32,56 +32,23 @@
 						<div class="subjects align-center justify-center">
 							<style type="text/css"> 
                                     a {color:black;} 
-                                    
                                 </style>
-							<a href="preguntas1.html" style="text-decoration: none" class="card">
-								<div class="card-subject column">
-									<div class="subject-name align-center justify-center">
-										<h2 class="text-center">Matemáticas</h2>
-									</div>
-									<div class="color-line bg-blue"></div>
-								</div>
-							</a>
-							<a href="preguntas1.html" style="text-decoration: none" class="card">
-								<div class="card-subject column">
-									<div class="subject-name align-center justify-center">
-										<h2 class="text-center">Matemáticas</h2>
-									</div>
-									<div class="color-line bg-lightgray"></div>
-								</div>
-							</a>
-							<a  href="preguntas1.html" style="text-decoration: none" class="card">
-								<div class="card-subject column">
-									<div class="subject-name align-center justify-center">
-										<h2 class="text-center">Matemáticas</h2>
-									</div>
-									<div class="color-line bg-blue"></div>
-								</div>
-							</a>
-							<a href="preguntas1.html" style="text-decoration: none" class="card">
-								<div class="card-subject column">
-									<div class="subject-name align-center justify-center">
-										<h2 class="text-center">Matemáticas</h2>
-									</div>
-									<div class="color-line bg-lightgray"></div>
-								</div>
-							</a>
-							<a href="preguntas1.html" style="text-decoration: none" class="card">
-								<div class="card-subject column">
-									<div class="subject-name align-center justify-center">
-										<h2 class="text-center">Matemáticas</h2>
-									</div>
-									<div class="color-line bg-blue"></div>
-								</div>
-							</a>
-							<a href="preguntas1.html" style="text-decoration: none; " class="card">
-								<div class="card-subject column">
-									<div class="subject-name align-center justify-center">
-										<h2 class="text-center" >Matemáticas</h2>
-									</div>
-									<div class="color-line bg-lightgray"></div>
-								</div>
-							</a>
+                                <?php 
+                                	require('../php/conexion.php');
+									$consulta = $mysqli->query("SELECT * FROM asignaturas");
+									while($resultado = mysqli_fetch_assoc($consulta)){
+                                ?>
+									<a href="Evaluacion.php" style="text-decoration: none" class="card">
+										<div class="card-subject column">
+											<div class="subject-name align-center justify-center">
+												<h2 class="text-center"><?php echo $resultado['nombre']; ?></h2>
+											</div>
+											<div class="color-line bg-blue"></div>
+										</div>
+									</a>
+								<?php 
+									} 
+								?>
 						</div>
 					</div>
 					<div class="buttons row">

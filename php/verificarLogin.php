@@ -5,10 +5,13 @@
 	$user = $_POST['name_user'];
 	$pass = $_POST['name_password'];
 
+	echo $user;
+	echo $pass;
+
 	$sql = "SELECT * FROM usuarios WHERE userr = '$user' AND  contra = '$pass'";
 	$resultado = $mysqli->query($sql);
 	$row = mysqli_fetch_assoc($resultado);
-
+	
 	if($row['tipouser_Idtipouser'] == 1){
 		$_SESSION['matricula'] = $row['userr'];
 		$_SESSION['tipo_user'] = $row['tipouser_Idtipouser'];

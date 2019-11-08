@@ -1,7 +1,7 @@
 <?php 
     session_start();
 
-    if((!isset($_SESSION['matricula']) && !isset($_SESSION['tipo_user'])) || $_SESSION['tipo_user'] != 1){
+    if((!isset($_SESSION['matricula']) && !isset($_SESSION['tipo_user'])) || $_SESSION['tipo_user'] != 2){
         header("Location: ../index.php");
     }
 ?>
@@ -21,7 +21,7 @@
 	<div class="principal-content flex">
 		<div class="p-content column justify-center">
 			<div class="matricula align-center ">
-				<i class="fas fa-user-circle"></i>&nbsp;<u>Matricula</u>
+				<i class="fas fa-user-circle"></i>&nbsp;<u><?php echo $resultado['matricula']; ?></u>
 			</div>
 			<div class="title justify-center">
 				<h1 class="h1 text-center ">CÉDULA</h1>

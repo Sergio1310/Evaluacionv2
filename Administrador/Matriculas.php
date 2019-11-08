@@ -22,6 +22,7 @@
 </head>
 <body>
     <div class="container" style="padding: 15% 0% 0% 15%;">
+      <p style="font-size: 24px; color: white;"><?php echo $_SESSION['matricula']; ?><a href="../php/cerrarSesion.php">Cerrar Sesion</a></p>
   <div class="row" >
     <div class="col-md-8 col-md-offset-2" >
       <div class="card" >
