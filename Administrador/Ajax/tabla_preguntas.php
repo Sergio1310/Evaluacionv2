@@ -57,7 +57,7 @@
                                     $consulta = $mysqli->query("SELECT * FROM asignaturas");
                                     while($resultado = mysqli_fetch_assoc($consulta)){
                                 ?>
-                                    <option value="<?php echo $resultado['id_pregunta'] ?>"><?php echo $resultado['nombre']; ?></option>
+                                    <option value="<?php echo $resultado['id_asignatura'] ?>"><?php echo $resultado['nombre']; ?></option>
                                 <?php
                                     } 
                                 ?>
@@ -121,3 +121,39 @@
             </div>
         </div>
     </div>
+<script>
+    $('#btneliminar2').on('click', function(){
+
+        var id = $('#inputIDeliminar').val();
+
+        $.ajax({
+            url: '../php/eliminarPregunta.php',
+            type: 'post',
+            data: {id: id},
+            success:function(data){
+                $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
+                alert("Se elimino aca bien vergas.");
+            }
+        });
+    });
+    // $('#btnEditar').on('click', function(){
+
+    //     var id = $('#inputIDeditar').val();
+        
+    //     $.ajax({
+    //         url: route,
+    //         type: 'post',
+    //         data: {id: id},
+    //         success:function(data){
+
+    //             $('#preguntaUpdate').val(data[0].pregunta);
+    //             $('#opcion1Update').val(data[0].opcion1);
+    //             $('#opcion2Update').val(data[0].opcion2);
+    //             $('#opcion3Update').val(data[0].opcion3);
+    //             $('#opcion4Update').val(data[0].opcion4);
+    //             $('#sel1').val(data[0].asignatura_idasignatura);
+    //         }
+    //     });
+
+    // });
+</script>

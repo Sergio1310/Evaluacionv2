@@ -51,7 +51,7 @@
                                     $consulta = $mysqli->query("SELECT * FROM asignaturas");
                                     while($resultado = mysqli_fetch_assoc($consulta)){
                                 ?>
-                                    <option value="<?php echo $resultado['id_pregunta'] ?>"><?php echo $resultado['nombre']; ?></option>
+                                    <option value="<?php echo $resultado['id_asignatura'] ?>"><?php echo $resultado['nombre']; ?></option>
                                 <?php
                                     } 
                                 ?>
