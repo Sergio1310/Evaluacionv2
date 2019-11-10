@@ -22,6 +22,12 @@
 </head>
 <body>
     <div class="container" style="padding: 15% 0% 0% 15%;">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="Menu.php" style="color: black;">Menu</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Matriculas</li>
+        </ol>
+      </nav>
       <p style="font-size: 24px; color: white;"><?php echo $_SESSION['matricula']; ?><a href="../php/cerrarSesion.php">Cerrar Sesion</a></p>
   <div class="row" >
     <div class="col-md-8 col-md-offset-2" >
