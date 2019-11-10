@@ -6,7 +6,7 @@
     }
 require("conexion.php");
 
-$sql= 'SELECT pregunta,opcion1,opcion2,opcion3,opcion4 FROM preguntas  where asignatura_idasignatura=1 ORDER BY RAND() LIMIT 3';
+$sql= 'SELECT pregunta,opcion1,opcion2,opcion3,opcion4 FROM preguntas  where asignatura_idasignatura=1 ORDER BY RAND() LIMIT 4';
 $sentencia = $pdo->prepare($sql);
 $sentencia->execute();
 
