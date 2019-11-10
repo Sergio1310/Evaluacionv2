@@ -26,12 +26,17 @@ $paginas = ceil($paginas);
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Matematicas</title>
-	<link rel="stylesheet" type="text/css" href="../css/alumn.css">
+	<link rel="stylesheet" href="../bootstrap4/css/bootstrap.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    <link rel="stylesheet" href="../plugins/sweetAlert2/sweetalert2.min.css">    
+    <link rel="stylesheet" href="../plugins/animate.css/animate.css">
+    <link rel="stylesheet" type="text/css" href="../css/alumn.css">
 	<link rel="stylesheet" type="text/css" href="../css/tools.css">
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script language="javascript" src="../js/validar.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </head>
 <body>
 	<?php
@@ -79,19 +84,19 @@ $paginas = ceil($paginas);
 										<br>
 										<div class="answers column justify-center">
 											<div class="row">
-												<input type="checkbox" name="">&nbsp; <?php echo $articulo['opcion1']?>
+												<input type="radio" name="" value="<?php echo $articulo['opcion1']?>">&nbsp; <?php echo $articulo['opcion1']?>
 											</div>
 											<br>
 											<div class="row">
-												<input type="checkbox" name="">&nbsp;<?php echo $articulo['opcion2']?>
+												<input type="radio" name="" <?php echo $articulo['opcion2']?>>&nbsp;<?php echo $articulo['opcion2']?>
 											</div>
 											<br>
 											<div class="row">
-												<input type="checkbox" name="">&nbsp;<?php echo $articulo['opcion3']?>
+												<input type="radio" name="" <?php echo $articulo['opcion3']?>>&nbsp;<?php echo $articulo['opcion3']?>
 											</div>
 											<br>
 											<div class="row">
-												<input type="checkbox" name="">&nbsp; <?php echo $articulo['opcion4']?>
+												<input type="radio" name="" <?php echo $articulo['opcion4']?>>&nbsp; <?php echo $articulo['opcion4']?>
 											</div>
 											
 										</div>
@@ -104,9 +109,9 @@ $paginas = ceil($paginas);
                                     a {color:black;} 
                                     
                                 </style>
-										<a  href="menu.html" style="text-decoration: none" class="btn-question text-center
+										<a  href="dashboard.php" style="text-decoration: none" class="btn-question text-center
 
-										" >Finalizar</a>
+										" onclick="validar_form('formulario_validar')">Finalizar</a>
 									</div>
 
 								</div>	
@@ -142,4 +147,8 @@ $paginas = ceil($paginas);
 		</div>
 	</div>
 </body>
+<script src="../jquery/jquery-3.3.1.min.js"></script>
+<script src="../popper/popper.min.js"></script>	 	 	
+<script src="../bootstrap4/js/bootstrap.min.js"></script>
+<script src="../plugins/sweetAlert2/sweetalert2.all.min.js"></script>
 </html>

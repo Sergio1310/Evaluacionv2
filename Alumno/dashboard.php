@@ -11,11 +11,34 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../bootstrap4/css/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
-	<title>Evaluaciones</title>
+    <link rel="stylesheet" href="../plugins/sweetAlert2/sweetalert2.min.css">    
+    <link rel="stylesheet" href="../plugins/animate.css/animate.css">  
 	<link rel="stylesheet" type="text/css" href="../css/alumn.css">
 	<link rel="stylesheet" type="text/css" href="../css/tools.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+	<script language="javascript" src="validar.js"></script>
+    <script language="JavaScript">
+    	function mi_alerta () 
+    	{
+			Swal.fire({
+  			title: '¿Estás seguro de iniciar la evaluación?',
+ 			text: "¡No podrás revertir esta acción!",
+  			showCancelButton: true,
+  			confirmButtonColor: '#3085d6',
+  			cancelButtonColor: '#d33',
+  			confirmButtonText: '¡Si, iniciar la evaluación!',
+  			cancelButtonText: 'Cancelar'
+			}).then((result) => {
+  			if (result.value) {
+     		location.href ="Evaluacion.php";
+  			}
+			})
+		}
+    </script>
+	<title>Evaluaciones</title>
 </head>
 <body>
 	<div class="principal-content flex">
@@ -38,7 +61,7 @@
 									$consulta = $mysqli->query("SELECT * FROM asignaturas");
 									while($resultado = mysqli_fetch_assoc($consulta)){
                                 ?>
-									<a href="Evaluacion.php" style="text-decoration: none" class="card">
+									<a style="text-decoration: none" class="card" onclick="mi_alerta()">
 										<div class="card-subject column">
 											<div class="subject-name align-center justify-center">
 												<h2 class="text-center"><?php echo $resultado['nombre']; ?></h2>
@@ -68,4 +91,8 @@
 		</div>
 	</div>
 </body>
+<script src="../jquery/jquery-3.3.1.min.js"></script>
+<script src="../popper/popper.min.js"></script>	 	 	
+<script src="../bootstrap4/js/bootstrap.min.js"></script>
+<script src="../plugins/sweetAlert2/sweetalert2.all.min.js"></script>
 </html>

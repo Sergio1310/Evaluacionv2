@@ -1,196 +1,89 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+/* Made with love by Mutiullah Samim*/
 
-* {
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+background-image: url(../imagenes/fondo.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
 }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  background: #181818;
-  color: #fff;
-  overflow: hidden;
-}
-#left{
- 
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 300;
+.container{
+height: 100%;
+align-content: center;
 }
 
-#wrapper {
-  display: flex;
-  flex-direction: row;
+.card{
+height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;
 }
 
-#left {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #FFC312;
 }
 
-#right {
-  flex: 1;
+.social_icon span:hover{
+color: white;
+cursor: pointer;
 }
 
-/* Sign In */
-#signin {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  padding-bottom: 1rem;
+.card-header h3{
+color: white;
 }
 
-#signin form {
-  width: 80%;
-  padding-bottom: 3rem;
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
 }
 
-#signin .logo {
-  margin-bottom: 8vh;
+.input-group-prepend span{
+width: 50px;
+background-color: #FFC312;
+color: black;
+border:0 !important;
 }
 
-#signin .logo img {
-  width: 300px;
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
 }
 
-#signin label {
-  font-size: 0.9rem;
-  line-height: 2rem;
-  font-weight: 500;
+.remember{
+color: white;
 }
 
-#signin .text-input {
-  margin-bottom: 1.3rem;
-  width: 100%;
-  border-radius: 2px;
-  background: #181818;
-  border: 1px solid #555;
-  color: #ccc;
-  padding: 0.5rem 1rem;
-  line-height: 1.3rem;
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
 }
 
-#signin .primary-btn {
-  width: 100%;
+.login_btn{
+color: black;
+background-color: #0BC86C;
+width: 100%;
 }
 
-#signin .secondary-btn,
-.or,
-.links {
-  width: 60%;
+.login_btn:hover{
+color: black;
+background-color: #06FF85;
 }
 
-#signin .links a {
-  display: block;
-  color: #fff;
-  text-decoration: none;
-  margin-bottom: 1rem;
-  text-align: center;
-  font-size: 0.9rem;
+.links{
+color: white;
 }
 
-#signin .or {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 1.2rem;
-  align-items: center;
-}
-
-#signin .or .bar {
-  flex: auto;
-  border: none;
-  height: 1px;
-  background: #aaa;
-}
-
-#signin .or span {
-  color: #ccc;
-  padding: 0 0.8rem;
-}
-
-/* Showcase */
-#showcase {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: url('../imagenes/fondo.jpg') no-repeat center center / cover;
-  height: 100vh;
-  text-align: center;
-}
-
-
-
-
-/* Button */
-.primary-btn {
-  padding: 0.7rem 1rem;
-  height: 2.7rem;
-  display: block;
-  border: 0;
-  border-radius: 2px;
-  font-weight: 500;
-  background: #0895C6;
-  color: #fff;
-  text-decoration: none;
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.5s;
-}
-
-.primary-btn:hover {
-  background-color: #29BFF3;
-}
-
-.logo-contener{
-text-align: center;
-    width: 100%;
-    padding: 5% 0 0 0;
-}
-/* Media Queries */
-@media (min-width: 1200px) {
-  #left {
-    flex: 4;
-  }
-
-  #right {
-    flex: 6;
-  }
-}
-
-@media (max-width: 768px) {
-  body {
-    overflow: auto;
-  }
-
-  #right {
-    display: none;
-  }
-
-  #left {
-    justify-content: start;
-    margin-top: 4vh;
-  }
-
-  #signin .logo {
-    margin-bottom: 2vh;
-  }
-
-  #signin .text-input {
-    margin-bottom: 0.7rem;
-  }
-
-  #main-footer {
-    padding-top: 1rem;
-  }
+.links a{
+margin-left: 4px;
 }
