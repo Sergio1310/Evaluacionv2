@@ -16,6 +16,9 @@
 	src="https://code.jquery.com/jquery-3.4.1.js"
 	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 	crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="../plugins/sweetAlert2/sweetalert2.min.css">
+	<link rel="stylesheet" href="../plugins/animate.css/animate.css"> 
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -31,7 +34,7 @@
           <li class="breadcrumb-item active" aria-current="page">Preguntas</li>
         </ol>
       </nav>
-      <p style="font-size: 24px; color: white;"><?php echo $_SESSION['matricula']; ?><a href="../php/cerrarSesion.php">Cerrar Sesion</a></p> 
+      <p style="font-size: 24px; color: white;"><?php echo $_SESSION['matricula']; ?><a href="../php/cerrarSesion.php">Cerrar Sesion</a></p>
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
@@ -47,7 +50,6 @@
 			<div class="clearfix"></div>
         </div>
     </div>
-	
 	<div id="AgregarPregunta" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -59,6 +61,7 @@
 					<div class="modal-body">
                         <label for="sel1">Sección</label>
                             <select class="form-control" id="sel_asignatura">
+                            	<option value="0">Elige una Opcion...</option>
                                 <?php
                                     require('../php/conexion.php');
                                     $consulta = $mysqli->query("SELECT * FROM asignaturas");
@@ -90,7 +93,9 @@
 							<input type="text" class="form-control" id="input_opcion4" placeholder="Escribe la opción 4" required>
 						</div>
                         <div class="form-group">
+                        	<label>Respuesta</label>
 							<select class="form-control" id="sel_respuesta">
+								<option value="0">Elige una Opcion...</option>
                                 <option value="1">Opcion 1</option>
                                 <option value="2">Opcion 2</option>
                                 <option value="3">Opcion 3</option>

@@ -15,6 +15,9 @@
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../plugins/sweetAlert2/sweetalert2.min.css">
+  <link rel="stylesheet" href="../plugins/animate.css/animate.css"> 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../css/AdminMatriculas.css">

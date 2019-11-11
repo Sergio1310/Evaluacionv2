@@ -4,7 +4,12 @@ $(document).ready(function(){
 	$('#guardarMatricula').on('click', function(){
 		var matricula = $('#input_matricula').val();
 		if(matricula == ""){
-			alert("Ingresa una matricula");
+			Swal.fire({
+				icon: 'warning',
+				title: 'Ingresa una Matricula!',
+				showConfirmButton: false,
+				timer: 1500
+			})
 		}else{
 			var route = "../php/crearMatricula.php";
 		
@@ -15,9 +20,19 @@ $(document).ready(function(){
 				success:function(data){
 				 	if(data == 1){
 				 		$('#tabla_matriculas').load('../Administrador/Ajax/tabla_matriculas.php');
-				 		alert("Se inserto aca bien vergas.");
+				 		Swal.fire({
+							icon: 'success',
+							title: 'La matricula se guardo satisfactoriamente!',
+							showConfirmButton: false,
+							timer: 1500
+						})
 				 	}else{
-				 		alert("La matricula ya existe.");
+				 		Swal.fire({
+							icon: 'warning',
+							title: 'La matricula ya existe!',
+							showConfirmButton: false,
+							timer: 1500
+						})
 				 	}
 				}
 			});

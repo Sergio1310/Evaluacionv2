@@ -52,6 +52,7 @@
                     <div class="modal-body">                    
                         <label for="sel1">Sección</label>
                             <select class="form-control" id="sel1">
+                                <option value="0">Elige una Opcion...</option>
                                 <?php
                                     require('../../php/conexion.php');
                                     $consulta = $mysqli->query("SELECT * FROM asignaturas");
@@ -83,7 +84,13 @@
                             <input type="text" class="form-control" id="opcion4Update" placeholder="Escribe la opción 4" value="" required>
                         </div>
                         <div class="form-group">
+                            <label>Respuesta</label>
+                            <input type="text" class="form-control" id="opcion4Update" placeholder="Escribe la opción 4" value="" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Nueva Respuesta</label>
                             <select class="form-control" id="sel2">
+                                <option value="0">Elige una Opcion...</option>
                                 <option value="1">Opcion 1</option>
                                 <option value="2">Opcion 2</option>
                                 <option value="3">Opcion 3</option>
@@ -109,8 +116,8 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">                    
-                        <p class="text-warning">¿Esta seguro que desea elimnar esta pregunta?</p>
-                        <p class="text-warning"><small>Esta acción no se puede desacer</small></p>
+                        <p class="text-warning">¿Esta seguro que desea eliminar esta pregunta?</p>
+                        <p class="text-warning"><small>Esta acción no se puede desacer.</small></p>
                         <input type="text" id="modalIDeliminar" value="">
                     </div>
                     <div class="modal-footer">
@@ -132,7 +139,12 @@
             data: {id: id},
             success:function(data){
                 $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
-                alert("Se elimino aca bien vergas.");
+                Swal.fire({
+                    icon: 'success',
+                    title: 'La pregunta se elimino satisfactoriamente!',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
             }
         });
     });
