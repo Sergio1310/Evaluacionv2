@@ -7,4 +7,6 @@
 						values('$matricula','', 2)";
 
 	echo $consulta = $mysqli->query($sql);
+
+	$mysqli->close();
 ?>

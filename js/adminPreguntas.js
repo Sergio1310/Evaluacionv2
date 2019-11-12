@@ -10,6 +10,7 @@ $(document).ready(function(){
 		var opcion3 = $('#input_opcion3').val();
 		var opcion4 = $('#input_opcion4').val();
 		var respuesta = $('#sel_respuesta').val();
+		var respuestav2 = "";
 		// alert(asignatura);
 
 		if(asignatura == 0){
@@ -67,11 +68,22 @@ $(document).ready(function(){
 							$('#sel_respuesta').val(0);
 		                }else{
 		                	var route = "../php/crearPregunta.php";
-				
+							if(respuesta == 1){
+								respuestav2 = opcion1;
+							}
+							if(respuesta == 2){
+								respuestav2 = opcion2;
+							}
+							if(respuesta == 3){
+								respuestav2 = opcion3;
+							}
+							if(respuesta == 4){
+								respuestav2 = opcion4;
+							}
 							$.ajax({
 								url: route,
 								type: 'post',
-								data: {asignatura: asignatura, pregunta: pregunta, opcion1: opcion1, opcion2: opcion2, opcion3: opcion3, opcion4: opcion4, respuesta: respuesta},
+								data: {asignatura: asignatura, pregunta: pregunta, opcion1: opcion1, opcion2: opcion2, opcion3: opcion3, opcion4: opcion4, respuesta: respuestav2},
 								success:function(data){
 								 	if(data == 1){
 								 		$('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');

@@ -15,4 +15,5 @@
 	// }else{
 	// 	return 0;
 	// }
+	$mysqli->close();
 ?>
