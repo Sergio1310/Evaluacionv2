@@ -15,7 +15,7 @@
     <tbody>
         <?php
 			require('../../php/conexion.php');
-			$consulta = $mysqli->query("SELECT P.id_pregunta, A.nombre, P.pregunta, P.opcion1, P.opcion2, P.opcion3, P.opcion4, P.respuesta FROM preguntas as P INNER JOIN asignaturas as A ON P.asignatura_idasignatura = A.id_asignatura");
+			$consulta = $mysqli->query("SELECT * FROM preguntasv");
 			while($resultado = mysqli_fetch_assoc($consulta)){
         ?>
 			<tr>

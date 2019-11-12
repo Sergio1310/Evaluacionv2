@@ -10,7 +10,7 @@
 	 </thead>
 	 <?php
 			require('../../php/conexion.php');
-			$consulta = $mysqli->query("SELECT * FROM usuarios");
+			$consulta = $mysqli->query("call selusuarios");
 			while($resultado = mysqli_fetch_assoc($consulta)){
         ?>
 			<tr>
