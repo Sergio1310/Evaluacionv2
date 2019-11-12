@@ -15,11 +15,15 @@
 	if($row['tipouser_Idtipouser'] == 1){
 		$_SESSION['matricula'] = $row['userr'];
 		$_SESSION['tipo_user'] = $row['tipouser_Idtipouser'];
+
+		$mysqli->close();
 		header("Location: ../Administrador/Menu.php");
 	}
 	if($row['tipouser_Idtipouser'] == 2){
 		$_SESSION['matricula'] = $row['userr'];
 		$_SESSION['tipo_user'] = $row['tipouser_Idtipouser'];
+
+		$mysqli->close();
 		header("Location: ../Alumno/dashboard.php");
 	}
 ?>

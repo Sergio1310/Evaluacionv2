@@ -13,4 +13,6 @@
 						values('$pregunta','$opcion1', '$opcion2', '$opcion3', '$opcion4', '$respuesta', '$asignatura')";
 
 	echo $consulta = $mysqli->query($sql);
+
+	$mysqli->close();
 ?>
