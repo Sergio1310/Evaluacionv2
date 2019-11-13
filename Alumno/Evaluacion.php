@@ -39,6 +39,10 @@ $paginas = ceil($paginas);
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </head>
 <body>
+		<nav class="navbar navbar-dark bg-dark justify-content-between">
+ <a class="navbar-brand" style="color: white;"> <i class="fas fa-user-circle"> </i> <?php echo $_SESSION['matricula']; ?></a>    
+ <button type="button" class="btn btn-outline-warning"  href="../php/cerrarSesion.php">Cerrar Sesion</button>
+</nav>
 	<?php
 	if(!$_GET){
 		header('Location:Evaluacion.php?pregunta=1');

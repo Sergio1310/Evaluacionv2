@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="../plugins/animate.css/animate.css">  
 	<link rel="stylesheet" type="text/css" href="../css/alumn.css">
 	<link rel="stylesheet" type="text/css" href="../css/tools.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<script language="javascript" src="validar.js"></script>
     <script language="JavaScript">
@@ -41,11 +43,16 @@
 	<title>Evaluaciones</title>
 </head>
 <body>
+	<nav class="navbar navbar-dark bg-dark justify-content-between">
+ <a class="navbar-brand" style="color: white;"> <i class="fas fa-user-circle"> </i> <?php echo $_SESSION['matricula']; ?></a>
+ <input type ='button' class="btn btn-outline-warning" value = 'Cerrar Sesión' onclick="window.location='../php/cerrarSesion.php';"/>
+</nav>
+
 	<div class="principal-content flex">
 		<div class="p-content column justify-center">
-			<div class="matricula align-center ">
-				<i class="fas fa-user-circle"></i><?php echo $_SESSION['matricula']; ?><a href="../php/cerrarSesion.php" style="color: blue;">Cerrar Sesion</a>
-			</div>
+			
+				
+			
 			<div class="title justify-center">
 				<h1 class="h1 text-center">EVALUACIONES</h1>
 			</div>
@@ -77,7 +84,6 @@
 					<div class="buttons row">
 						<div class="cedula justify-center">
 							<a href="/alumno/cedula" style="text-decoration: none" class="btn-eval text-center"><i class="fas fa-pen"></i>&nbsp;Llenar cédula</a>
-
 						</div>
 						<div class="reporte justify-center">
 							<a class="btn-eval text-center"><i class="fas fa-file-pdf"></i>&nbsp;Generar reporte</a>
