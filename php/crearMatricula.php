@@ -2,11 +2,15 @@
 	require 'conexion.php';
 
 	$matricula = $_REQUEST['matricula'];
+	$mysqli->set_charset('utf8');
+	$stmt = $mysqli->prepare("CALL nueva_matricula (?)");
+	
+	
+	$stmt->bind_param("i",$matricula);
+	echo $stmt->execute();
+	
 
-	$sql="INSERT INTO usuarios(userr, contra, tipouser_Idtipouser) 
-						values('$matricula','', 2)";
-
-	echo $consulta = $mysqli->query($sql);
-
+	//echo $consulta = $mysqli->query($stmt);
+	$stmt->close();
 	$mysqli->close();
 ?>

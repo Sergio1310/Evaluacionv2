@@ -9,10 +9,15 @@
 	$opcion4 = $_REQUEST['opcion4'];
 	$respuesta = $_REQUEST['respuesta'];
 
-	$sql="INSERT INTO preguntas(pregunta, opcion1, opcion2, opcion3, opcion4, respuesta, 												asignatura_idasignatura) 
-						values('$pregunta','$opcion1', '$opcion2', '$opcion3', '$opcion4', '$respuesta', '$asignatura')";
+	$mysqli->set_charset('utf8');
+	$stmt = $mysqli->prepare("CALL nueva_preguntav2(?,?,?,?,?,?,?)");
 
-	echo $consulta = $mysqli->query($sql);
+	$stmt->bind_param("ssssssi",$pregunta,$opcion1,$opcion2,$opcion3,$opcion4,$respuesta,$asignatura);
+	echo $stmt->execute();
+
+	
+	$stmt->close();
+	//echo $consulta = $mysqli->query($stmt);
 
 	$mysqli->close();
 ?>

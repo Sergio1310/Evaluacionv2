@@ -34,7 +34,7 @@
           <li class="breadcrumb-item active" aria-current="page">Preguntas</li>
         </ol>
       </nav>
-      <p style="font-size: 24px; color: white;"><?php echo $_SESSION['matricula']; ?><a href="../php/cerrarSesion.php">Cerrar Sesion</a></p>
+      <p style="font-size: 24px; color: white;"><?php echo $_SESSION['nombre_dbf']; ?><a href="../php/cerrarSesion.php">Cerrar Sesion</a></p>
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">

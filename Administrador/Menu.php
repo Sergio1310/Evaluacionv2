@@ -22,7 +22,7 @@
             <li class="breadcrumb-item active" aria-current="page">Menu</li>
           </ol>
         </nav>
-      <p style="font-size: 24px; color: white;"><?php echo $_SESSION['matricula']; ?><a href="../php/cerrarSesion.php">Cerrar Sesion</a></p>
+      <p style="font-size: 24px; color: white;"><?php echo $_SESSION['nombre_dbf']; ?><a href="../php/cerrarSesion.php">Cerrar Sesion</a></p>
         <section class=botones>
             <h1 class=titulo> Menú</h1>
         <div class="contenedorB">

@@ -10,7 +10,7 @@
 		$user = $mysqli->real_escape_string($_POST['name_user'];);
 		$pass = $mysqli->real_escape_string($_POST['name_password'];);
 
-		if($nueva_consulta = $mysqli->prepare("SELECT * FROM usuarios WHERE userr = ? AND  contra = ? ")){
+		if($nueva_consulta = $mysqli->prepare("call val login (?,?) ")){
 
 			$nueva_consulta->bind_param('ss', $user, $pass);
 			$nueva_consulta->execute();

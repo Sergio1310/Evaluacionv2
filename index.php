@@ -45,7 +45,7 @@
             </div>
             <div>
               <label>Contraseña</label>
-              <input type="password" name="name_password" id="pass_input" class="text-input" required />
+              <input type="password" name="name_password" id="pass_input" class="text-input"  />
             </div>
             <input type="submit" name="" class="primary-btn" value="Login" placeholder="">
           </form>

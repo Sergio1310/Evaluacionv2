@@ -1,4 +1,6 @@
-<?php 
+<?php
+$fichero_dbf = 'C:/xampp/htdocs/Evaluacionv2/Alumno/DALUMN.dbf';
+$conex       = dbase_open($fichero_dbf, 0); 
     session_start();
 
     if((!isset($_SESSION['matricula']) && !isset($_SESSION['tipo_user'])) || $_SESSION['tipo_user'] != 1){
@@ -31,7 +33,7 @@
           <li class="breadcrumb-item active" aria-current="page">Matriculas</li>
         </ol>
       </nav>
-      <p style="font-size: 24px; color: white;"><?php echo $_SESSION['matricula']; ?><a href="../php/cerrarSesion.php">Cerrar Sesion</a></p>
+      <p style="font-size: 24px; color: white;"><?php echo $_SESSION['nombre_dbf']; ?><a href="../php/cerrarSesion.php">Cerrar Sesion</a></p>
   <div class="row" >
     <div class="col-md-8 col-md-offset-2" >
       <div class="card" >
