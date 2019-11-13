@@ -9,7 +9,7 @@
 
 	$row = mysqli_fetch_assoc($resultado);
 
-	echo $cadena = $row['nombre'].",".$row['pregunta'].",".$row['opcion1'].",".$row['opcion2'].",".$row['opcion3'].",".$row['opcion4'].",".$row['respuesta'].",".$row['asignatura_idasignatura'];
+	echo $cadena = $row['nombre'].",".$row['pregunta'].",".$row['opcion1'].",".$row['opcion2'].",".$row['opcion3'].",".$row['opcion4'].",".$row['respuesta'];
 
 	$mysqli->close();
 

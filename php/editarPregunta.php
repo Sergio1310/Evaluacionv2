@@ -10,6 +10,7 @@
 		$opcion2 = $_REQUEST['opcion2'];
 		$opcion3 = $_REQUEST['opcion3'];
 		$opcion4 = $_REQUEST['opcion4'];
+
 		
 		$sql = "UPDATE preguntas SET pregunta = '$pregunta', opcion1 = '$opcion1', opcion2 = '$opcion2', opcion3 = '$opcion3', opcion4 = '$opcion4' WHERE id_pregunta = '$id'";
 
