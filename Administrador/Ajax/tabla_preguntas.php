@@ -169,7 +169,7 @@
                 $('#respuesta_db').val(array[6]);
                 $('#seccion_db').val(array[0]);
                 id_seccion = array[7];
-                id_pregunta = array[8];
+                id_pregunta = id2;
             }
         });
     }
@@ -206,15 +206,13 @@
                                     type: 'post',
                                     data: {id: id_pregunta, pregunta: pregunta, opcion1: opcion1, opcion2: opcion2, opcion3: opcion3, opcion4: opcion4, tipo_de_edicion: 1},
                                     success:function(data){
-                                        if(data == 1){
-                                            $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
+                                        $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
                                             Swal.fire({
                                               icon: 'success',
                                               title: 'La pregunta se edito satisfactoriamente!',
                                               showConfirmButton: false,
                                               timer: 1500
-                                            })
-                                        }
+                                            })                                            
                                     }
                                 });
                             }else{
@@ -235,6 +233,7 @@
                                     type: 'post',
                                     data: {id: id_pregunta, pregunta: pregunta, opcion1: opcion1, opcion2: opcion2, opcion3: opcion3, opcion4: opcion4, respuesta: respuestav2, tipo_de_edicion: 2},
                                     success:function(data){
+                                        alert("Eh we, soy la 2");
                                         if(data == 1){
                                             $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
                                             Swal.fire({
