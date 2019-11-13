@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="plugins/animate.css/animate.css"> 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <link rel="stylesheet" type="text/css" href="css/login.css">
+    <script src="js/login.js"></script>
     </head>
     <body>
    <div id="wrapper">
@@ -37,16 +38,16 @@
           </div>
                 <h1>Sistema Evaluación <br>Egresados</h1>
                 </div>
-          <form method="post" action="php/verificarLogin.php">
+          <form id="formLogin">
             <div>
               <label>Usuario</label>
-              <input type="text" name="name_user" class="text-input" />
+              <input type="text" name="name_user" id="user_input" class="text-input" required />
             </div>
             <div>
               <label>Contraseña</label>
-              <input type="password" name="name_password" class="text-input" />
+              <input type="password" name="name_password" id="pass_input" class="text-input" required />
             </div>
-            <button type="submit" class="primary-btn">Login</button>
+            <input type="submit" name="" class="primary-btn" value="Login" placeholder="">
           </form>
         </div>
        
