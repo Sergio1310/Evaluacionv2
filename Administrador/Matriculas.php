@@ -11,6 +11,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Usuarios</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
   <script
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -24,14 +25,13 @@
     <script src="../js/adminMatriculas.js"></script>
 </head>
 <body>
-    <div class="container" style="padding: 15% 0% 0% 15%;">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="Menu.php" style="color: black;">Menu</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Matriculas</li>
-        </ol>
-      </nav>
-      <p style="font-size: 24px; color: white;"><?php echo $_SESSION['matricula']; ?><a href="../php/cerrarSesion.php">Cerrar Sesion</a></p>
+  <nav class="navbar navbar-dark bg-dark justify-content-between">
+ <a class="navbar-brand" style="color: white;"> <i class="fas fa-user-circle"> </i> <?php echo $_SESSION['matricula']; ?></a>
+ <a class="navbar-brand" style="color: white;" href="Menu.php">Menú</a>
+ 
+ <input type ='button' class="btn btn-outline-warning" value = 'Cerrar Sesión' onclick="window.location='../php/cerrarSesion.php';"/>
+</nav>
+    <div class="container" style="padding: 5% 0% 0% 15%;">
   <div class="row" >
     <div class="col-md-8 col-md-offset-2" >
       <div class="card" >

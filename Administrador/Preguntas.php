@@ -12,10 +12,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Preguntas</title>
-	<script
-	src="https://code.jquery.com/jquery-3.4.1.js"
-	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-	crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+	
 	<link rel="stylesheet" href="../plugins/sweetAlert2/sweetalert2.min.css">
 	<link rel="stylesheet" href="../plugins/animate.css/animate.css"> 
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
@@ -25,16 +23,20 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/AdminPreguntas.css">
 	<script src="../js/adminPreguntas.js"></script>
+	<link rel="stylesheet" href="../bootstrap4/css/bootstrap.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    
 </head>
 <body>
-	<div class="container" style="padding: 10% 10% 10% ">
-		<nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="Menu.php" style="color: black;">Menu</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Preguntas</li>
-        </ol>
-      </nav>
-      <p style="font-size: 24px; color: white;"><?php echo $_SESSION['matricula']; ?><a href="../php/cerrarSesion.php">Cerrar Sesion</a></p>
+	<nav class="navbar navbar-dark bg-dark justify-content-between">
+ <a class="navbar-brand" style="color: white;"> <i class="fas fa-user-circle"> </i> <?php echo $_SESSION['matricula']; ?></a>
+ <a class="navbar-brand" style="color: white;" href="Menu.php">Menú</a>
+ <input type ='button' class="btn btn-outline-warning" value = 'Cerrar Sesión' onclick="window.location='../php/cerrarSesion.php';"/>
+</nav>
+	<div class="container" style="padding: 5% 5% 5% ">
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
