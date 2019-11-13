@@ -4,6 +4,7 @@
 	$tipo = $_REQUEST['tipo_de_edicion'];
 
 	if($tipo == 1){
+
 		$id = $_REQUEST['id'];
 		$pregunta = $_REQUEST['pregunta'];
 		$opcion1 = $_REQUEST['opcion1'];
@@ -19,6 +20,7 @@
 		$mysqli->close();
 	}
 	if($tipo == 2){
+
 		$id = $_REQUEST['id'];
 		$pregunta = $_REQUEST['pregunta'];
 		$opcion1 = $_REQUEST['opcion1'];
@@ -34,6 +36,7 @@
 		$mysqli->close();
 	}
 	if($tipo == 3){
+
 		$id = $_REQUEST['id'];
 		$pregunta = $_REQUEST['pregunta'];
 		$opcion1 = $_REQUEST['opcion1'];
@@ -49,6 +52,7 @@
 		$mysqli->close();
 	}
 	if($tipo == 4){
+		
 		$id = $_REQUEST['id'];
 		$pregunta = $_REQUEST['pregunta'];
 		$opcion1 = $_REQUEST['opcion1'];

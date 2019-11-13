@@ -1,4 +1,4 @@
-<table class="table table-striped table-hover col-sm-6">
+<table class="table table-striped table-hover col-m-6">
     <thead>
         <tr>
             <th>ID</th>
@@ -173,7 +173,9 @@
             }
         });
     }
-    $('#btnEditarModal').click(function(){
+
+    $('#btnEditarModal').click(function() {
+        
         var seccion_nueva = $('#sel_asignatura_nueva').val();
         var pregunta = $('#preguntaUpdate').val();
         var opcion1 = $('#opcion1Update').val();
@@ -184,137 +186,127 @@
         var respuesta_nueva = $('#respuesta_nueva').val();
         var respuestav2 = "";
 
+        if(respuesta_nueva == 1){
+            respuestav2 = opcion1;
+        }
+        if(respuesta_nueva == 2){
+            respuestav2 = opcion2;
+        }
+        if(respuesta_nueva == 3){
+            respuestav2 = opcion3;
+        }
+        if(respuesta_nueva == 4){
+            respuestav2 = opcion4;
+        }
+
         if(seccion_nueva == 0){
             $.ajax({
-                    url: '../php/buscarPregunta.php',
-                    type: 'post',
-                    data: {param1: id_seccion, param2: pregunta},
-                    success:function(data){
-                        if(data == 1){
-                            Swal.fire({
-                                icon: 'warning',
-                                title: 'La pregunta ya existe!',
-                                showConfirmButton: false,
-                                timer: 1500
-                            })
-                            $('#sel_asignatura_nueva').val(0);
-                            $('#respuesta_nueva').val(0);
-                        }else{
-                            if(respuesta_nueva == 0){
-                                $.ajax({
-                                    url: '../php/editarPregunta.php',
-                                    type: 'post',
-                                    data: {id: id_pregunta, pregunta: pregunta, opcion1: opcion1, opcion2: opcion2, opcion3: opcion3, opcion4: opcion4, tipo_de_edicion: 1},
-                                    success:function(data){
+                url: '../php/buscarPregunta.php',
+                type: 'post',
+                data: {param1: id_seccion, param2: pregunta},
+                success:function(data){
+                    if(data == 1){
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'La pregunta ya existe!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        $('#sel_asignatura_nueva').val(0);
+                        $('#respuesta_nueva').val(0);
+                    }else{
+                        if(respuesta_nueva == 0){
+                            $.ajax({
+                                url: '../php/editarPregunta.php',
+                                type: 'post',
+                                data: {id: id_pregunta, pregunta: pregunta, opcion1: opcion1, opcion2: opcion2, opcion3: opcion3, opcion4: opcion4, tipo_de_edicion: 1},
+                                success:function(data){
+                                    if(data == 1){
                                         $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
-                                            Swal.fire({
-                                              icon: 'success',
-                                              title: 'La pregunta se edito satisfactoriamente!',
-                                              showConfirmButton: false,
-                                              timer: 1500
-                                            })                                            
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: 'La pregunta se edito satisfactoriamente!',
+                                            showConfirmButton: false,
+                                            timer: 1500
+                                        })
                                     }
-                                });
-                            }else{
-                                if(respuesta_nueva == 1){
-                                    respuestav2 = opcion1;
                                 }
-                                if(respuesta_nueva == 2){
-                                    respuestav2 = opcion2;
-                                }
-                                if(respuesta_nueva == 3){
-                                    respuestav2 = opcion3;                                    
-                                }
-                                if(respuesta_nueva == 4){
-                                    respuestav2 = opcion4;
-                                }
-                                $.ajax({
-                                    url: '../php/editarPregunta.php',
-                                    type: 'post',
-                                    data: {id: id_pregunta, pregunta: pregunta, opcion1: opcion1, opcion2: opcion2, opcion3: opcion3, opcion4: opcion4, respuesta: respuestav2, tipo_de_edicion: 2},
-                                    success:function(data){
-                                        alert("Eh we, soy la 2");
-                                        if(data == 1){
-                                            $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
-                                            Swal.fire({
-                                              icon: 'success',
-                                              title: 'La pregunta se edito satisfactoriamente!',
-                                              showConfirmButton: false,
-                                              timer: 1500
-                                            })
-                                        }
+                            });
+                        }else{
+                            $.ajax({
+                                url: '../php/editarPregunta.php',
+                                type: 'post',
+                                data: {id: id_pregunta, pregunta: pregunta, opcion1: opcion1, opcion2: opcion2, opcion3: opcion3, opcion4: opcion4, respuesta: respuestav2, tipo_de_edicion: 2},
+                                success:function(data){
+                                    if(data == 1){
+                                        $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: 'La pregunta se edito satisfactoriamente!',
+                                            showConfirmButton: false,
+                                            timer: 1500
+                                        })
                                     }
-                                });
-                            }
+                                }
+                            });
                         }
                     }
-                });
+                }
+            });
         }else{
             $.ajax({
-                    url: '../php/buscarPregunta.php',
-                    type: 'post',
-                    data: {param1: seccion_nueva, param2: pregunta},
-                    success:function(data){
-                        if(data == 1){
-                            Swal.fire({
-                                icon: 'warning',
-                                title: 'La pregunta ya existe!',
-                                showConfirmButton: false,
-                                timer: 1500
-                            })
-                            $('#sel_asignatura_nueva').val(0);
-                            $('#respuesta_nueva').val(0);
+                url: '../php/buscarPregunta.php',
+                type: 'post',
+                data: {param1: seccion_nueva, param2: pregunta},
+                success:function(data){
+                    if(data == 1){
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'La pregunta ya existe!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                        $('#sel_asignatura_nueva').val(0);
+                        $('#respuesta_nueva').val(0);
+                    }else{
+                        if(respuesta_nueva == 0){
+                            $.ajax({
+                                url: '../php/editarPregunta.php',
+                                type: 'post',
+                                data: {id: id_pregunta, seccion: id_seccion, pregunta: pregunta, opcion1: opcion1, opcion2: opcion2, opcion3: opcion3, opcion4: opcion4, tipo_de_edicion: 3},
+                                success:function(data){
+                                    if(data == 1){
+                                        $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: 'La pregunta se edito satisfactoriamente!',
+                                            showConfirmButton: false,
+                                            timer: 1500
+                                        })
+                                    }
+                                }
+                            });
                         }else{
-                            if(respuesta_nueva == 0){
-                                $.ajax({
-                                    url: '../php/editarPregunta.php',
-                                    type: 'post',
-                                    data: {id: id_pregunta, seccion: id_seccion, pregunta: pregunta, opcion1: opcion1, opcion2: opcion2, opcion3: opcion3, opcion4: opcion4, tipo_de_edicion: 3},
-                                    success:function(data){
-                                        if(data == 1){
-                                            $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
-                                            Swal.fire({
-                                              icon: 'success',
-                                              title: 'La pregunta se edito satisfactoriamente!',
-                                              showConfirmButton: false,
-                                              timer: 1500
-                                            })
-                                        }
+                            $.ajax({
+                                url: '../php/editarPregunta.php',
+                                type: 'post',
+                                data: {id: id_pregunta, seccion: id_seccion, pregunta: pregunta, opcion1: opcion1, opcion2: opcion2, opcion3: opcion3, opcion4: opcion4, respuesta: respuestav2, tipo_de_edicion: 4},
+                                success:function(data){
+                                    if(data == 1){
+                                        $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: 'La pregunta se edito satisfactoriamente!',
+                                            showConfirmButton: false,
+                                            timer: 1500
+                                        })
                                     }
-                                });
-                            }else{
-                                if(respuesta_nueva == 1){
-                                    respuestav2 = opcion1;
                                 }
-                                if(respuesta_nueva == 2){
-                                    respuestav2 = opcion2;
-                                }
-                                if(respuesta_nueva == 3){
-                                    respuestav2 = opcion3;                                    
-                                }
-                                if(respuesta_nueva == 4){
-                                    respuestav2 = opcion4;
-                                }
-                                $.ajax({
-                                    url: '../php/editarPregunta.php',
-                                    type: 'post',
-                                    data: {id: id_pregunta, seccion: id_seccion, pregunta: pregunta, opcion1: opcion1, opcion2: opcion2, opcion3: opcion3, opcion4: opcion4, respuesta: respuestav2, tipo_de_edicion: 4},
-                                    success:function(data){
-                                        if(data == 1){
-                                            $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
-                                            Swal.fire({
-                                              icon: 'success',
-                                              title: 'La pregunta se edito satisfactoriamente!',
-                                              showConfirmButton: false,
-                                              timer: 1500
-                                            })
-                                        }
-                                    }
-                                });
-                            }
+                            });
                         }
                     }
-                });
+                }
+            });
         }
     });
 </script>
