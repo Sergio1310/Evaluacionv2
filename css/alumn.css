@@ -1,7 +1,7 @@
 body{
-	background: url(../imagenes/fondo.jpg) no-repeat center center fixed;
-	background-size: cover;
-	height: 100vh;
+	background: url(../imagenes/fondo.jpg);
+	background-repeat: no-repeat;
+background-attachment: fixed
 }
 
 .principal-content {
