@@ -16,7 +16,7 @@ $(document).on('submit','#formLogin', function(event){
 			if(respuesta.tipo == 1){
 				location.href = 'Administrador/Menu.php';
 			}else if(respuesta.tipo == 2){
-				lcoation.href = 'Alumno/dashboard.php';
+				location.href = 'Alumno/dashboard.php';
 			}
 		}else{
 			Swal.fire({
