@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-11-2019 a las 19:08:29
+-- Tiempo de generación: 14-11-2019 a las 00:45:52
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -28,9 +28,18 @@ DELIMITER $$
 --
 CREATE DEFINER=`root`@`localhost` PROCEDURE `cambiarstatus` (`valor` INT(10), `nomb` VARCHAR(30))  UPDATE asignaturas SET status=valor WHERE asignaturas.nombre = nomb$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `checklogin` (`usuario` INT(20), `pass` VARCHAR(100))  select COUNT(*) from usuarios WHERE userr=usuario AND contra=pass$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `elimpreg` (`idpreg` INT(10))  BEGIN
+DELETE FROM preguntas WHERE id_pregunta =idpreg;
+END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `insertarusuario` (IN `useer` INT(20), `passw` VARCHAR(100), `usertype` INT(10))  INSERT into usuarios(userr,contra,tipouser_Idtipouser) VALUES(useer,passw,usertype)$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `nueva_matricula` (`useer` INT(20))  BEGIN
+DECLARE pass varchar(100) DEFAULT '';
+DECLARE tipo_us int(10) DEFAULT 2;
+INSERT INTO usuarios(userr, contra, tipouser_Idtipouser) values(useer,pass,tipo_us );
+
+END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `nueva_pregunta` (`pregun` TEXT, `asig_idasig` INT(11), `opci` INT(20), `preg_idpreg` INT(20), `resp` TINYINT(1))  BEGIN
 	DECLARE l_pregunta_id INT DEFAULT 0;
@@ -51,13 +60,35 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `nueva_pregunta` (`pregun` TEXT, `as
 	END IF;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `nueva_preguntav2` (`pre` TEXT, `op1` TEXT, `op2` TEXT, `op3` TEXT, `op4` TEXT, `resp` TEXT, `asi_idasig` INT(11))  BEGIN
+
+INSERT INTO preguntas(pregunta, opcion1, opcion2, opcion3, opcion4, respuesta,asignatura_idasignatura) values(pre,op1,op2,op3,op4,resp,asi_idasig);
+
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `selpreguntas` (`idasig` INT(11))  SELECT pregunta FROM preguntas  where preguntas.asignatura_idasignatura=idasig ORDER BY RAND() LIMIT 30$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `upd_preguntas` (`preg` TEXT, `resp` TINYINT(1), `id_pregunt` INT(10), `opc` INT(20))  UPDATE preguntas INNER JOIN opciones ON opciones.pregunta_idpregunta = preguntas.id_pregunta
-SET preguntas.pregunta = preg, opciones.respuesta = resp 
-WHERE opciones.opciones = opc$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `selusuarios` ()  BEGIN  
+SELECT * FROM usuarios;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `val_login` (`useer` INT(20), `passw` VARCHAR(100))  BEGIN
+SELECT * FROM usuarios WHERE userr = useer AND  contra = passw;
+
+END$$
 
 DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `asignaturaas`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `asignaturaas` (
+`nombre` varchar(30)
+,`id_asignatura` int(10)
+);
 
 -- --------------------------------------------------------
 
@@ -77,7 +108,7 @@ CREATE TABLE `asignaturas` (
 
 INSERT INTO `asignaturas` (`id_asignatura`, `nombre`, `status`) VALUES
 (1, 'Matematicas', 1),
-(2, 'Ingles', 1);
+(2, 'Ingles', 0);
 
 -- --------------------------------------------------------
 
@@ -92,6 +123,16 @@ CREATE TABLE `evaluaciones` (
   `asignatura_idasignatura` int(10) NOT NULL,
   `usuarios_user` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `matriculas`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `matriculas` (
+`userr` int(20)
+);
 
 -- --------------------------------------------------------
 
@@ -115,7 +156,24 @@ CREATE TABLE `preguntas` (
 --
 
 INSERT INTO `preguntas` (`id_pregunta`, `pregunta`, `opcion1`, `opcion2`, `opcion3`, `opcion4`, `respuesta`, `asignatura_idasignatura`) VALUES
-(6, '2', '1', '2', '3', '4', '1', 1);
+(65, '3*4', '1', '2', '3', '4', '2', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `preguntasv`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `preguntasv` (
+`id_pregunta` int(10)
+,`nombre` varchar(30)
+,`pregunta` text
+,`opcion1` text
+,`opcion2` text
+,`opcion3` text
+,`opcion4` text
+,`respuesta` text
+);
 
 -- --------------------------------------------------------
 
@@ -144,7 +202,7 @@ INSERT INTO `tipo_user` (`id_tipouser`, `Tipodeuser`) VALUES
 
 CREATE TABLE `usuarios` (
   `userr` int(20) NOT NULL,
-  `contra` varchar(100) DEFAULT NULL,
+  `contra` varchar(100) NOT NULL,
   `tipouser_Idtipouser` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -155,12 +213,34 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`userr`, `contra`, `tipouser_Idtipouser`) VALUES
 (201700058, 'uwu', 1),
 (201700059, 'uwu', 2),
-(201700060, NULL, 2),
-(201700068, 'jeje', 2),
-(201700069, NULL, 2),
-(201700070, 'hehexd', 1),
-(201700158, NULL, 2),
-(201700159, NULL, 2);
+(201700060, '', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `asignaturaas`
+--
+DROP TABLE IF EXISTS `asignaturaas`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `asignaturaas`  AS  select `asignaturas`.`nombre` AS `nombre`,`asignaturas`.`id_asignatura` AS `id_asignatura` from `asignaturas` ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `matriculas`
+--
+DROP TABLE IF EXISTS `matriculas`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `matriculas`  AS  select `usuarios`.`userr` AS `userr` from `usuarios` where (`usuarios`.`tipouser_Idtipouser` = 1) ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `preguntasv`
+--
+DROP TABLE IF EXISTS `preguntasv`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `preguntasv`  AS  select `p`.`id_pregunta` AS `id_pregunta`,`a`.`nombre` AS `nombre`,`p`.`pregunta` AS `pregunta`,`p`.`opcion1` AS `opcion1`,`p`.`opcion2` AS `opcion2`,`p`.`opcion3` AS `opcion3`,`p`.`opcion4` AS `opcion4`,`p`.`respuesta` AS `respuesta` from (`preguntas` `p` join `asignaturas` `a` on((`p`.`asignatura_idasignatura` = `a`.`id_asignatura`))) ;
 
 --
 -- Índices para tablas volcadas
@@ -207,7 +287,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `preguntas`
 --
 ALTER TABLE `preguntas`
-  MODIFY `id_pregunta` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_pregunta` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- Restricciones para tablas volcadas
