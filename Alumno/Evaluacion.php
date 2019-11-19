@@ -26,6 +26,7 @@ $paginas = ceil($paginas);
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Matematicas</title>
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="../bootstrap4/css/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
     <link rel="stylesheet" href="../plugins/sweetAlert2/sweetalert2.min.css">    
@@ -37,7 +38,9 @@ $paginas = ceil($paginas);
     <!-- Bootstrap CSS -->
     <script language="javascript" src="../js/validar.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
 </head>
+
 <body>
 		<nav class="navbar navbar-dark bg-dark justify-content-between">
  <a class="navbar-brand" style="color: white;"> <i class="fas fa-user-circle"> </i> <?php echo $_SESSION['matricula']; ?></a>
@@ -73,39 +76,14 @@ $paginas = ceil($paginas);
 							<div class="math-card column align-center">
 								<div class="math-questionname column">
 									<div>
-										<h2 class="text-left">Pregunta 1</h2>
+										
 									</div>
 									<br>
-									<div class="q-box column">
-										<?php foreach ($resultado_preguntas as $articulo):?>
-										<div>
-											<h3>
-												<?php
-												echo $articulo['pregunta'] ?>
-											</h3>
-										</div>
-									<?php endforeach ?>
-										<br>
-										<div class="answers column justify-center">
-											<div class="row">
-												<input type="radio" name="" value="<?php echo $articulo['opcion1']?>">&nbsp; <?php echo $articulo['opcion1']?>
-											</div>
-											<br>
-											<div class="row">
-												<input type="radio" name="" <?php echo $articulo['opcion2']?>>&nbsp;<?php echo $articulo['opcion2']?>
-											</div>
-											<br>
-											<div class="row">
-												<input type="radio" name="" <?php echo $articulo['opcion3']?>>&nbsp;<?php echo $articulo['opcion3']?>
-											</div>
-											<br>
-											<div class="row">
-												<input type="radio" name="" <?php echo $articulo['opcion4']?>>&nbsp; <?php echo $articulo['opcion4']?>
-											</div>
+									<div class="container">
+										<div id="preguntas" >
 											
 										</div>
-
-
+										
 									</div>
 									<div class="justify-end">
 
@@ -119,30 +97,9 @@ $paginas = ceil($paginas);
 									</div>
 
 								</div>	
-								<div class="paginas">
-									<nav aria-label="Page navigation example">
-										<ul class="pagination">
-											<li class="page-item <?php echo $_GET['pregunta']<=1? 'disabled': ''?>">
-												<a class="page-link" 
-												href="Evaluacion.php?pregunta=<?php echo $_GET['pregunta']-1 ?>">Anterior
-												</a>
-											</li>
-										<?php for($i=0; $i<$paginas;$i++): ?>
-											<li class="page-item <?php echo  $_GET['pregunta']==$i+1 ? 'active': ''?>">
-												<a class="page-link" 
-												href="Evaluacion.php?pregunta=<?php echo $i+1 ?>">
-										<?php echo $i+1 ?>	
-												</a>
-											</li>
-										<?php endfor ?>
-											<li class="page-item
-											<?php echo $_GET['pregunta']>=$paginas? 'disabled': ''?>">
-											<a class="page-link" href="Evaluacion.php?pregunta=<?php echo $_GET['pregunta']+1 ?>">Siguiente
-												</a>
-											</li>
-										</ul>
-									</nav>
-								</div>
+							<div class="col-md-12 text-center">
+											<ul class="pagination" id="paginador"></ul>
+										</div>
 							</div>
 
 						</div>
@@ -155,4 +112,8 @@ $paginas = ceil($paginas);
 <script src="../popper/popper.min.js"></script>	 	 	
 <script src="../bootstrap4/js/bootstrap.min.js"></script>
 <script src="../plugins/sweetAlert2/sweetalert2.all.min.js"></script>
+<script src="../js/jquery-2.min.js"></script>	
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/paginator.min.js"></script>
+<script src="../js/main.js"></script>
 </html>

@@ -35,7 +35,13 @@ body {
 
 /*    ALIGNMENT    */
 
+#preguntas{
 
+background-color: rgba(0, 0, 0, 0.6);
+    height: 500px;
+    width: 75%;
+    border-radius: 6px;
+ }
 .justify-center {
     justify-content: center;
 }
