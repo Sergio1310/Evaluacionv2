@@ -30,14 +30,14 @@ $(document).ready(function(){
 			$('#input_opcion4').val("");
 			$('#sel_respuesta').val(0);
 		}else{
-			if(respuesta == 0){
+			if((respuesta == 0) || (pregunta == "") ||(opcion1 == "") ||(opcion2 = "") || (opcion3=="") || (opcion4 == "") || (respuesta== 0)){
 				Swal.fire({
 				  icon: 'error',
 				  title: 'Oops...',
-				  text: 'Ingresa una respuesta!',
-				  footer: 'Elige una respuesta de la lista.',
+				  text: 'No se ha realizado la inserción!',
+				  footer: 'Llene todos los campos.',
 				  showConfirmButton: false,
-				  timer: 1500
+				  timer: 2500
 				})
 				$('#sel_asignatura').val(0);
 				$('#input_pregunta').val("");

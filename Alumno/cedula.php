@@ -368,7 +368,7 @@
 								<input type="text" id="ans" name="user_Tel">		
 						</div>	
 					<div class=" Tercedula justify-center">
-							<a href="Menu.html" style="text-decoration: none" class="btn-eval text-center"><i class="fas fa-pen"></i>&nbsp;Terminar cédula</a>
+							<a href="dashboard.php" style="text-decoration: none" class="btn-eval text-center"><i class="fas fa-pen"></i>&nbsp;Terminar cédula</a>
 						</div>	
 			</div>
 			</div>

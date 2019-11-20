@@ -36,7 +36,7 @@
     <div class="col-md-8 col-md-offset-2" >
       <div class="card" >
         <div class="card-body d-flex justify-content-between align-items-center"  >
-          <input type="text" class="form-control pull-right" style="width:70%;" id="search" placeholder="Buscar Matricula">
+          <input type="text" class="form-control pull-right"   style="width:70%;" id="search" placeholder="Buscar Matricula">
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AgregarMatricula">Agregar Matricula</button>
         </div>
       </div>
@@ -54,8 +54,8 @@
         </button>
       </div>
       <div class="modal-body">
-          <div class="input-group mb-3">
-        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Matricula" id="input_matricula">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" aria-describedby="inputGroup-sizing-default" placeholder="Matricula" id="input_matricula" onkeypress="return soloLetras(event)">
         </div>
       </div>
       <div class="modal-footer">
@@ -87,5 +87,24 @@
             });
           });
         });
-      </script>
+
+       function soloLetras(e){
+       key = e.keyCode || e.which;
+       tecla = String.fromCharCode(key).toLowerCase();
+       letras = "1234567890";
+       especiales = "qwertyuiopasdfghjklñzxcvbnmáéíóú";
+
+       tecla_especial = false
+       for(var i in especiales){
+            if(key == especiales[i]){
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla)==-1 && !tecla_especial){
+            return false;
+        }
+    }
+    </script>
 </html>

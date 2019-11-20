@@ -83,7 +83,7 @@
 					</div>
 					<div class="buttons row">
 						<div class="cedula justify-center">
-							<a href="/alumno/cedula" style="text-decoration: none" class="btn-eval text-center"><i class="fas fa-pen"></i>&nbsp;Llenar cédula</a>
+							<a href="cedula.php" style="text-decoration: none" class="btn-eval text-center"><i class="fas fa-pen"></i>&nbsp;Llenar cédula</a>
 						</div>
 						<div class="reporte justify-center">
 							<a class="btn-eval text-center"><i class="fas fa-file-pdf"></i>&nbsp;Generar reporte</a>
