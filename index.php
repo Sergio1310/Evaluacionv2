@@ -45,7 +45,7 @@
               <label>Contraseña</label>
               <input type="password" name="name_password" id="pass_input" class="text-input"  />
             </div>
-            <input type="submit" name="" class="primary-btn" value="Login" placeholder="">
+            <input type="submit" name="" class="primary-btn" value="Iniciar Sesion" placeholder="">
           </form>
         </div>
        
@@ -53,9 +53,7 @@
       <div id="right">
         <div id="showcase">
           <div class="showcase-content">
-            <h1 class="showcase-text">
-              Universidad Politecnica<br> de  <strong>Quintana Roo</strong>
-            </h1>
+            
           </div>
         </div>
       </div>
