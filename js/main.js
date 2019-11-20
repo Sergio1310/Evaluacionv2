@@ -32,13 +32,13 @@ function get_data_callback(){
 		}
 		// genera el cuerpo de la tabla
 		$.each(lista, function(ind, elem){			
-			$('<pre>'+'<h1>'+elem.pregunta+'</h1>'+'<br>'+
-			'<div class="Pregunta">'+'<pre>'+
-              '<input type="radio" name="opc1" value="'+elem.opcion1+'">'+elem.opcion1+'<br/>'+
-              '<input type="radio" name="opc1" value="'+elem.opcion2+'">'+elem.opcion2+'<br>'+
-              '<input type="radio" name="opc1" value="'+elem.opcion3+'">'+elem.opcion3+'<br>'+
-              '<input type="radio" name="opc1" value="'+elem.opcion4+'">'+elem.opcion4+'<br>'+
-				'</div>').appendTo($("#preguntas"));		
+			$('<table>'+
+				'<thead>'+'<tr>'+'<th colspan="5">'+'<h1>'+elem.pregunta+'</h1>'+'</th>'+
+              '<tr>'+'<td colspan="3">'+'<input type="radio" name=opc1" value="'+elem.opcion1+'">'+elem.opcion1+'</td>'+
+              '<td>'+'</td>'+'<td colspan="3">'+'<input type="radio" name="opc1" value="'+elem.opcion2+'">'+elem.opcion2+'</td>'+'</tr>'+
+              '<tr>'+'<td colspan="3">'+'<input type="radio" name="opc1" value="'+elem.opcion3+'">'+elem.opcion3+'</td>'+
+              '<td>'+'</td>'+'<td colspan="3">'+'<input type="radio" name="opc1" value="'+elem.opcion4+'">'+elem.opcion4+'</td>'+'</tr>'+
+				'</table>').appendTo($("#preguntas"));		
 		});			
 	}).fail(function(jqXHR,textStatus,textError){
 		alert("Error al realizar la peticion dame".textError);
