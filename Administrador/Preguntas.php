@@ -57,13 +57,13 @@
 	<div id="AgregarPregunta" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form>
 					<div class="modal-header">						
 						<h4 class="modal-title">Agregar Pregunta</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">
-                        <label for="sel1">Sección</label>
+                     	<form method="post" action="#" enctype="multipart/form-data">
+                     		<label for="sel1">Sección</label>
                             <select class="form-control" id="sel_asignatura">
                             	<option value="0">Elige una Opcion...</option>
                                 <?php
@@ -76,43 +76,56 @@
                                     } 
                                 ?>
                             </select>
-						<div class="form-group">
-							<label>Pregunta</label>
-							<input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="input_pregunta" placeholder="Escribe la pregunta" required>
-						</div>
-						<div class="form-group">
-							<label>Opción 1</label>
-							<input type="text" class="form-control" id="input_opcion1" placeholder="Escribe la opción 1" required>
-						</div>
-                        <div class="form-group">
-							<label>Opción 2</label>
-							<input type="text" class="form-control" id="input_opcion2" placeholder="Escribe la opción 2" required>
-						</div>
-                        <div class="form-group">
-							<label>Opción 3</label>
-							<input type="text" class="form-control" id="input_opcion3" placeholder="Escribe la opción 3" required>
-						</div>
-                        <div class="form-group">
-							<label>Opción 4</label>
-							<input type="text" class="form-control" id="input_opcion4" placeholder="Escribe la opción 4" required>
-						</div>
-                        <div class="form-group">
-                        	<label>Respuesta</label>
-							<select class="form-control" id="sel_respuesta">
-								<option value="0">Elige una Opcion...</option>
-                                <option value="1">Opcion 1</option>
-                                <option value="2">Opcion 2</option>
-                                <option value="3">Opcion 3</option>
-                                <option value="4">Opcion 4</option>
-                            </select>
-						</div>
-									
+							<div class="form-group">
+								<label>Pregunta</label>
+								<input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="input_pregunta" placeholder="Escribe la pregunta">
+								<p>-O-</p>
+								<input type="file" name="CrearImagen" id="CrearImagenPregunta" placeholder="Selecciona Imagen">
+							</div>
+							<div class="form-group">
+								<label>Opción 1</label>
+								<input type="text" class="form-control" id="input_opcion1" placeholder="Escribe la opción 1">
+								<p>-O-</p>
+								<input type="file" name="CrearImagen" id="CrearImagenOpcion1" placeholder="Selecciona Imagen">
+							</div>
+	                        <div class="form-group">
+								<label>Opción 2</label>
+								<input type="text" class="form-control" id="input_opcion2" placeholder="Escribe la opción 2">
+								<p>-O-</p>
+								<input type="file" name="CrearImagen" id="CrearImagenOpcion2" placeholder="Selecciona Imagen">
+							</div>
+	                        <div class="form-group">
+								<label>Opción 3</label>
+								<input type="text" class="form-control" id="input_opcion3" placeholder="Escribe la opción 3">
+								<p>-O-</p>
+								<input type="file" name="CrearImagen" id="CrearImagenOpcion3" placeholder="Selecciona Imagen">
+							</div>
+	                        <div class="form-group">
+								<label>Opción 4</label>
+								<input type="text" class="form-control" id="input_opcion4" placeholder="Escribe la opción 4">
+								<p>-O-</p>
+								<input type="file" name="CrearImagen" id="CrearImagenOpcion4" placeholder="Selecciona Imagen">
+							</div>
+	                        <div class="form-group">
+	                        	<label>Respuesta</label>
+								<select class="form-control" id="sel_respuesta">
+									<option value="0">Elige una Opcion...</option>
+	                                <option value="1">Opcion 1</option>
+	                                <option value="2">Opcion 2</option>
+	                                <option value="3">Opcion 3</option>
+	                                <option value="4">Opcion 4</option>
+	                            </select>
+							</div>
+							<div class="form-group" style="text-align: right;">
+								<input type="button" class="btn btn-danger" data-dismiss="modal" value="Cancelar">
+								<input type="submit" class="btn btn-success" data-dismiss="modal" id="botonCrear" value="Crear">
+							</div>
+	                    </form>				
 					</div>
-					<div class="modal-footer">
+					<!-- <div class="modal-footer">
 						<input type="button" class="btn btn-danger" data-dismiss="modal" value="Cancelar">
 						<input type="submit" class="btn btn-success" data-dismiss="modal" id="botonCrear" value="Crear">
-					</div>
-				</form>
+					</div> -->
 			</div>
 		</div>
 	</div>
