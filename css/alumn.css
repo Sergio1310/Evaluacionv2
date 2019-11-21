@@ -1,5 +1,5 @@
 body{
-	background: url(../imagenes/fondo.jpg);
+	background: url(../imagenes/Fondo-web.jpg);
          background-size: cover;
         background-repeat: no-repeat;
         height: 100%;
@@ -39,21 +39,21 @@ background-attachment: fixed
 
 
 .black-container {
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgba(0, 0, 0, 0.4);
 	height: 500px;
 	width: 75%;
 	border-radius: 6px;
 }
 
 .black-containerQ {
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgba(0, 0, 0, 0.4);
 	width: 75%;
 	border-radius: 6px;
 	padding: 50px 0 60px 0;
 }
 
 .black-containerCedu {
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgba(0, 0, 0, 0.4);
 	/*height: 600px;*/
 	width: 65%;
 	border-radius: 6px;
@@ -156,13 +156,14 @@ background-attachment: fixed
 	width: 40%;
 	padding: 10px;
 	color: white;
-	background-color: #ae8760;
+	background-color:#4185b1;
 	border-radius: 4px;
 	cursor: pointer;
 }
 
 .btn-eval:hover {
-  background-color: #9a6e42 !important;
+  background-color: #628bb7 !important;
+  color: white;
   transition: all 0.2s ease;
   box-shadow: 0 1px 5px 0 #eee;
 }

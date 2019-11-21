@@ -37,7 +37,7 @@ function get_data_callback(){
               '<tr>'+'<td colspan="3">'+'<input type="radio" name=opc1" value="'+elem.opcion1+'">'+elem.opcion1+'</td>'+
               '<td>'+'</td>'+'<td colspan="3">'+'<input type="radio" name="opc1" value="'+elem.opcion2+'">'+elem.opcion2+'</td>'+'</tr>'+
               '<tr>'+'<td colspan="3">'+'<input type="radio" name="opc1" value="'+elem.opcion3+'">'+elem.opcion3+'</td>'+
-              '<td>'+'</td>'+'<td colspan="3">'+'<input type="radio" name="opc1" value="'+elem.opcion4+'">'+elem.opcion4+'</td>'+'</tr>'+
+              '<td>'+'</td>'+'<td colspan="3">'+'<input type="radio" name="opc1" value="'+elem.opcion4+'">'+elem.opcion4+'</td>'+'</tr>'+'</thead>'+
 				'</table>').appendTo($("#preguntas"));		
 		});			
 	}).fail(function(jqXHR,textStatus,textError){
