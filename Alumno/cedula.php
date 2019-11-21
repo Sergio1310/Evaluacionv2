@@ -33,27 +33,25 @@
 				<br>
 				<div class="main row ">
 				   <div class="col-md-3 ci " class="ci row justify-center">
-								<label class="ci">Apellido Paterno: </label>
-								<input type="text" id="apellidoP" name="user_apeP">
+							
+								<input type="text" placeholder="Apellido Paterno" id="apellidoP" name="user_apeP">
 					</div>
 				   <div class="col-md-3  ci" class="ci row justify-center">
-				             	<label>Apellido Materno: </label>
-								<input type="text" id="ApellidoM" name="user_apeM">		
+				             
+								<input type="text" placeholder="Apellido Materno" id="ApellidoM" name="user_apeM">		
 				   </div>
 				    <div class="col-md-3  ci" class="ci row justify-center">
-				             	<label>Nombre: </label>
-								<input type="text" id="name" name="user_name">		
+				             
+								<input type="text" placeholder="Nombre" id="name" name="user_name">		
 				   </div>
 				    <div class=" col-md-3  ci" class="ci row justify-center">
 				    	<form action="">
 				    	<div class="radio">
-				    		<label for="radio1">Sexo:
-				    			<br>
+				    		<label for="radio1">Sexo:  
+				    			
 				    			<input type="radio" name="opc" id="radio1">M
 				    		</label>
-				    		
-				    	
-				    	
+
 				    		<label for="radio2">
 				    			<input type="radio" name="opc2" id="radio2">F
 				    		</label>
@@ -65,8 +63,8 @@
 					<br>
 					<div class="main row">
 						<div  class="col-md-4  ci" class="ci row justify-center">
-						<label class="ci">Curp: </label>
-								<input type="text" id="curp" name="user_curp">		
+			
+								<input type="text" placeholder="Curp" id="curp" name="user_curp">		
 								</div>
 						<div  class="col-md-4  ci" class="ci row justify-center">
 						<label for="option" class="ci">Estado Civil: </label>
@@ -89,7 +87,7 @@
 					<br>
 					<div class="main row">
 						<div  class="col-md-12 ci" class="ci row justify-center">
-						<label class="ci">Domicilio </label>
+						<h5 class="h5">Domicilio </h5>
 
 						</div>
 						<br>
