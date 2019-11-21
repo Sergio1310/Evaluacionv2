@@ -29,7 +29,7 @@ while ($query->fetch()) {
 }
 
 // obtiene la cantidad de registros
-$cantidad_consulta = $con->query("select count(*) as total from usuarios");
+$cantidad_consulta = $con->query("select count(*) as total from preguntas");
 $row = $cantidad_consulta->fetch_assoc();
 $cantidad['cantidad']=$row['total'];
 
