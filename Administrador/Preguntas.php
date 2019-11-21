@@ -38,7 +38,7 @@
  <a class="navbar-brand" style="color: white;" href="Menu.php">Menú</a>
  <input type ='button' class="btn btn-outline-warning" value = 'Cerrar Sesión' onclick="window.location='../php/cerrarSesion.php';"/>
 </nav>
-	<div class="container" style="padding: 5% 5% 5% ">
+	<div style="padding: 5% 5% 5%">
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">

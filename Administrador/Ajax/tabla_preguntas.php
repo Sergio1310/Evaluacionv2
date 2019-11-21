@@ -4,10 +4,15 @@
             <th>ID</th>
             <th>Sección</th>
 			<th>Pregunta</th>
+            <th>Imagen</th>
             <th>Opc 1</th>
+            <th>Imagen</th>
             <th>Opc 2</th>
+            <th>Imagen</th>
             <th>Opc 3</th>
+            <th>Imagen</th>
             <th>Opc 4</th>
+            <th>Imagen</th>
             <th>Respuesta</th>
             <th></th>
         </tr>
@@ -15,25 +20,42 @@
     <tbody>
         <?php
 			require('../../php/conexion.php');
-			$consulta = $mysqli->query("SELECT * FROM preguntasv");
-			while($resultado = mysqli_fetch_assoc($consulta)){
+			$consulta = $mysqli->query("SELECT P.id_pregunta, A.nombre, P.pregunta, P.imagenPregunta FROM preguntas as P INNER JOIN asignaturas as A ON P.asignatura_idasignatura = A.id_asignatura");
+
+            $consulta2 = $mysqli->query("SELECT * FROM opciones");
+
+            while($resultado = mysqli_fetch_assoc($consulta)){
         ?>
-			<tr>
-				<td><?php echo $resultado['id_pregunta']; ?></td>
-				<td><?php echo $resultado['nombre']; ?></td>
-				<td><?php echo $resultado['pregunta']; ?></td>
-				<td><?php echo $resultado['opcion1']; ?></td>
-				<td><?php echo $resultado['opcion2']; ?></td>
-				<td><?php echo $resultado['opcion3']; ?></td>
-				<td><?php echo $resultado['opcion4']; ?></td>
-				<td><?php echo $resultado['respuesta']; ?></td>
-				<td>
-					<a href="#EditarPregunta" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar" id="btnEditar" onclick="editar('<?php echo $resultado['id_pregunta'] ?>');">&#xE254;</i></a>
-                	<a href="" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" id="btneliminar" title="Eliminar" onclick="eliminar('<?php echo $resultado['id_pregunta'] ?>');">&#xE872;</i></a>
-				</td>
-			</tr>
-    	<?php
-    	 	}
+            <!-- codigo -->
+                <tr>
+                        
+                    <td><?php echo $resultado['id_pregunta']; ?></td>
+                    <td><?php echo $resultado['nombre']; ?></td>
+                    <td><?php echo $resultado['pregunta']; ?></td>
+                    <?php 
+                        $pos = strpos($resultado['imagenOpcion'], 'jpg');
+                        if($pos === true){
+                    ?>
+
+                    <?php
+                        }else{
+
+                        }
+                    ?>
+                    <td><?php echo $resultado['imagenPregunta']; ?></td>
+                <?php
+                    while($resultado2 = mysqli_fetch_assoc($consulta2)){
+                        if($resultado['id_pregunta'] == $resultado2['id_pregunta']){
+                ?>
+                        <td><?php echo $resultado2['opcion']; ?></td>
+                        <td><?php echo $resultado2['imagenOpcion']; ?></td>
+                <?php
+                        }
+                    }
+                ?>
+                </tr>
+        <?php
+            }
             $mysqli->close(); 
     	?>
     </tbody>
