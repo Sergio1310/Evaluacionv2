@@ -40,7 +40,7 @@ body{
 	font-size: 20px;
 }
 .h5{
-	color: #B9897F;
+	color: #D38F11;
 }
 .h7{
 		color:white;
@@ -48,21 +48,21 @@ body{
 }
 
 .black-container {
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgba(0, 0, 0, 0.3);
 	height: 500px;
 	width: 75%;
 	border-radius: 6px;
 }
 
 .black-containerQ {
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgba(0, 0, 0, 0.3);
 	width: 75%;
 	border-radius: 6px;
 	padding: 50px 0 60px 0;
 }
 
 .black-containerCedu {
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgba(0, 0, 0, 0.3);
 	/*height: 600px;*/
 		border-radius: 6px;
 		
@@ -157,7 +157,7 @@ body{
 .ci label {
 	text-align: left;
 	padding-right: 10px;
-	color: #B9897F;
+	color: #D38F11 ;
 }
 
 .ci input {

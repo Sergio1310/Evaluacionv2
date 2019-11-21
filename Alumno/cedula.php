@@ -8,12 +8,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="../css/alumn2.css">
+	
 	
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet"  href="../bootstrap4/css/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/alumn2.css">
 	<title>Cedula</title>
 </head>
 <body>
@@ -341,7 +342,8 @@
 
 						 <label class="ci">¿Qué temas consideras que necesitan reforzarse durante el desarrollo de la carrera?</label>
 						 <br>
-								<input type="text" id="ans" name="user_Tel">		
+						        <textarea name="user_tel" id="ans" rows="10" cols="40">Escribe aquí </textarea>
+									
 						</div>
 					<br>
 
@@ -349,7 +351,7 @@
 
 						 <label class="ci">¿Qué temas consideras que necesitas fortalecer con algún curso o diplomado?</label>
 						 <br>
-								<input type="text" id="ans" name="user_Tel">		
+							 <textarea name="user_tel" id="ans" rows="10" cols="40">Escribe aquí </textarea>		
 						</div>
 					<br>
 
@@ -357,7 +359,7 @@
 
 						 <label class="ci">¿Consideras importantes las certificaciones y a cuáles te gustaria aplicar?</label>
 						 <br>
-								<input type="text" id="ans" name="user_Tel">		
+						      <textarea name="user_tel" id="ans" rows="10" cols="40">Escribe aquí </textarea>		
 						</div>
 					<br>
 
@@ -365,7 +367,7 @@
 
 						 <label class="ci">Proporciona algún tema o tópico que consideres que debería incluirse durante la formación de los alumnos</label>
 						 <br>
-								<input type="text" id="ans" name="user_Tel">		
+								<textarea name="user_tel" id="ans" rows="10" cols="40">Escribe aquí </textarea>		
 						</div>	
 					<div class=" Tercedula justify-center">
 							<a href="dashboard.php" style="text-decoration: none" class="btn-eval text-center"><i class="fas fa-pen"></i>&nbsp;Terminar cédula</a>
