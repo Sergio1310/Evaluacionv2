@@ -8,9 +8,10 @@
 	$opcion3 = $_POST['opcion3'];
 	$opcion4 = $_POST['opcion4'];
 	$respuesta = $_POST['respuesta'];
+	$tipo = $_POST['tipo_insercion'];
 
 
-	echo $preguntaImagen = $_POST['preguntaImagen'];
+	$preguntaImagen = $_FILE['preguntaImagen'];
 	// opcion1Imagen
 	// opcion2Imagen
 	// opcion3Imagen

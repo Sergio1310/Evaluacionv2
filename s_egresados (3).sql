@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-11-2019 a las 22:02:24
+-- Tiempo de generación: 22-11-2019 a las 18:06:25
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -118,14 +118,14 @@ CREATE TABLE `opciones` (
 --
 
 INSERT INTO `opciones` (`id`, `opcion`, `imagenOpcion`, `respuesta`, `id_pregunta`) VALUES
-(1, 'opcion1', 'opcion1.jpg', 0, 67),
-(2, 'opcion2', 'opcion2.jpg', 1, 67),
-(3, 'opcion3', 'opcion3.jpg', 0, 67),
-(4, 'opcion4', 'opcion4.jpg', 0, 67),
-(5, 'opcion1', 'opcion1.jpg', 0, 68),
-(6, 'opcion2', 'opcion2.jpg', 0, 68),
-(7, 'opcion3', 'opcion3.jpg', 1, 68),
-(8, 'opcion4', 'opcion4.jpg', 0, 68);
+(1, 'opcion1', 'opcion1.png', 0, 67),
+(2, 'opcion2', 'opcion2.png', 1, 67),
+(3, 'opcion3', 'opcion3.png', 0, 67),
+(4, 'opcion4', 'opcion4.png', 0, 67),
+(5, 'opcion1', '', 0, 68),
+(6, 'opcion2', '', 0, 68),
+(7, 'opcion3', '', 1, 68),
+(8, 'opcion4', '', 0, 68);
 
 -- --------------------------------------------------------
 
@@ -145,8 +145,8 @@ CREATE TABLE `preguntas` (
 --
 
 INSERT INTO `preguntas` (`id_pregunta`, `pregunta`, `imagenPregunta`, `asignatura_idasignatura`) VALUES
-(67, 'pregunta1', 'pregunta1.jpg', 1),
-(68, 'pregunta2', 'pregunta2.jpg', 2);
+(67, 'pregunta1', 'pregunta67.png', 1),
+(68, 'pregunta2', '', 2);
 
 -- --------------------------------------------------------
 
