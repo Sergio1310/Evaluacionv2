@@ -21,38 +21,53 @@
         <?php
 			require('../../php/conexion.php');
 			$consulta = $mysqli->query("SELECT P.id_pregunta, A.nombre, P.pregunta, P.imagenPregunta FROM preguntas as P INNER JOIN asignaturas as A ON P.asignatura_idasignatura = A.id_asignatura");
-
             $consulta2 = $mysqli->query("SELECT * FROM opciones");
-
+            $numero = $consulta2->num_rows;
+            $x = 0;
+            while($resultado2 = mysqli_fetch_assoc($consulta2)){
+                $array[$x] = array($resultado2['opcion'], $resultado2['imagenOpcion'], $resultado2['respuesta'], $resultado2['id_pregunta']);
+                $x++;
+            }
             while($resultado = mysqli_fetch_assoc($consulta)){
         ?>
             <!-- codigo -->
-                <tr>
-                        
+                <tr>    
                     <td><?php echo $resultado['id_pregunta']; ?></td>
                     <td><?php echo $resultado['nombre']; ?></td>
                     <td><?php echo $resultado['pregunta']; ?></td>
-                    <?php 
-                        $pos = strpos($resultado['imagenOpcion'], 'jpg');
-                        if($pos === true){
+                    <?php
+                        $imagen = $resultado['imagenPregunta'];
+                        $tipo = 'png'; 
+                        $pos = strpos($imagen, $tipo);
+                        if($pos !== false){
                     ?>
-
+                            <td><img src="../imagenes/<?php echo $resultado['id_pregunta']; ?>/<?php echo $resultado['imagenPregunta']; ?>" style="width: 60px;"></td>
                     <?php
                         }else{
-
+                    ?>
+                            <td><p>No hay Imagen</p></td>
+                    <?php
+                        }
+                        for($i = 0; $i < $numero; $i++){
+                            if($array[$i][3] == $resultado['id_pregunta']){
+                            ?>
+                                <td><?php echo $array[$i][0]; ?></td>
+                            <?php
+                                $imagen2 = $array[$i][1];
+                                $tipo2 = 'png'; 
+                                $pos2 = strpos($imagen2, $tipo2);
+                                if($pos2 !== false){
+                            ?>
+                                    <td><img src="../imagenes/<?php echo $resultado['id_pregunta']; ?>/<?php echo $array[$i][1]; ?>" style="width: 60px;"></td>
+                            <?php
+                                }else{
+                            ?>
+                                    <td><p>No hay Imagen</p></td>
+                            <?php
+                                }
+                            }
                         }
                     ?>
-                    <td><?php echo $resultado['imagenPregunta']; ?></td>
-                <?php
-                    while($resultado2 = mysqli_fetch_assoc($consulta2)){
-                        if($resultado['id_pregunta'] == $resultado2['id_pregunta']){
-                ?>
-                        <td><?php echo $resultado2['opcion']; ?></td>
-                        <td><?php echo $resultado2['imagenOpcion']; ?></td>
-                <?php
-                        }
-                    }
-                ?>
                 </tr>
         <?php
             }
@@ -154,181 +169,3 @@
             </div>
         </div>
     </div>
-<script>
-    function eliminar(id){
-        var id2 = id;
-
-        $.ajax({
-            url: '../php/eliminarPregunta.php',
-            type: 'post',
-            data: {id: id2},
-            success:function(data){
-                $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
-                Swal.fire({
-                    icon: 'success',
-                    title: 'La pregunta se elimino satisfactoriamente!',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-            }
-        });
-    }
-    var id_seccion = "";
-    var id_pregunta = "";
-    function editar(id){
-        var id2 = id;
-        $.ajax({
-            url: '../php/buscarPreguntav2.php',
-            type: 'get',
-            data: {id: id2},
-            success:function(data){
-                var array = data.split(",");
-                $('#preguntaUpdate').val(array[1]);
-                $('#opcion1Update').val(array[2]);
-                $('#opcion2Update').val(array[3]);
-                $('#opcion3Update').val(array[4]);
-                $('#opcion4Update').val(array[5]);
-                $('#respuesta_db').val(array[6]);
-                $('#seccion_db').val(array[0]);
-                id_seccion = array[7];
-                id_pregunta = id2;
-            }
-        });
-    }
-
-    $('#btnEditarModal').click(function() {
-        
-        var seccion_nueva = $('#sel_asignatura_nueva').val();
-        var pregunta = $('#preguntaUpdate').val();
-        var opcion1 = $('#opcion1Update').val();
-        var opcion2 = $('#opcion2Update').val();
-        var opcion3 = $('#opcion3Update').val();
-        var opcion4 = $('#opcion4Update').val();
-        var respuesta_db = $('#respuesta_db').val();
-        var respuesta_nueva = $('#respuesta_nueva').val();
-        var respuestav2 = "";
-
-        if(respuesta_nueva == 1){
-            respuestav2 = opcion1;
-        }
-        if(respuesta_nueva == 2){
-            respuestav2 = opcion2;
-        }
-        if(respuesta_nueva == 3){
-            respuestav2 = opcion3;
-        }
-        if(respuesta_nueva == 4){
-            respuestav2 = opcion4;
-        }
-
-        if(seccion_nueva == 0){
-            $.ajax({
-                url: '../php/buscarPregunta.php',
-                type: 'post',
-                data: {param1: id_seccion, param2: pregunta},
-                success:function(data){
-                    if(data == 1){
-                        Swal.fire({
-                            icon: 'warning',
-                            title: 'La pregunta ya existe!',
-                            showConfirmButton: false,
-                            timer: 1500
-                        })
-                        $('#sel_asignatura_nueva').val(0);
-                        $('#respuesta_nueva').val(0);
-                    }else{
-                        if(respuesta_nueva == 0){
-                            $.ajax({
-                                url: '../php/editarPregunta.php',
-                                type: 'post',
-                                data: {id: id_pregunta, pregunta: pregunta, opcion1: opcion1, opcion2: opcion2, opcion3: opcion3, opcion4: opcion4, tipo_de_edicion: 1},
-                                success:function(data){
-                                    if(data == 1){
-                                        $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
-                                        Swal.fire({
-                                            icon: 'success',
-                                            title: 'La pregunta se edito satisfactoriamente!',
-                                            showConfirmButton: false,
-                                            timer: 1500
-                                        })
-                                    }
-                                }
-                            });
-                        }else{
-                            $.ajax({
-                                url: '../php/editarPregunta.php',
-                                type: 'post',
-                                data: {id: id_pregunta, pregunta: pregunta, opcion1: opcion1, opcion2: opcion2, opcion3: opcion3, opcion4: opcion4, respuesta: respuestav2, tipo_de_edicion: 2},
-                                success:function(data){
-                                    if(data == 1){
-                                        $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
-                                        Swal.fire({
-                                            icon: 'success',
-                                            title: 'La pregunta se edito satisfactoriamente!',
-                                            showConfirmButton: false,
-                                            timer: 1500
-                                        })
-                                    }
-                                }
-                            });
-                        }
-                    }
-                }
-            });
-        }else{
-            $.ajax({
-                url: '../php/buscarPregunta.php',
-                type: 'post',
-                data: {param1: seccion_nueva, param2: pregunta},
-                success:function(data){
-                    if(data == 1){
-                        Swal.fire({
-                            icon: 'warning',
-                            title: 'La pregunta ya existe!',
-                            showConfirmButton: false,
-                            timer: 1500
-                        })
-                        $('#sel_asignatura_nueva').val(0);
-                        $('#respuesta_nueva').val(0);
-                    }else{
-                        if(respuesta_nueva == 0){
-                            $.ajax({
-                                url: '../php/editarPregunta.php',
-                                type: 'post',
-                                data: {id: id_pregunta, seccion: id_seccion, pregunta: pregunta, opcion1: opcion1, opcion2: opcion2, opcion3: opcion3, opcion4: opcion4, tipo_de_edicion: 3},
-                                success:function(data){
-                                    if(data == 1){
-                                        $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
-                                        Swal.fire({
-                                            icon: 'success',
-                                            title: 'La pregunta se edito satisfactoriamente!',
-                                            showConfirmButton: false,
-                                            timer: 1500
-                                        })
-                                    }
-                                }
-                            });
-                        }else{
-                            $.ajax({
-                                url: '../php/editarPregunta.php',
-                                type: 'post',
-                                data: {id: id_pregunta, seccion: id_seccion, pregunta: pregunta, opcion1: opcion1, opcion2: opcion2, opcion3: opcion3, opcion4: opcion4, respuesta: respuestav2, tipo_de_edicion: 4},
-                                success:function(data){
-                                    if(data == 1){
-                                        $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
-                                        Swal.fire({
-                                            icon: 'success',
-                                            title: 'La pregunta se edito satisfactoriamente!',
-                                            showConfirmButton: false,
-                                            timer: 1500
-                                        })
-                                    }
-                                }
-                            });
-                        }
-                    }
-                }
-            });
-        }
-    });
-</script>
