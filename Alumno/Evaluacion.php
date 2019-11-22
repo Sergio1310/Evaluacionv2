@@ -5,19 +5,6 @@
         header("Location: ../index.php");
     }
 require("conexion.php");
-
-$sql= 'SELECT pregunta,opcion1,opcion2,opcion3,opcion4 FROM preguntas  where asignatura_idasignatura=1 ORDER BY RAND() LIMIT 4';
-$sentencia = $pdo->prepare($sql);
-$sentencia->execute();
-
-$resultado = $sentencia->fetchAll();
-
-//var_dump($resultado);
-$articulos_x_pagina =1;
-
-$total_preguntas_db =$sentencia->rowCount();
-$paginas = $total_preguntas_db/1; 
-$paginas = ceil($paginas);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,25 +33,7 @@ $paginas = ceil($paginas);
  <a class="navbar-brand" style="color: white;"> <i class="fas fa-user-circle"> </i> <?php echo $_SESSION['matricula']; ?></a>
  <input type ='button' class="btn btn-outline-warning" value = 'Cerrar Sesión' onclick="window.location='../php/cerrarSesion.php';"/>
 </nav>
-	<?php
-	if(!$_GET){
-		header('Location:Evaluacion.php?pregunta=1');
-	}
-	if($_GET['pregunta']>$paginas){
-		header('Location:Evaluacion.php?pregunta=1');
-	}
-
-	$inciar = ($_GET['pregunta']-1)*$articulos_x_pagina;
 	
-
-	$sql_preguntas='SELECT * FROM preguntas LIMIT :inicar,:npreguntas';
-	$sentencia_preguntas= $pdo->prepare($sql_preguntas);
-	$sentencia_preguntas->bindParam(':inicar', $inciar, PDO::PARAM_INT);
-	$sentencia_preguntas->bindParam(':npreguntas', $articulos_x_pagina, PDO::PARAM_INT);
-	$sentencia_preguntas->execute();
-	$resultado_preguntas= $sentencia_preguntas->fetchAll();
-
-	?>
 	<div class="principal-content flex">
 		<div class="p-content column justify-center">
 			<div class="title justify-center">
