@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-11-2019 a las 18:06:25
+-- Tiempo de generación: 22-11-2019 a las 20:00:20
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -102,34 +102,6 @@ CREATE TABLE `matriculas` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `opciones`
---
-
-CREATE TABLE `opciones` (
-  `id` int(11) NOT NULL,
-  `opcion` text,
-  `imagenOpcion` text,
-  `respuesta` int(11) NOT NULL,
-  `id_pregunta` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `opciones`
---
-
-INSERT INTO `opciones` (`id`, `opcion`, `imagenOpcion`, `respuesta`, `id_pregunta`) VALUES
-(1, 'opcion1', 'opcion1.png', 0, 67),
-(2, 'opcion2', 'opcion2.png', 1, 67),
-(3, 'opcion3', 'opcion3.png', 0, 67),
-(4, 'opcion4', 'opcion4.png', 0, 67),
-(5, 'opcion1', '', 0, 68),
-(6, 'opcion2', '', 0, 68),
-(7, 'opcion3', '', 1, 68),
-(8, 'opcion4', '', 0, 68);
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `preguntas`
 --
 
@@ -137,6 +109,15 @@ CREATE TABLE `preguntas` (
   `id_pregunta` int(10) NOT NULL,
   `pregunta` text,
   `imagenPregunta` text,
+  `opcion1` text,
+  `imagenOpcion1` text,
+  `opcion2` text,
+  `imagenOpcion2` text,
+  `opcion3` text,
+  `imagenOpcion3` text,
+  `opcion4` text,
+  `imagenOpcion4` text,
+  `respuesta` text NOT NULL,
   `asignatura_idasignatura` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -144,9 +125,9 @@ CREATE TABLE `preguntas` (
 -- Volcado de datos para la tabla `preguntas`
 --
 
-INSERT INTO `preguntas` (`id_pregunta`, `pregunta`, `imagenPregunta`, `asignatura_idasignatura`) VALUES
-(67, 'pregunta1', 'pregunta67.png', 1),
-(68, 'pregunta2', '', 2);
+INSERT INTO `preguntas` (`id_pregunta`, `pregunta`, `imagenPregunta`, `opcion1`, `imagenOpcion1`, `opcion2`, `imagenOpcion2`, `opcion3`, `imagenOpcion3`, `opcion4`, `imagenOpcion4`, `respuesta`, `asignatura_idasignatura`) VALUES
+(67, 'pregunta1', 'pregunta67.png', 'opcion1', 'opcion1.png', 'opcion2', 'opcion2.png', 'opcion3', 'opcion3.png', 'opcion4', 'opcion4.png', '', 1),
+(68, 'pregunta2', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 2);
 
 -- --------------------------------------------------------
 
@@ -225,13 +206,6 @@ ALTER TABLE `evaluaciones`
   ADD KEY `usuarios_user` (`usuarios_user`);
 
 --
--- Indices de la tabla `opciones`
---
-ALTER TABLE `opciones`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_pregunta` (`id_pregunta`);
-
---
 -- Indices de la tabla `preguntas`
 --
 ALTER TABLE `preguntas`
@@ -256,12 +230,6 @@ ALTER TABLE `usuarios`
 --
 
 --
--- AUTO_INCREMENT de la tabla `opciones`
---
-ALTER TABLE `opciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
 -- AUTO_INCREMENT de la tabla `preguntas`
 --
 ALTER TABLE `preguntas`
@@ -277,12 +245,6 @@ ALTER TABLE `preguntas`
 ALTER TABLE `evaluaciones`
   ADD CONSTRAINT `evaluaciones_ibfk_1` FOREIGN KEY (`asignatura_idasignatura`) REFERENCES `asignaturas` (`id_asignatura`),
   ADD CONSTRAINT `evaluaciones_ibfk_2` FOREIGN KEY (`usuarios_user`) REFERENCES `usuarios` (`userr`);
-
---
--- Filtros para la tabla `opciones`
---
-ALTER TABLE `opciones`
-  ADD CONSTRAINT `opciones_ibfk_1` FOREIGN KEY (`id_pregunta`) REFERENCES `preguntas` (`id_pregunta`);
 
 --
 -- Filtros para la tabla `preguntas`
