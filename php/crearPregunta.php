@@ -2,87 +2,97 @@
 	require 'conexion.php';
 
 	$asignatura = $_POST['asignatura'];
-	$pregunta = $_POST['pregunta'];
-	$opcion1 = $_POST['opcion1'];
-	$opcion2 = $_POST['opcion2'];
-	$opcion3 = $_POST['opcion3'];
-	$opcion4 = $_POST['opcion4'];
+	
+	if(isset($_POST['pregunta'])){
+		$pregunta = null;
+	}else{
+		$pregunta = $_POST['pregunta'];
+	}
+	if(isset($_POST['opcion1'])){
+		$opcion1 = null;
+	}else{
+		$opcion1 = $_POST['opcion1'];
+	}
+	if(isset($_POST['opcion2'])){
+		$opcion2 = null;
+	}else{
+		$opcion2 = $_POST['opcion2'];
+	}
+	if(isset($_POST['opcion3'])){
+		$opcion3 = null;
+	}else{
+		$opcion3 = $_POST['opcion3'];
+	}
+	if(isset($_POST['opcion4'])){
+		$opcion4 = null;
+	}else{
+		$opcion4 = $_POST['opcion4'];
+	}
+
 	$respuesta = $_POST['respuesta'];
-	$tipo = $_POST['tipo_insercion'];
 
 
-	$preguntaImagen = $_FILE['preguntaImagen'];
-	// opcion1Imagen
-	// opcion2Imagen
-	// opcion3Imagen
-	// opcion4Imagen
+	if(isset($_FILE['preguntaImagen'])){
+		$preguntaImagen = null;
+	}else{
+		$preguntaImagen = $_FILES['preguntaImagen']['name'];
+	}
+	if(isset($_FILE['opcion1Imagen'])){
+		$opcion1Imagen = null;
+	}else{
+		$opcion1Imagen = $_FILES['opcion1Imagen']['name'];
+	}
+	if(isset($_FILE['opcion2Imagen'])){
+		$opcion2Imagen = null;
+	}else{
+		$opcion2Imagen = $_FILES['opcion2Imagen']['name'];	
+	}
+	if(isset($_FILE['opcion3Imagen'])){
+		$opcion3Imagen = null;
+	}else{
+		$opcion3Imagen = $_FILES['opcion3Imagen']['name'];
+	}
+	if(isset($_FILE['opcion4Imagen'])){
+		$opcion4Imagen = null;
+	}else{
+		$opcion4Imagen = $_FILES['opcion4Imagen']['name'];
+	}
 
+	$mysqli->set_charset('utf8');
+	$stmt = $mysqli->prepare("INSERT INTO preguntas(pregunta, imagenPregunta, opcion1, imagenOpcion1, opcion2, imagenOpcion2, opcion3, imagenOpcion3, opcion4, imagenOpcion4, respuesta, asignatura_idasignatura) values(?,?,?,?,?,?,?,?,?,?,?,?)");	
+	$stmt->bind_param("sssssssssssi", $pregunta, $preguntaImagen, $opcion1, $opcion1Imagen, $opcion2, $opcion2Imagen, $opcion3, $opcion3Imagen, $opcion4, $opcion4Imagen, $respuesta, $asignatura);
+	echo $stmt->execute();
+	$sql = "SELECT id_pregunta FROM preguntas ORDER BY id_pregunta DESC LIMIT 1";
+	$resultado = $mysqli->query($sql);
+	$row = mysqli_fetch_assoc($resultado);
+	mkdir("../imagenes/".$row['id_pregunta'], 0700);
 
-	// $respuestaO1 = 0;
-	// $respuestaO2 = 0;
-	// $respuestaO3 = 0;
-	// $respuestaO4 = 0;
+	if(isset($_FILE['preguntaImagen'])){
+		
+	}else{
+		move_uploaded_file($_FILES["preguntaImagen"]["tmp_name"], "../imagenes/".$row['id_pregunta']."/".$_FILES['preguntaImagen']['name']);
+	}		
+	if(isset($_FILE['opcion1Imagen'])){
+		
+	}else{
+		move_uploaded_file($_FILES["opcion1Imagen"]["tmp_name"], "../imagenes/".$row['id_pregunta']."/".$_FILES['opcion1Imagen']['name']);
+	}
+	if(isset($_FILE['opcion2Imagen'])){
+		
+	}else{
+		move_uploaded_file($_FILES["opcion2Imagen"]["tmp_name"], "../imagenes/".$row['id_pregunta']."/".$_FILES['opcion2Imagen']['name']);
+	}
+	if(isset($_FILE['opcion3Imagen'])){
+		
+	}else{
+		move_uploaded_file($_FILES["opcion3Imagen"]["tmp_name"], "../imagenes/".$row['id_pregunta']."/".$_FILES['opcion3Imagen']['name']);
+	}
+	if(isset($_FILE['opcion4Imagen'])){
+		
+	}else{
+		move_uploaded_file($_FILES["opcion4Imagen"]["tmp_name"], "../imagenes/".$row['id_pregunta']."/".$_FILES['opcion4Imagen']['name']);
+	}
 
-	// if($respuesta == 1){
-	// 	$respuestaO1 = 1;
-	// }
-	// if($respuesta == 2){
-	// 	$respuestaO2 = 1;	
-	// }
-	// if($respuesta == 3){
-	// 	$respuestaO3 = 1;
-	// }
-	// if($respuesta == 4){
-	// 	$respuestaO4 = 1;
-	// }
-	
-	// // se inserta la pregunta
-	// $mysqli->set_charset('utf8');
-	// $stmt = $mysqli->prepare("INSERT INTO preguntas(pregunta, imagenPregunta, asignatura_idasignatura) values(?,?,?)");
-
-	// $stmt->bind_param("ssi", $pregunta, , $asignatura);
-	// $stmt->execute();
-	
-	// // se busca el ultimo registro creado
-	// $stmt2 = $mysqli->prepare("SELECT * FROM preguntas ORDER BY id_pregunta DESC LIMIT 1");
-	// $stmt2->execute();
-	
-	// // se crea la carpeta para guardar la imagen
-	// $resultado = $stmt2->get_result();
-	// $datos = mysqli_fetch_assoc($resultado);
-	// mkdir("../imagenes/".$datos['id_pregunta']."", 0700); 
-
-	// // se insertan las opciones de la pregunta
-	// // opcion1
-	// $stmt3 = $mysqli->prepare("INSERT INTO opciones(opcion, imagenOpcion, respuesta, id_pregunta) values(?,?,?,?)");
-
-	// $stmt3->bind_param("ssii", $opcion1, , $respuestaO1, $datos['id_pregunta']);
-	// $stmt3->execute();
-
-	// // opcion2
-	// $stmt4 = $mysqli->prepare("INSERT INTO opciones(opcion, imagenOpcion, respuesta, id_pregunta) values(?,?,?,?)");
-
-	// $stmt4->bind_param("ssii", $opcion2, , $respuestaO2, $datos['id_pregunta']);
-	// $stmt4->execute();
-
-	// // opcion3
-	// $stmt5 = $mysqli->prepare("INSERT INTO opciones(opcion, imagenOpcion, respuesta, id_pregunta) values(?,?,?,?)");
-
-	// $stmt5->bind_param("ssii", $opcion3, , $respuestaO3, $datos['id_pregunta']);
-	// $stmt5->execute();
-
-	// // opcion4
-	// $stmt6 = $mysqli->prepare("INSERT INTO opciones(opcion, imagenOpcion, respuesta, id_pregunta) values(?,?,?,?)");
-
-	// $stmt6->bind_param("ssii", $opcion4, , $respuestaO4, $datos['id_pregunta']);
-	// $stmt6->execute();	
-
-	// // se cierran las conexiones a la bdd
-	// $stmt->close();
-	// $stmt2->close();
-	// $stmt3->close();
-	// $stmt4->close();
-	// $stmt5->close();
-	// $stmt6->close();
-	// $mysqli->close();
+	$stmt->close();
+	$mysqli->close();
 ?>

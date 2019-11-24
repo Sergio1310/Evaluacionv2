@@ -35,12 +35,12 @@ function get_data_callback(){
 			$('<table>'+
 				'<tr>'+'<th colspan="5">'+'<h3>'+elem.pregunta+'</h3>'+'</th>'+'</tr>'+
               '<tr>'+
-              '<td colspan="3">'+'<input type="radio" name="opc1" value="'+elem.opcion1+'">'+elem.opcion1+'</td>'+
-              '<td colspan="3">'+'<input type="radio" name="opc1" value="'+elem.opcion2+'">'+elem.opcion2+'</td>'+
+              '<td colspan="3">'+'<input type="radio" name="opc" value="'+elem.opcion1+'">'+elem.opcion1+'</td>'+
+              '<td colspan="3">'+'<input type="radio" name="opc" value="'+elem.opcion2+'">'+elem.opcion2+'</td>'+
               '</tr>'+
               '<tr>'+
-              '<td colspan="3">'+'<input type="radio" name="opc1" value="'+elem.opcion3+'">'+elem.opcion3+'</td>'+
-              '<td colspan="3">'+'<input type="radio" name="opc1" value="'+elem.opcion4+'">'+elem.opcion4+'</td>'+
+              '<td colspan="3">'+'<input type="radio" name="opc" value="'+elem.opcion3+'">'+elem.opcion3+'</td>'+
+              '<td colspan="3">'+'<input type="radio" name="opc" value="'+elem.opcion4+'">'+elem.opcion4+'</td>'+
               '</tr>'+
 				'</table>').appendTo($("#preguntas"));		
 		});			

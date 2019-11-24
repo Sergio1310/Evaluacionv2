@@ -33,9 +33,6 @@ $(document).ready(function(){
 				timer: 2500
 			})
 		}else{
-
-			
-			
 			formData.append('preguntaImagen', preguntaImagen);
 			formData.append('opcion1Imagen', opcion1Imagen);
 			formData.append('opcion2Imagen', opcion2Imagen);
@@ -50,7 +47,7 @@ $(document).ready(function(){
 			formData.append('opcion3', opcion3);
 			formData.append('opcion4', opcion4);
 			formData.append('respuesta', respuesta);
-			formData.append('tipo_insercion', 1);
+			
 			$.ajax({
 				url: '../php/crearPregunta.php',
 	            type: 'post',
@@ -58,10 +55,33 @@ $(document).ready(function(){
 	            contentType: false,
 	            processData: false,
 	            success: function(response) {
-	                alert(response);
-	                console.log(response);
+	                if(response == 1){
+	                	$('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
+	                	Swal.fire({
+							icon: 'success',
+							title: 'La pregunta se guardo satisfactoriamente!',
+							showConfirmButton: false,
+							timer: 1500
+						})
+	                }
 	            }
 			});
+			
 		}
 	});
 });
+function fileValidation(id){
+	    var fileInput = document.getElementById(id);
+	    var filePath = fileInput.value;
+	    var allowedExtensions = /(.png)$/i;
+	    if(!allowedExtensions.exec(filePath)){
+	        Swal.fire({
+				icon: 'warning',
+				title: 'Solo se pueden ingresar archivos PNG!',
+				showConfirmButton: false,
+				timer: 1500
+			})
+	        fileInput.value = '';
+	        return false;
+	    }
+	}

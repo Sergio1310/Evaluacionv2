@@ -20,21 +20,24 @@
     <tbody>
         <?php
 			require('../../php/conexion.php');
-			$consulta = $mysqli->query("SELECT P.id_pregunta, A.nombre, P.pregunta, P.imagenPregunta FROM preguntas as P INNER JOIN asignaturas as A ON P.asignatura_idasignatura = A.id_asignatura");
-            $consulta2 = $mysqli->query("SELECT * FROM opciones");
-            $numero = $consulta2->num_rows;
-            $x = 0;
-            while($resultado2 = mysqli_fetch_assoc($consulta2)){
-                $array[$x] = array($resultado2['opcion'], $resultado2['imagenOpcion'], $resultado2['respuesta'], $resultado2['id_pregunta']);
-                $x++;
-            }
+			$consulta = $mysqli->query("SELECT * FROM preguntas as P INNER JOIN asignaturas as A ON P.asignatura_idasignatura = A.id_asignatura");
             while($resultado = mysqli_fetch_assoc($consulta)){
         ?>
             <!-- codigo -->
                 <tr>    
                     <td><?php echo $resultado['id_pregunta']; ?></td>
                     <td><?php echo $resultado['nombre']; ?></td>
-                    <td><?php echo $resultado['pregunta']; ?></td>
+                    <?php 
+                        if($resultado['pregunta'] == null){
+                    ?>
+                        <td>No hay texto</td>
+                    <?php
+                        }else{
+                    ?>
+                        <td><?php echo $resultado['pregunta']; ?></td>
+                    <?php
+                        }
+                    ?>
                     <?php
                         $imagen = $resultado['imagenPregunta'];
                         $tipo = 'png'; 
@@ -48,26 +51,112 @@
                             <td><p>No hay Imagen</p></td>
                     <?php
                         }
-                        for($i = 0; $i < $numero; $i++){
-                            if($array[$i][3] == $resultado['id_pregunta']){
-                            ?>
-                                <td><?php echo $array[$i][0]; ?></td>
-                            <?php
-                                $imagen2 = $array[$i][1];
-                                $tipo2 = 'png'; 
-                                $pos2 = strpos($imagen2, $tipo2);
-                                if($pos2 !== false){
-                            ?>
-                                    <td><img src="../imagenes/<?php echo $resultado['id_pregunta']; ?>/<?php echo $array[$i][1]; ?>" style="width: 60px;"></td>
-                            <?php
-                                }else{
-                            ?>
-                                    <td><p>No hay Imagen</p></td>
-                            <?php
-                                }
-                            }
+                    ?>
+                    <?php 
+                        if($resultado['opcion1'] == null){
+                    ?>
+                        <td>No hay texto</td>
+                    <?php
+                        }else{
+                    ?>
+                        <td><?php echo $resultado['opcion1']; ?></td>
+                    <?php
                         }
                     ?>
+                    <?php
+                        $imagen = $resultado['imagenOpcion1'];
+                        $tipo = 'png'; 
+                        $pos = strpos($imagen, $tipo);
+                        if($pos !== false){
+                    ?>
+                            <td><img src="../imagenes/<?php echo $resultado['id_pregunta']; ?>/<?php echo $resultado['imagenOpcion1']; ?>" style="width: 60px;"></td>
+                    <?php
+                        }else{
+                    ?>
+                            <td><p>No hay Imagen</p></td>
+                    <?php
+                        }
+                    ?>
+                    <?php 
+                        if($resultado['opcion2'] == null){
+                    ?>
+                        <td>No hay texto</td>
+                    <?php
+                        }else{
+                    ?>
+                        <td><?php echo $resultado['opcion2']; ?></td>
+                    <?php
+                        }
+                    ?>
+                    <?php
+                        $imagen = $resultado['imagenOpcion2'];
+                        $tipo = 'png'; 
+                        $pos = strpos($imagen, $tipo);
+                        if($pos !== false){
+                    ?>
+                            <td><img src="../imagenes/<?php echo $resultado['id_pregunta']; ?>/<?php echo $resultado['imagenOpcion2']; ?>" style="width: 60px;"></td>
+                    <?php
+                        }else{
+                    ?>
+                            <td><p>No hay Imagen</p></td>
+                    <?php
+                        }
+                    ?>
+                    <?php 
+                        if($resultado['opcion3'] == null){
+                    ?>
+                        <td>No hay texto</td>
+                    <?php
+                        }else{
+                    ?>
+                        <td><?php echo $resultado['opcion3']; ?></td>
+                    <?php
+                        }
+                    ?>
+                    <?php
+                        $imagen = $resultado['imagenOpcion3'];
+                        $tipo = 'png'; 
+                        $pos = strpos($imagen, $tipo);
+                        if($pos !== false){
+                    ?>
+                            <td><img src="../imagenes/<?php echo $resultado['id_pregunta']; ?>/<?php echo $resultado['imagenOpcion3']; ?>" style="width: 60px;"></td>
+                    <?php
+                        }else{
+                    ?>
+                            <td><p>No hay Imagen</p></td>
+                    <?php
+                        }
+                    ?>
+                    <?php 
+                        if($resultado['opcion4'] == null){
+                    ?>
+                        <td>No hay texto</td>
+                    <?php
+                        }else{
+                    ?>
+                        <td><?php echo $resultado['opcion4']; ?></td>
+                    <?php
+                        }
+                    ?>
+                    <?php
+                        $imagen = $resultado['imagenOpcion4'];
+                        $tipo = 'png'; 
+                        $pos = strpos($imagen, $tipo);
+                        if($pos !== false){
+                    ?>
+                            <td><img src="../imagenes/<?php echo $resultado['id_pregunta']; ?>/<?php echo $resultado['imagenOpcion4']; ?>" style="width: 60px;"></td>
+                    <?php
+                        }else{
+                    ?>
+                            <td><p>No hay Imagen</p></td>
+                    <?php
+                        }
+                    ?>
+                    <td><?php echo $resultado['respuesta']; ?></td>
+                    <td>
+                        <a href="#EditarPregunta" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
+                        <a href="#EliminarPregunta" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>
+                    </td>
                 </tr>
         <?php
             }

@@ -49,9 +49,8 @@ require("conexion.php");
 									</div>
 									<br>
 									<div class="container">
-										<div id="preguntas" >
-											
-										</div>
+
+										<div id="preguntas" ></div>
 										
 									</div>
 									<div class="justify-end">
