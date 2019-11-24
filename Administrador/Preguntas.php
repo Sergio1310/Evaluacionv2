@@ -79,31 +79,31 @@
 							<div class="form-group">
 								<label>Pregunta</label>
 								<input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="input_pregunta" placeholder="Escribe la pregunta">
-								<p>-O-</p>
+								<p>-Y/O-</p>
 								<input type="file" name="CrearImagen" id="CrearImagenPregunta" placeholder="Selecciona Imagen" onchange="return fileValidation('CrearImagenPregunta')">
 							</div>
 							<div class="form-group">
 								<label>Opción 1</label>
 								<input type="text" class="form-control" id="input_opcion1" placeholder="Escribe la opción 1">
-								<p>-O-</p>
+								<p>-Y/O-</p>
 								<input type="file" name="CrearImagen" id="CrearImagenOpcion1" placeholder="Selecciona Imagen" onchange="return fileValidation('CrearImagenOpcion1')">
 							</div>
 	                        <div class="form-group">
 								<label>Opción 2</label>
 								<input type="text" class="form-control" id="input_opcion2" placeholder="Escribe la opción 2">
-								<p>-O-</p>
+								<p>-Y/O-</p>
 								<input type="file" name="CrearImagen" id="CrearImagenOpcion2" placeholder="Selecciona Imagen" onchange="return fileValidation('CrearImagenOpcion2')">
 							</div>
 	                        <div class="form-group">
 								<label>Opción 3</label>
 								<input type="text" class="form-control" id="input_opcion3" placeholder="Escribe la opción 3">
-								<p>-O-</p>
+								<p>-Y/O-</p>
 								<input type="file" name="CrearImagen" id="CrearImagenOpcion3" placeholder="Selecciona Imagen" onchange="return fileValidation('CrearImagenOpcion3')">
 							</div>
 	                        <div class="form-group">
 								<label>Opción 4</label>
 								<input type="text" class="form-control" id="input_opcion4" placeholder="Escribe la opción 4">
-								<p>-O-</p>
+								<p>-Y/O-</p>
 								<input type="file" name="CrearImagen" id="CrearImagenOpcion4" placeholder="Selecciona Imagen" onchange="return fileValidation('CrearImagenOpcion4')">
 							</div>
 	                        <div class="form-group">

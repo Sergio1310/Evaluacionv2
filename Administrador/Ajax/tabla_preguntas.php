@@ -169,12 +169,12 @@
     <div id="EditarPregunta" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form>
                     <div class="modal-header">                      
                         <h4 class="modal-title" style="color: black;">Editar Pregunta</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
+                        <form method="post" action="#" enctype="multipart/form-data">
                         <div class="form-group">
                             <label style="color: black;">Sección</label>
                             <input type="text" class="form-control" id="seccion_db" value="" disabled>
@@ -195,23 +195,33 @@
                             </select>
                         <div class="form-group">
                             <label style="color: black;">Pregunta</label>
-                            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="preguntaUpdate" placeholder="Escribe la pregunta" value="" required>
+                            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="preguntaUpdate" placeholder="Escribe la pregunta" value="">
+                            <p style="color: black;">-Y/O-</p>
+                            <input type="file" name="EditarImagen" id="EditarImagenPregunta" placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenPregunta')">
                         </div>
                         <div class="form-group">
                             <label style="color: black;">Opción 1</label>
-                            <input type="text" class="form-control" id="opcion1Update" placeholder="Escribe la opción 1" value="" required>
+                            <input type="text" class="form-control" id="opcion1Update" placeholder="Escribe la opción 1" value="" >
+                            <p style="color: black;">-Y/O-</p>
+                            <input type="file" name="EditarImagen" id="EditarImagenOpcion1" placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenOpcion1')">
                         </div>
                         <div class="form-group">
                             <label style="color: black;">Opción 2</label>
-                            <input type="text" class="form-control" id="opcion2Update" placeholder="Escribe la opción 2" value="" required>
+                            <input type="text" class="form-control" id="opcion2Update" placeholder="Escribe la opción 2" value="" >
+                            <p style="color: black;">-Y/O-</p>
+                            <input type="file" name="EditarImagen" id="EditarImagenOpcion2" placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenOpcion2')">
                         </div>
                         <div class="form-group">
                             <label style="color: black;">Opción 3</label>
-                            <input type="text" class="form-control" id="opcion3Update" placeholder="Escribe la opción 3" value="" required>
+                            <input type="text" class="form-control" id="opcion3Update" placeholder="Escribe la opción 3" value="" >
+                            <p style="color: black;">-Y/O-</p>
+                            <input type="file" name="EditarImagen" id="EditarImagenOpcion3" placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenOpcion3')">
                         </div>
                         <div class="form-group">
                             <label style="color: black;">Opción 4</label>
-                            <input type="text" class="form-control" id="opcion4Update" placeholder="Escribe la opción 4" value="" required>
+                            <input type="text" class="form-control" id="opcion4Update" placeholder="Escribe la opción 4" value="" >
+                            <p style="color: black;">-Y/O-</p>
+                            <input type="file" name="EditarImagen" id="EditarImagenOpcion4" placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenOpcion4')">
                         </div>
                         <div class="form-group">
                             <label style="color: black;">Respuesta</label>
@@ -226,13 +236,15 @@
                                 <option value="3">Opción 3</option>
                                 <option value="4">Opción 4</option>
                             </select>
-                        </div>              
-                    </div>
-                    <div class="modal-footer">
+                        </div>
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
                         <input type="submit" class="btn btn-info" data-dismiss="modal" id="btnEditarModal" value="Guardar">
+                        </form>              
                     </div>
-                </form>
+                    <div class="modal-footer">
+                        <!-- <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                        <input type="submit" class="btn btn-info" data-dismiss="modal" id="btnEditarModal" value="Guardar"> -->
+                    </div>
             </div>
         </div>
     </div>

@@ -55,15 +55,13 @@ $(document).ready(function(){
 	            contentType: false,
 	            processData: false,
 	            success: function(response) {
-	                if(response == 1){
-	                	$('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
+	                $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
 	                	Swal.fire({
 							icon: 'success',
 							title: 'La pregunta se guardo satisfactoriamente!',
 							showConfirmButton: false,
 							timer: 1500
 						})
-	                }
 	            }
 			});
 			
