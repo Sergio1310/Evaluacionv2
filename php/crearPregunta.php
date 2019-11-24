@@ -3,27 +3,27 @@
 
 	$asignatura = $_POST['asignatura'];
 	
-	if(isset($_POST['pregunta'])){
+	if(!isset($_POST['pregunta'])){
 		$pregunta = null;
 	}else{
 		$pregunta = $_POST['pregunta'];
 	}
-	if(isset($_POST['opcion1'])){
+	if(!isset($_POST['opcion1'])){
 		$opcion1 = null;
 	}else{
 		$opcion1 = $_POST['opcion1'];
 	}
-	if(isset($_POST['opcion2'])){
+	if(!isset($_POST['opcion2'])){
 		$opcion2 = null;
 	}else{
 		$opcion2 = $_POST['opcion2'];
 	}
-	if(isset($_POST['opcion3'])){
+	if(!isset($_POST['opcion3'])){
 		$opcion3 = null;
 	}else{
 		$opcion3 = $_POST['opcion3'];
 	}
-	if(isset($_POST['opcion4'])){
+	if(!isset($_POST['opcion4'])){
 		$opcion4 = null;
 	}else{
 		$opcion4 = $_POST['opcion4'];
