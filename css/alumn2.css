@@ -25,6 +25,20 @@ body{
 	font-size: 2.1em;
 	color: #afafaf;
 }
+.table-title {   
+
+        
+		background: rgb(67,93,125,0.7);
+		color: #fff;
+		padding: 13px 25px;
+		margin: -20px -15px 10px;
+		border-radius: 3px 3px 0 0;
+    }
+
+.table-title h2 {
+		margin: 5px 0 0;
+		font-size: 24px;
+	}
 
 .title {
 	padding-bottom: 24px;
@@ -36,11 +50,14 @@ body{
 }
 
 .h2{
-	color: white;
+	color: black;
 	font-size: 20px;
 }
 .h5{
-	color: #D38F11;
+	
+	/*color: #D38F11;*/
+	color: white
+
 }
 .h7{
 		color:white;
@@ -152,6 +169,7 @@ body{
 
 .cedula {
 	color: black;
+	justify-content: right;
 }
 
 .ci label {
@@ -173,13 +191,14 @@ body{
 	width: 40%;
 	padding: 10px;
 	color: white;
-	background-color: #ae8760;
+	background-color:#4185b1;
 	border-radius: 4px;
 	cursor: pointer;
 }
 
 .btn-eval:hover {
-  background-color: #9a6e42 !important;
+  background-color: #628bb7 !important;
+  color: white;
   transition: all 0.2s ease;
   box-shadow: 0 1px 5px 0 #eee;
 }

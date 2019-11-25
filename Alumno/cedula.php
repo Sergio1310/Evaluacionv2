@@ -15,19 +15,33 @@
     <link rel="stylesheet"  href="../bootstrap4/css/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../css/alumn2.css">
+
+
 	<title>Cedula</title>
 </head>
 <body>
+
+    <nav class="navbar navbar-dark bg-dark justify-content-between">
+ <a class="navbar-brand" style="color: white;"> <i class="fas fa-user-circle"> </i> <?php echo $_SESSION['matricula']; ?></a>
+ 
+</nav>
+
 	<div class="principal-content flex">
 	<div class=" column ">
 			<br>
-			<div class="title justify-center">
-				<h2 class="h2 text-center ">Datos para cedula de Egreso</h2>
-			</div>
-		
-			<div class="container black-containerCedu ">
+					
+			<div class="container black-containerCedu " class="col-md-8 ci">
+
 
 				<div>
+					<div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+						<h2 ><b class="justify-center">Cedula de Evaluacion</b></h2>
+					</div>
+				
+                </div>
+            </div>
 				<br>	
 				<h5 class="h5" >Datos Personales</h5>	
 				<br>
@@ -62,11 +76,11 @@
 			    </div>
 					<br>
 					<div class="main row">
-						<div  class="col-md-4  ci" class="ci row justify-center">
+						<div  class="col-md-3  ci" class="ci row justify-center">
 			
 								<input type="text" placeholder="Curp" id="curp" name="user_curp">		
 								</div>
-						<div  class="col-md-4  ci" class="ci row justify-center">
+						<div  class="col-md-3  ci" class="ci row justify-center">
 						<label for="option" class="ci">Estado Civil: </label>
 								<select class="" id="option" name="user_est">
 									<option value="" >Soltero</option>
@@ -74,7 +88,7 @@
 									<option value="" >Bla Bla</option>
 								</select>	 	
 						</div>
-						<div  class="col-md-4  ci" class="ci row justify-center">
+						<div  class="col-md-3  ci" class="ci row justify-center">
 						<label for="option" class="ci">Status: </label>
 								<select class="" id="option2" name="user_status">
 									<option value="" >Estudio</option>
@@ -91,6 +105,7 @@
 
 						</div>
 						<br>
+						<br>
 					</div>
 
 					<div class="main row">
@@ -98,25 +113,23 @@
 
 						<div  class="col-md-3  ci" class="ci row justify-center">
 
-						<label class="ci">Calle y Numero: </label>
-								<input type="text" id="numero" name="user_calle">		
+								<input type="text" placeholder="Calle y Numero" id="numero" name="user_calle">		
 								</div>
 
 						<div  class="col-md-3  ci" class="ci row justify-center">
 
-						<label class="ci">Colonia o Region: </label>
-								<input type="text" id="coloni" name="user_calle">		
+				
+								<input type="text" placeholder="Colonia o Region" id="coloni" name="user_col">		
 								</div>
 
 							<div  class="col-md-3  ci" class="ci row justify-center">
 
-						<label class="ci">Avenida: </label>
-								<input type="text" id="Ave" name="user_calle">		
+						<label class="ci"> </label>
+								<input type="text" placeholder="Avenida" id="Ave" name="user_ave">		
 								</div>		
 						<div  class="col-md-3  ci" class="ci row justify-center">
 
-						<label class="ci">Codigo Postal: </label>
-								<input type="text" id="CodP" name="user_calle">		
+								<input type="text" placeholder="Codigo Postal" id="CodP" name="user_cod">		
 								</div>	
 					</div>	
 					<br>
@@ -124,13 +137,12 @@
 					<div class="main row">
 						
 
-						<div  class="col-md-4  ci" class="ci row justify-center">
+						<div  class="col-md-3  ci" class="ci row justify-center">
 
-						<label class="ci">Municipio: </label>
-								<input type="text" id="mun" name="user_calle">		
+								<input type="text" placeholder="Municipio" id="mun" name="user_calle">		
 								</div>
 
-							<div  class="col-md-4  ci" class="ci row justify-center">
+							<div  class="col-md-3  ci" class="ci row justify-center">
 						<label for="option" class="ci">Estado: </label>
 								<select class="" id="option2" name="user_status">
 									<option value="" >Aguascalientes</option>
@@ -168,10 +180,9 @@
 								</select>	 	
 						</div>
 
-							<div  class="col-md-4  ci" class="ci row justify-center">
+							<div  class="col-md-6  ci" class="ci row justify-center">
 
-						<label class="ci">Ciudad: </label>
-								<input type="text" id="Ciu" name="user_calle">		
+								<input type="text" placeholder="Ciudad" id="Ciu" name="user_calle">		
 								</div>
 					</div>
 							<br>
@@ -179,16 +190,15 @@
 					<div class="main row">
 						
 
-						<div  class="col-md-6  ci" class="ci row justify-center">
+						<div  class="col-md-3  ci" class="ci row justify-center">
 
-						<label class="ci">Telefono: </label>
-								<input type="text" id="tel" name="user_calle">		
+					
+								<input type="text" placeholder="Telefono" id="tel" name="user_calle">		
 								</div>
 
-							<div  class="col-md-6  ci" class="ci row justify-center">
+							<div  class="col-md-3  ci" class="ci row justify-center">
 
-						<label class="ci">Correo Electronico: </label>
-								<input type="text" id="correo" name="user_calle">		
+								<input type="text" placeholder="Correo Electronico" id="correo" name="user_calle">		
 								</div>
 					</div>
 					<br>
@@ -226,6 +236,7 @@
 								
 						</div>
 						<br>
+						<br>
 
 						<div  class="col-md-12 ci" class="ci row justify-center">
 						<label class="ci">Datos del empleado actual o del ultimo en el que laboraste: </label>
@@ -235,49 +246,39 @@
 
 						
 					</div>
-
-					<div class="main row">
-						<div  class="col-md-6  ci" class="ci row justify-center">
-
-						<label class="ci">Nombre de Empresa: </label>
-								<input type="text" id="Empre" name="user_empres">		
-								</div>
-
-						<div  class="col-md-6  ci" class="ci row justify-center">
-
-						<label class="ci">Domicilio: </label>
-								<input type="text" id="Empre" name="user_empres">		
-								</div>		
-						
-					</div>
 					<br>
 
-
 					<div class="main row">
-						<div  class="col-md-4  ci" class="ci row justify-center">
+						<div  class="col-md-3  ci" class="ci row justify-center">
 
-						<label class="ci">Puesto: </label>
-								<input type="text" id="Pues" name="user_pues">		
+								<input type="text" placeholder="Nombre de Empresa" id="Empre" name="user_empres">		
 								</div>
-
-						<div  class="col-md-5  ci" class="ci row justify-center">
-
-						<label class="ci">Nombre de Jefe: </label>
-								<input type="text" id="jefe" name="user_jef">		
-								</div>	
 
 						<div  class="col-md-3  ci" class="ci row justify-center">
 
-						<label class="ci">Tel: </label>
-								<input type="text" id="Tele" name="user_Tel">		
-								</div>		
+								<input type="text" placeholder="Domicilio" id="Empre" name="user_empres">		
+						</div>		
 						
-					</div>
+						<div  class="col-md-3  ci" class="ci row justify-center">
 
+								<input type="text" placeholder="Puesto" id="Pues" name="user_pues">		
+						</div>
+					</div>
 					<br>
 
 					<div class="main row">
-						<div  class="col-md-6  ci" class="ci row justify-center">
+						
+						<div  class="col-md-3  ci" class="ci row justify-center">
+
+								<input type="text" placeholder="Nombre de Jefe" id="jefe" name="user_jef">		
+						</div>	
+
+						<div  class="col-md-3 ci" class="ci row justify-center">
+
+								<input type="text" placeholder="Telefono" id="Tele" name="user_Tel">		
+						</div>		
+						
+							<div  class="col-md-6  ci" class="ci row justify-center">
                                 <label for="option" class="ci">Tiempo coloborado:</label>
 								<select class="" id="op" name="user_cola">
 									<option value="" >1 año</option>
@@ -286,7 +287,13 @@
 									<option value="" >9 a 12 meses</option>	
 								</select>
 						</div>	
-						<div  class="col-md-6  ci" class="ci row justify-center">
+					</div>
+
+					<br>
+
+					<div class="main row">
+					
+						<div  class="col-md-5  ci" class="ci row justify-center">
                                 <label for="option" class="ci">Sueldo Mensual (aprox.):</label>
 								<select class="" id="op2" name="user_suel">
 									<option value="" >2 a 4 mil pesos</option>
@@ -295,11 +302,8 @@
 									<option value="" >Mas de 10 mil</option>
 								</select>	
 						</div>	
-					</div>
-				        <br>
 
-				     <div class="main row">
-						<div  class="col-md-6  ci" class="ci row justify-center">
+						<div  class="col-md-5  ci" class="ci row justify-center">
                                 <label for="option" class="ci">Como consiguio el empleo:</label>
 								<select class="" id="cons" name="user_consig">
 									<option value="" >Estancias y estadias</option>
@@ -308,7 +312,13 @@
 									<option value="" >Muestra de proyectos</option>	
 								</select>
 						</div>	
-						<div  class="col-md-6  ci" class="ci row justify-center">
+					</div>
+
+				        <br>
+
+				     <div class="main row">
+						
+						<div  class="col-md-5  ci" class="ci row justify-center">
                                 <label for="option" class="ci">Tamaño de la empresa:</label>
 								<select class="" id="emp" name="user_empre">
 									<option value="" >Micro Empresa</option>
@@ -318,10 +328,8 @@
 								</select>	
 						</div>	
 
-					</div>
-					<br>
-					<div class="main row">
-						<div  class="col-md-6  ci" class="ci row justify-center">
+							
+						<div  class="col-md-4  ci" class="ci row justify-center">
                                 <label for="option" class="ci">Tipo de empresa:</label>
 								<select class="" id="org" name="user_org">
 									<option value="" >Publica</option>
@@ -329,27 +337,25 @@
 								
 								</select>
 							</div>
+				
 					</div>
+				
 					<br>
-						<div  class="col-md-12  ci" class="ci row justify-center">
-
-						 <label class="ci">SEGUN TU EXPERIENCIA EN LAS ESTANCIAS,ESTADIAS Y/O EXPERIENCIA LABORALCONTESTA LAS SIGUIENTES PREGUNTAS: </label>			
+					 	<h5 class="h5">Segun tu experiencia en las estancias, estadias y/o experiencia laboral contesta las siguientes preguntas:</h5>			
 						</div>	
 					<br>
 						<div  class="col-md-12  ci" class="ci row justify-center">
 
 						 <label class="ci">¿Qué temas consideras que necesitan reforzarse durante el desarrollo de la carrera?</label>
 						 <br>
-						        <textarea name="user_tel" id="ans" rows="10" cols="40">Escribe aquí </textarea>
-									
+						        <textarea class="col-md-8" placeholder="Escribe aqui" name="user_tel" id="ans" rows="10" cols="40"></textarea>						
 						</div>
 					<br>
-
 						<div  class="col-md-12  ci" class="ci row justify-center">
 
 						 <label class="ci">¿Qué temas consideras que necesitas fortalecer con algún curso o diplomado?</label>
 						 <br>
-							 <textarea name="user_tel" id="ans" rows="10" cols="40">Escribe aquí </textarea>		
+							 <textarea class="col-md-8" placeholder="Escribe aqui" name="user_tel" id="ans" rows="10" cols="40"></textarea>		
 						</div>
 					<br>
 
@@ -357,7 +363,7 @@
 
 						 <label class="ci">¿Consideras importantes las certificaciones y a cuáles te gustaria aplicar?</label>
 						 <br>
-						      <textarea name="user_tel" id="ans" rows="10" cols="40">Escribe aquí </textarea>		
+						   	<textarea class="col-md-8 " placeholder="Escribe aqui" name="user_tel" id="ans" rows="10" cols="40"></textarea>		
 						</div>
 					<br>
 
@@ -365,13 +371,14 @@
 
 						 <label class="ci">Proporciona algún tema o tópico que consideres que debería incluirse durante la formación de los alumnos</label>
 						 <br>
-								<textarea name="user_tel" id="ans" rows="10" cols="40">Escribe aquí </textarea>		
+								<textarea class="col-md-8 " placeholder="Escribe aqui" name="user_tel" id="ans" rows="10" cols="40"></textarea>		
 						</div>	
-					<div class=" Tercedula justify-center">
-							<a href="dashboard.php" style="text-decoration: none" class="btn-eval text-center"><i class="fas fa-pen"></i>&nbsp;Terminar cédula</a>
-						</div>	
+					<div class="cedula justify-center ">
+						   <a class="btn-eval text-center " href="dashboard.php" style="text-decoration: none" ><i class="fas fa-pen"></i>&nbsp;Finalizar</a>
+						</div>
 			</div>
 			</div>
+			<br>
 	</div>
     </div>
 </body>
