@@ -1,3 +1,44 @@
+var id_seccion="";
+var id_pregunta = "";
+var imagenPregunta, imagenopcion1, imagenopcion2, imagenopcion3, imagenopcion4;
+function llenarModal(datos){
+    d = datos.split('||');
+    id_pregunta = d[0];
+    $('#seccion_db').val(d[1]);
+    $('#preguntaUpdate').val(d[2]);
+    $('#opcion1Update').val(d[4]);
+    $('#opcion2Update').val(d[6]);
+    $('#opcion3Update').val(d[8]);
+    $('#opcion4Update').val(d[10]);
+    $('#respuesta_db').val(d[12]);
+    id_seccion = d[13];
+    imagenPregunta = d[3]; 
+    imagenopcion1 = d[5];
+    imagenopcion2 = d[7];
+    imagenopcion3 = d[9];
+    imagenopcion4 = d[11];
+}
+function obtenerID(id){
+    id_pregunta = id;
+}
+function eliminar(){
+	$.ajax({
+            url: '../php/eliminarPregunta.php',
+            type: 'post',
+            data: {id: id_pregunta},
+            success:function(data){	
+                if(data == 1){
+                    $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'La pregunta se elimino satisfactoriamente!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            }
+        });
+}
 $(document).ready(function(){
 	$('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
 
@@ -28,7 +69,7 @@ $(document).ready(function(){
 		    respuesta == 0){
 			Swal.fire({
 				icon: 'warning',
-				title: 'Dejaste algun campo vacio!',
+				title: 'Dejaste dos campos vacios del mismo tipo!',
 				showConfirmButton: false,
 				timer: 2500
 			})
@@ -63,8 +104,7 @@ $(document).ready(function(){
 							timer: 1500
 						})
 	            }
-			});
-			
+			});	
 		}
 	});
 });

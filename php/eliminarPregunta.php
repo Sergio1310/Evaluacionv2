@@ -3,7 +3,7 @@
 
 	$id = $_REQUEST['id'];
 
-	$sql = "CALL elimpreg ($id);";
+	$sql = "DELETE FROM preguntas WHERE id_pregunta=".$id;
 	
 	echo $resultado = $mysqli->query($sql);
 

@@ -18,12 +18,13 @@
     <link rel="stylesheet" href="../plugins/animate.css/animate.css">  
 	<link rel="stylesheet" type="text/css" href="../css/alumn.css">
 	<link rel="stylesheet" type="text/css" href="../css/tools.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-	<script language="javascript" src="validar.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> -->
+	<script type="text/javascript" src="../popper/popper.min.js"></script>
+	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> -->
+	<!-- <script language="javascript" src="validar.js"></script> -->
     <script language="JavaScript">
-    	function mi_alerta () 
+    	function mi_alerta (id) 
     	{
 			Swal.fire({
   			title: '¿Estás seguro de iniciar la evaluación?',
@@ -35,7 +36,7 @@
   			cancelButtonText: 'Cancelar'
 			}).then((result) => {
   			if (result.value) {
-     		location.href ="Evaluacion.php";
+     		location.href ="Evaluacion.php?id="+id;
   			}
 			})
 		}
@@ -65,15 +66,35 @@
                                 </style>
                                 <?php 
                                 	require('../php/conexion.php');
-									$consulta = $mysqli->query("SELECT * FROM asignaturas");
+									$consulta = $mysqli->query("SELECT id_asignatura, asignatura, status FROM calificaciones WHERE id_usuario=".$_SESSION['matricula']);
 									while($resultado = mysqli_fetch_assoc($consulta)){
                                 ?>
-									<a style="text-decoration: none" class="card" onclick="mi_alerta()">
+                                			<?php
+												if($resultado['status'] == 1){
+											?>
+												
+											<?php 
+												}else{
+											?>
+												<a style="text-decoration: none" class="card" onclick="mi_alerta(<?php echo $resultado['id_asignatura']; ?>)">
+											<?php
+												}
+											?>
 										<div class="card-subject column">
 											<div class="subject-name align-center justify-center">
-												<h2 class="text-center"><?php echo $resultado['nombre']; ?></h2>
+												<h2 class="text-center"><?php echo $resultado['asignatura']; ?></h2>
 											</div>
-											<div class="color-line bg-blue"></div>
+											<?php
+												if($resultado['status'] == 1){
+											?>
+												<div class="color-line" style="background-color: green;"></div>
+											<?php 
+												}else{
+											?>
+												<div class="color-line bg-blue"></div>
+											<?php
+												}
+											?>
 										</div>
 									</a>
 								<?php 
@@ -85,10 +106,10 @@
 					<div class="buttons row">
 
 						<div class="cedula justify-center col-md-6 ">
-						   <a class="btn-eval text-center " href="cedula.php" style="text-decoration: none" ><i class="fas fa-pen"></i>&nbsp;Llenar cédula</a>
+						   <a class="btn-eval text-center " href="cedula.php" style="text-decoration: none" id="btnCedula"><i class="fas fa-pen"></i>&nbsp;Llenar cédula</a>
 						</div>
 						<div class="cedula justify-center col-md-6">
-							<a class="btn-eval text-center  "><i class="fas fa-file-pdf"></i>&nbsp;Generar reporte</a>
+							<a class="btn-eval text-center" id="btnReporte"><i class="fas fa-file-pdf"></i>&nbsp;Generar reporte</a>
 						</div>
 					</div>	
 				</div>
@@ -103,4 +124,5 @@
 <script src="../popper/popper.min.js"></script>	 	 	
 <script src="../bootstrap4/js/bootstrap.min.js"></script>
 <script src="../plugins/sweetAlert2/sweetalert2.all.min.js"></script>
+<script src="../js/general.js"></script>
 </html>

@@ -4,7 +4,6 @@
     if((!isset($_SESSION['matricula']) && !isset($_SESSION['tipo_user'])) || $_SESSION['tipo_user'] != 2){
         header("Location: ../index.php");
     }
-require("conexion.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,18 +22,17 @@ require("conexion.php");
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <script language="javascript" src="../js/validar.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-
+    <!-- <script language="javascript" src="../js/validar.js"></script> -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> -->
+	<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css"> -->
+	<link rel="stylesheet" type="text/css" href="../DataTables/datatables.css">
 </head>
-
 <body>
-		<nav class="navbar navbar-dark bg-dark justify-content-between">
- <a class="navbar-brand" style="color: white;"> <i class="fas fa-user-circle"> </i> <?php echo $_SESSION['matricula']; ?></a>
- <input type ='button' class="btn btn-outline-warning" value = 'Cerrar Sesión' onclick="window.location='../php/cerrarSesion.php';"/>
+<nav class="navbar navbar-dark bg-dark justify-content-between">
+	<a class="navbar-brand" style="color: white;"> <i class="fas fa-user-circle"> </i> <?php echo $_SESSION['matricula']; ?></a>
+	<input type ='button' class="btn btn-outline-warning" value = 'Cerrar Sesión' onclick="window.location='../php/cerrarSesion.php';"/>
 </nav>
-	
-	<div class="principal-content flex">
+	<div class="principal-content">
 		<div class="p-content column justify-center">
 			<div class="title justify-center">
 				<h1 class="h1 text-center ">MATEMÁTICAS</h1>
@@ -43,34 +41,37 @@ require("conexion.php");
 				<div class="black-containerQ column">	
 						<div class="math-question align-center justify-center">
 							<div class="math-card column align-center">
-								<div class="math-questionname column">
-									<div>
-										
-									</div>
-									<br>
-									<div class="container">
-
-										<div id="preguntas" ></div>
-										
-									</div>
-									<div class="justify-end">
-
-										<style type="text/css"> 
-                                    a {color:black;} 
-                                    
-                                </style>
-										<a  href="dashboard.php" style="text-decoration: none" class="btn-question text-center
-
-										" onclick="validar_form('formulario_validar')">Finalizar</a>
-									</div>
-
-								</div>	
-							<div class="col-md-12 text-center">
-											<ul class="pagination" id="paginador"></ul>
-										</div>
+								<table id="table_id" class="display">
+								    <thead>
+								        <tr>
+								            <th></th>
+								            <th></th>
+								            <th></th>
+								            <th></th>
+								            <th></th>
+								        </tr>
+								    </thead>
+								    <tbody>
+								    	<?php
+								    		$id = $_GET['id']; 
+								    		require('../php/conexion.php');
+											$consulta = $mysqli->query("SELECT * FROM preguntas WHERE asignatura_idasignatura=".$id);
+											while ($resultado = mysqli_fetch_assoc($consulta)) {
+								    	?>
+								        <tr>
+								            <td><?php echo $resultado['pregunta'] ?></td>
+								            <td><input type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="1" onclick="capturar(this);"><?php echo $resultado['opcion1'] ?></td>
+								            <td><input type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="2" onclick="capturar(this);"><?php echo $resultado['opcion2'] ?></td>
+								            <td><input type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="3" onclick="capturar(this);"><?php echo $resultado['opcion3'] ?></td>
+								            <td><input type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="4" onclick="capturar(this);"><?php echo $resultado['opcion4'] ?></td>
+								        </tr>
+								        <?php } $mysqli->close();?>
+								    </tbody>
+								</table>
+								<button type="button" id="btnFinalizar" onclick="redireccion(<?php echo $id ?>);">Finalizar</button>
 							</div>
-
 						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -83,5 +84,6 @@ require("conexion.php");
 <script src="../js/jquery-2.min.js"></script>	
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/paginator.min.js"></script>
+<script type="text/javascript" src="../DataTables/datatables.js"></script>
 <script src="../js/main.js"></script>
 </html>

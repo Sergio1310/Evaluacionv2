@@ -1,16 +1,29 @@
 <?php
+	session_start();
 	require 'conexion.php';
 
-	$id = $_REQUEST['id'];
+	$array_id = explode(",", $_GET['IDARRAY']);
+	$array_op = explode(",", $_GET['OPARRAY']);
+	$id_asignatura = $_GET['ASIGNATURA'];
 
-	$sql = "SELECT A.nombre, P.pregunta, P.opcion1, P.opcion2, P.opcion3, P.opcion4, P.respuesta, P.asignatura_idasignatura, P.id_pregunta FROM preguntas as P INNER JOIN asignaturas as A ON P.asignatura_idasignatura = A.id_asignatura WHERE id_pregunta = '$id'";
-	$resultado = $mysqli->query($sql);
+	$calificacion = 0;
+	$nombre_A = "";
 
+	$consulta = $mysqli->query("SELECT * FROM preguntas WHERE asignatura_idasignatura=".$id_asignatura);
+	while ($resultado = mysqli_fetch_assoc($consulta)) {
+		for($i = 0; $i < 9; $i++){
+			if($array_id[$i] == $resultado['id_pregunta'] && $array_op[$i] == $resultado['respuesta']){
+				$calificacion = $calificacion + 1;
+			}
+		}
+	}
 
-	$row = mysqli_fetch_assoc($resultado);
+	echo $promedio = ($calificacion * 100)/9;
 
-	echo $cadena = $row['nombre'].",".$row['pregunta'].",".$row['opcion1'].",".$row['opcion2'].",".$row['opcion3'].",".$row['opcion4'].",".$row['respuesta'];
+	echo $sql = "UPDATE calificaciones SET calificacion=".$promedio.", status=1 WHERE id_asignatura=".$id_asignatura." AND id_usuario=".$_SESSION['matricula'];
 
+	echo $insertar = $mysqli->query($sql);
+
+	header("Location: ../Alumno/dashboard.php");
 	$mysqli->close();
-
 ?>

@@ -21,7 +21,7 @@ $(document).ready(function(){
 				})
 				$('#input_matricula').val() = "";
 			}else{
-				var route = "../php/crearMatricula.php";
+				var route = "../php/buscarMatricula.php";
 		
 				$.ajax({
 					url: route,
@@ -29,22 +29,30 @@ $(document).ready(function(){
 					data: {matricula: matricula},
 					success:function(data){
 					 	if(data == 1){
-					 		$('#tabla_matriculas').load('../Administrador/Ajax/tabla_matriculas.php');
-					 		Swal.fire({
-								icon: 'success',
-								title: 'La matricula se guardo satisfactoriamente!',
-								showConfirmButton: false,
-								timer: 1500
-							})
-							$('#input_matricula').val() = "";
-					 	}else{
 					 		Swal.fire({
 								icon: 'warning',
 								title: 'La matricula ya existe!',
 								showConfirmButton: false,
-								timer: 1500
+								timer: 2000
 							})
-							$('#input_matricula').val() = "";
+							$('#input_matricula').val("");
+					 	}else{
+					 		var route = "../php/crearMatricula.php";
+							$.ajax({
+								url: route,
+								type: 'post',
+								data: {matricula: matricula},
+								success:function(data){
+								 	$('#tabla_matriculas').load('../Administrador/Ajax/tabla_matriculas.php');
+								 		Swal.fire({
+											icon: 'success',
+											title: 'La matricula se guardo satisfactoriamente!',
+											showConfirmButton: false,
+											timer: 1500
+										})
+									$('#input_matricula').val("");
+								}
+							});
 					 	}
 					}
 				});

@@ -22,6 +22,20 @@
 			require('../../php/conexion.php');
 			$consulta = $mysqli->query("SELECT * FROM preguntas as P INNER JOIN asignaturas as A ON P.asignatura_idasignatura = A.id_asignatura");
             while($resultado = mysqli_fetch_assoc($consulta)){
+                $datos=$resultado['id_pregunta']."||".
+                           $resultado['nombre']."||".
+                           $resultado['pregunta']."||".
+                           $resultado['imagenPregunta']."||".
+                           $resultado['opcion1']."||".
+                           $resultado['imagenOpcion1']."||".
+                           $resultado['opcion2']."||".
+                           $resultado['imagenOpcion2']."||".
+                           $resultado['opcion3']."||".
+                           $resultado['imagenOpcion3']."||".
+                           $resultado['opcion4']."||".
+                           $resultado['imagenOpcion4']."||".
+                           $resultado['respuesta']."||".
+                           $resultado['id_asignatura'];
         ?>
             <!-- codigo -->
                 <tr>    
@@ -154,8 +168,8 @@
                     ?>
                     <td><?php echo $resultado['respuesta']; ?></td>
                     <td>
-                        <a href="#EditarPregunta" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
-                        <a href="#EliminarPregunta" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>
+                        <a href="#EditarPregunta" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar" onclick="llenarModal('<?php echo $datos ?>');">&#xE254;</i></a>
+                        <a href="#EliminarPregunta" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar" onclick="obtenerID('<?php echo $resultado['id_pregunta'] ?>');">&#xE872;</i></a>
                     </td>
                 </tr>
         <?php
@@ -264,9 +278,50 @@
                     </div>
                     <div class="modal-footer">
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
-                        <input type="submit" class="btn btn-danger" id="btneliminar2" data-dismiss="modal" value="Eliminar">
+                        <input type="submit" class="btn btn-danger" id="btneliminar2" data-dismiss="modal" value="Eliminar" onclick="eliminar();">
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
+<script type="text/javascript">
+    // function llenarModal(datos){
+    //     d = datos.split('||');
+    //     $('#seccion_db').val(d[1]);
+    //     $('#preguntaUpdate').val(d[2]);
+    //     $('#opcion1Update').val(d[4]);
+    //     $('#opcion2Update').val(d[6]);
+    //     $('#opcion3Update').val(d[8]);
+    //     $('#opcion4Update').val(d[10]);
+    //     $('#respuesta_db').val(d[12]);
+    // }
+    // var id_pregunta = "";
+    // function obtenerID(id){
+    //     id_pregunta = id;
+    // }
+// $(document).ready(function(){
+//     $('#btneliminar2').click(function(){
+//         $.ajax({
+//             url: '../php/eliminarPregunta.php',
+//             type: 'post',
+//             data: {id: id_pregunta},
+//             success:function(data){
+//                 if(data == 1){
+//                     $('#tabla_preguntas').load('../Ajax/tabla_preguntas.php');
+//                     Swal.fire({
+//                         icon: 'success',
+//                         title: 'La pregunta se elimino satisfactoriamente!',
+//                         showConfirmButton: false,
+//                         timer: 1500
+//                     })
+//                 }
+//             }
+//         });
+//     });
+
+//     $('#btnEditarModal').click(function(){
+
+//     });
+// });
+</script>

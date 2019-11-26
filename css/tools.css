@@ -5,7 +5,7 @@
 
 html {
     font-size: 100%;
-    background-color: #F7F7F7;
+    /*background-color: #F7F7F7;*/
 }
 
 *, *:before, *:after {
@@ -96,7 +96,11 @@ body {
 
 .bg-blue {
 	/*background-color: #b67c86;*/
-    background-color:#6c757d;
+    background-color: #6c757d;
+}
+.bg-green {
+    /*background-color: #b67c86;*/
+    background-color: green;
 }
 
 div {
