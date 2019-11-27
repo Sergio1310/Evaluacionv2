@@ -25,7 +25,7 @@
         while($resultado = mysqli_fetch_assoc($consulta)){
     ?> 
         <tr bgcolor="white">
-            <td style="color: black; text-align:center;"><?php echo $resultado['asignatura']; ?></td>
+            <td style="color: black;"><?php echo $resultado['asignatura']; ?></td>
             <td style="color:black; text-align: center;"><?php echo $resultado['calificacion']; ?></td>
         </tr>
     <?php
