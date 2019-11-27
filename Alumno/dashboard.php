@@ -103,10 +103,10 @@
 					<div class="buttons row">
 
 						<div class="cedula justify-center col-md-6 ">
-						   <a class="btn-eval text-center " href="cedula.php" style="text-decoration: none" id="btnCedula"><i class="fas fa-pen"></i>&nbsp;Llenar cédula</a>
+						   <a class="btn-eval text-center" style="text-decoration: none" id="btnCedula" onclick="cedula(<?php echo $_SESSION['matricula']; ?>);"><i class="fas fa-pen"></i>&nbsp;Llenar cédula</a>
 						</div>
 						<div class="cedula justify-center col-md-6">
-							<a class="btn-eval text-center" id="btnReporte"><i class="fas fa-file-pdf"></i>&nbsp;Generar reporte</a>
+							<a class="btn-eval text-center" id="btnReporte" onclick="reporte(<?php echo $_SESSION['matricula']; ?>);"><i class="fas fa-file-pdf"></i>&nbsp;Generar reporte</a>
 						</div>
 					</div>	
 				</div>
