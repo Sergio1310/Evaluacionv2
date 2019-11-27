@@ -13,16 +13,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../bootstrap4/css/bootstrap.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="../plugins/sweetAlert2/sweetalert2.min.css">    
-    <link rel="stylesheet" href="../plugins/animate.css/animate.css">   -->
+    <link rel="stylesheet" type="text/css" href="../fontawesome-free-5.11.2-web/css/all.css">
+    <script type="text/javascript" src="../fontawesome-free-5.11.2-web/js/all.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/alumn.css">
 	<link rel="stylesheet" type="text/css" href="../css/tools.css">
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> -->
 	<script type="text/javascript" src="../popper/popper.min.js"></script>
-	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
-	<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> -->
-	<!-- <script language="javascript" src="validar.js"></script> -->
     <script type="text/javascript" src="../sweetalert2-9.4.0/package/src/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../sweetalert2-9.4.0/package/src/sweetalert2.min.css">
     <script language="JavaScript">

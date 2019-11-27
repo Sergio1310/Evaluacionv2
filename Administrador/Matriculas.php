@@ -11,20 +11,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Usuarios</title>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
-  <!-- <script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script> -->
+  <link rel="stylesheet" type="text/css" href="../fontawesome-free-5.11.2-web/css/all.css">
+  <script type="text/javascript" src="../fontawesome-free-5.11.2-web/js/all.js"></script>
   <script src="../jquery/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="../sweetalert2-9.4.0/package/src/sweetalert2.all.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../sweetalert2-9.4.0/package/src/sweetalert2.min.css"> 
-  <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> -->
-  <!-- Bootstrap CSS -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-    <link rel="stylesheet" type="text/css" href="../bootstrap4/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/AdminMatriculas.css">
-    <script src="../js/adminMatriculas.js"></script>
+  <link rel="stylesheet" type="text/css" href="../sweetalert2-9.4.0/package/src/sweetalert2.min.css"> 
+  <link rel="stylesheet" type="text/css" href="../bootstrap4/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/AdminMatriculas.css">
+  <script src="../js/adminMatriculas.js"></script>
 </head>
 <body>
   <nav class="navbar navbar-dark bg-dark justify-content-between">
