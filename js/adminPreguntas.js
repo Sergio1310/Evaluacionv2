@@ -41,6 +41,7 @@ function eliminar(){
 }
 $(document).ready(function(){
 	$('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
+	
 
 	$('#botonCrear').on('click', function(){
 

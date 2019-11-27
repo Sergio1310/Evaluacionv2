@@ -1,4 +1,4 @@
-<table class="table table-striped table-hover col-m-6">
+<table class="cell-border" id="preguntas" style="">
     <thead>
         <tr>
             <th>ID</th>
@@ -13,7 +13,7 @@
             <th>Imagen</th>
             <th>Opc 4</th>
             <th>Imagen</th>
-            <th>Respuesta</th>
+            <th>Resp</th>
             <th></th>
         </tr>
     </thead>
@@ -286,42 +286,30 @@
     </div>
 
 <script type="text/javascript">
-    // function llenarModal(datos){
-    //     d = datos.split('||');
-    //     $('#seccion_db').val(d[1]);
-    //     $('#preguntaUpdate').val(d[2]);
-    //     $('#opcion1Update').val(d[4]);
-    //     $('#opcion2Update').val(d[6]);
-    //     $('#opcion3Update').val(d[8]);
-    //     $('#opcion4Update').val(d[10]);
-    //     $('#respuesta_db').val(d[12]);
-    // }
-    // var id_pregunta = "";
-    // function obtenerID(id){
-    //     id_pregunta = id;
-    // }
-// $(document).ready(function(){
-//     $('#btneliminar2').click(function(){
-//         $.ajax({
-//             url: '../php/eliminarPregunta.php',
-//             type: 'post',
-//             data: {id: id_pregunta},
-//             success:function(data){
-//                 if(data == 1){
-//                     $('#tabla_preguntas').load('../Ajax/tabla_preguntas.php');
-//                     Swal.fire({
-//                         icon: 'success',
-//                         title: 'La pregunta se elimino satisfactoriamente!',
-//                         showConfirmButton: false,
-//                         timer: 1500
-//                     })
-//                 }
-//             }
-//         });
-//     });
-
-//     $('#btnEditarModal').click(function(){
-
-//     });
-// });
+    $('#preguntas').DataTable({
+        language: {
+            "decimal": "",
+            "emptyTable": "No hay información",
+            "info": "Mostrando _START_ de _TOTAL_ Preguntas",
+            "infoEmpty": "Mostrando 0 to 0 of 0 Preguntas",
+            "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar _MENU_ Entradas",
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "search": "Buscar:",
+            "zeroRecords": "Sin resultados encontrados",
+            "paginate": {
+                "first": "Primero",
+                "last": "Ultimo",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            }
+        },
+        "lengthMenu": [5],
+        // "paging": false
+        "order": false,
+        "ordering": false
+    });
 </script>

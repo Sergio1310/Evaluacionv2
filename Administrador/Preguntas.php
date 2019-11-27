@@ -14,6 +14,8 @@
 	<title>Preguntas</title>
 	<link rel="stylesheet" href="../bootstrap4/css/bootstrap.css">
 	<script src="../jquery/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="../DataTables/datatables.js"></script>
+	<link rel="stylesheet" type="text/css" href="../DataTables/datatables.css">
 	<link rel="stylesheet" type="text/css" href="../fontawesome-free-5.11.2-web/css/all.css">
     <script type="text/javascript" src="../fontawesome-free-5.11.2-web/js/all.js"></script>
 	<script type="text/javascript" src="../sweetalert2-9.4.0/package/src/sweetalert2.all.min.js"></script>
@@ -46,7 +48,7 @@
                 </div>
             </div>
             <div id="tabla_preguntas"></div>
-			<div class="clearfix"></div>
+			<!-- <div class="clearfix"></div> -->
         </div>
     </div>
 	<div id="AgregarPregunta" class="modal fade">
