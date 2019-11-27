@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
     <script src="../popper/popper.min.js"></script>
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
-    <script src="../plugins/sweetAlert2/sweetalert2.min.css"></script>
+    <!-- <script src="../plugins/sweetAlert2/sweetalert2.min.css"></script> -->
     <!-- <script language="javascript" src="validar.js"></script> -->
 	<link rel="stylesheet" type="text/css" href="../css/menuAdmin.css">
 </head>

@@ -17,8 +17,8 @@
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script> -->
   <script src="../jquery/jquery-3.3.1.min.js"></script>
-  <link rel="stylesheet" href="../plugins/sweetAlert2/sweetalert2.min.css">
-  <link rel="stylesheet" href="../plugins/animate.css/animate.css"> 
+  <script type="text/javascript" src="../sweetalert2-9.4.0/package/src/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../sweetalert2-9.4.0/package/src/sweetalert2.min.css"> 
   <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> -->
   <!-- Bootstrap CSS -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->

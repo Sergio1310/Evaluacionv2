@@ -15,10 +15,10 @@
 	<link rel="stylesheet" href="../bootstrap4/css/bootstrap.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
 	<script src="../jquery/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="../sweetalert2-9.4.0/package/src/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../sweetalert2-9.4.0/package/src/sweetalert2.min.css">
 	<script src="../popper/popper.min.js"></script>
-	<script type="text/javascript" src="../bootstrap4/js/bootstrap.js"></script>
-	<link rel="stylesheet" href="../plugins/sweetAlert2/sweetalert2.min.css">
-	<link rel="stylesheet" href="../plugins/animate.css/animate.css"> 
+	<script type="text/javascript" src="../bootstrap4/js/bootstrap.js"></script> 
 	<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">

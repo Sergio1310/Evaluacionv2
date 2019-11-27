@@ -11,7 +11,7 @@ $(document).on('submit','#formLogin', function(event){
 		}
 	})
 	.done(function(respuesta){
-		console.log(respuesta);
+		// console.log(respuesta);
 		if(!respuesta.error){
 			if(respuesta.tipo == 1){
 				location.href = 'Administrador/Menu.php';
@@ -32,9 +32,9 @@ $(document).on('submit','#formLogin', function(event){
 		}
 	})
 	.fail(function(resp){
-		console.log(resp.responseText);
+		// console.log(resp.responseText);
 	})
 	.always(function(){
-		console.log("complete");
+		// console.log("complete");
 	});
 });

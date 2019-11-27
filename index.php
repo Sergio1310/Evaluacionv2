@@ -20,9 +20,12 @@
     <title>Login</title>  
     <script
     src="jquery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="sweetalert2-9.4.0/package/src/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="sweetalert2-9.4.0/package/src/sweetalert2.min.css">
+    <!-- <script type="text/javascript" src="plugins/sweetAlert2/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="plugins/sweetAlert2/sweetalert2.min.css">
-    <link rel="stylesheet" href="plugins/animate.css/animate.css"> 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <link rel="stylesheet" href="plugins/animate.css/animate.css">  -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> -->
     <link rel="stylesheet" type="text/css" href="css/login.css">
     <script src="js/login.js"></script>
     </head>
