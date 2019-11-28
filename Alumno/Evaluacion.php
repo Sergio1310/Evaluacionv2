@@ -70,21 +70,27 @@
 											while ($resultado = mysqli_fetch_assoc($consulta2)) {
 								    	?>
 								        <tr style="height: 400px;">
-								        	<div class="container">
-								        		<div class="row">
-								        			<div class="col">
-								        				<td><?php echo $resultado['pregunta'] ?></td>
-								        			</div>	
-								        		</div>
-								        		<div class="row">
-								        			<div class="col"><td><input type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="1" onclick="capturar(this);"><?php echo $resultado['opcion1'] ?></td></div>
-								        			<div class="col"><td><input type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="2" onclick="capturar(this);"><?php echo $resultado['opcion2'] ?></td>	</div>
-								        		</div>
-								        		<div class="row">
-								        			<div class="col"><td><input type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="3" onclick="capturar(this);"><?php echo $resultado['opcion3'] ?></td></div>
-								        			<div class="col"><td><input type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="4" onclick="capturar(this);"><?php echo $resultado['opcion4'] ?></td></div>	
-								        		</div>
-								        	</div>
+								        	<td>
+								        		<?php
+								        			echo $resultado['pregunta']; 
+								        		?>
+								        	</td>
+											<td>
+								        		<input type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="1" onclick="capturar(this);"><?php echo $resultado['opcion1']; ?>
+								        		<img src="../imagenes/<?php echo $resultado['id_pregunta']; ?>/<?php echo $resultado['imagenOpcion1']; ?>" alt="" style="width: 150px;">
+								        	</td>
+											<td>
+								        		<input type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="2" onclick="capturar(this);"><?php echo $resultado['opcion2']; ?>
+								        		<img src="../imagenes/<?php echo $resultado['id_pregunta']; ?>/<?php echo $resultado['imagenOpcion2']; ?>" alt="" style="width: 150px;">
+								        	</td>
+											<td>
+								        		<input type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="3" onclick="capturar(this);"><?php echo $resultado['opcion3']; ?>
+								        		<img src="../imagenes/<?php echo $resultado['id_pregunta']; ?>/<?php echo $resultado['imagenOpcion3']; ?>" alt="" style="width: 150px;">
+								        	</td>
+											<td>
+								        		<input type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="4" onclick="capturar(this);"><?php echo $resultado['opcion4']; ?>
+								        		<img src="../imagenes/<?php echo $resultado['id_pregunta']; ?>/<?php echo $resultado['imagenOpcion4']; ?>" alt="" style="width: 150px;">
+								        	</td>
 								        </tr>
 								        <?php } $mysqli->close();?>
 								    </tbody>

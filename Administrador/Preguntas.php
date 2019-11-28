@@ -30,10 +30,10 @@
     
 </head>
 <body>
-	<nav class="navbar navbar-dark bg-dark justify-content-between">
- <a class="navbar-brand" style="color: white;"> <i class="fas fa-user-circle"> </i> <?php echo $_SESSION['matricula']; ?></a>
- <a class="navbar-brand" style="color: white;" href="Menu.php">Menú</a>
- <input type ='button' class="btn btn-outline-warning" value = 'Cerrar Sesión' onclick="window.location='../php/cerrarSesion.php';"/>
+<nav class="navbar navbar-dark bg-dark justify-content-between" style="">
+ 	<a class="navbar-brand" style="color: white;"> <i class="fas fa-user-circle"> </i> <?php echo $_SESSION['matricula']; ?></a>
+ 	<a class="navbar-brand" style="color: white;" href="Menu.php">Menú</a>
+ 	<input type ='button' class="btn btn-outline-warning" value = 'Cerrar Sesión' onclick="window.location='../php/cerrarSesion.php';"/>
 </nav>
 	<div style="padding: 5% 5% 5%">
         <div class="table-wrapper">
