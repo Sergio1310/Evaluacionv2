@@ -21,7 +21,12 @@ if(isset($_POST['editardatos'])){
 	$mysqli->set_charset('utf8');
 	$stmt = $mysqli->prepare("UPDATE preguntas SET pregunta=?, opcion1=?,  opcion2=?,  opcion3=?,  opcion4=?,  respuesta=?, asignatura_idasignatura=? WHERE id_pregunta = ?");	
 	$stmt->bind_param("ssssssii", $pregunta, $opc1, $opc2, $opc3, $opc4, $respuesta, $asignatura, $id);
-	echo $stmt->execute();
+	
+	if ($stmt->execute()) {
+		echo '<script language="javascript">alert("Pregunta Actualizada Correctamente");window.location.href="Preguntas.php"</script>';
+	}else{
+		echo '<script language="javascript">alert("Ocurrio un error al actualizar");window.location.href="Preguntas.php"</script>';
+	}
 	//$sql = "SELECT id_pregunta FROM preguntas ORDER BY id_pregunta DESC LIMIT 1";
 	//$resultado = $mysqli->query($sql);
 	//$row = mysqli_fetch_assoc($resultado);
