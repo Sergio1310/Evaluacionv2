@@ -2,6 +2,7 @@
  require('../php/conexion.php');
  
 if(isset($_POST['editardatos'])){
+	//$id = $_POST['id_pregunta'];
 	$asignatura = $_POST['sel_asignatura_nueva'];
 	$pregunta = $_POST['pregunta'];
 	//$imgpregunta = $_POST['imagenPregunta'];
@@ -14,19 +15,19 @@ if(isset($_POST['editardatos'])){
 	$opc4 = $_POST['opcion4'];
 	//$imgopc4 = $_POST['imagenOpcion4'];
 	$respuesta = $_POST['respuesta_nueva'];
-	//$id = $_POST['id_pregunta'];
+	$id = $_POST['id_pregunta'];
  	
 
 	$mysqli->set_charset('utf8');
-	$stmt = $mysqli->prepare("UPDATE preguntas SET pregunta=".$pregunta.", opcion1=".$opc1.",  opcion2=".$opc2.",  opcion3=".$opc3.",  opcion4=".$opc4.",  respuesta=".$respuesta.", asignatura_idasignatura=".$asignatura."");	
-	$stmt->bind_param("sssssssssssi", $pregunta, $opc1, $opc2, $opc3, $opc4, $respuesta, $asignatura);
+	$stmt = $mysqli->prepare("UPDATE preguntas SET pregunta=?, opcion1=?,  opcion2=?,  opcion3=?,  opcion4=?,  respuesta=?, asignatura_idasignatura=? WHERE id_pregunta = ?");	
+	$stmt->bind_param("ssssssii", $pregunta, $opc1, $opc2, $opc3, $opc4, $respuesta, $asignatura, $id);
 	echo $stmt->execute();
-	$sql = "SELECT id_pregunta FROM preguntas ORDER BY id_pregunta DESC LIMIT 1";
-	$resultado = $mysqli->query($sql);
-	$row = mysqli_fetch_assoc($resultado);
+	//$sql = "SELECT id_pregunta FROM preguntas ORDER BY id_pregunta DESC LIMIT 1";
+	//$resultado = $mysqli->query($sql);
+	//$row = mysqli_fetch_assoc($resultado);
 	
 	$stmt->close();
-	$mysqli->close();
+	//$mysqli->close();
 }
 ?>
 	

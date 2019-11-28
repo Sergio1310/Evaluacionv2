@@ -3,7 +3,7 @@ var id_pregunta = "";
 var imagenPregunta, imagenopcion1, imagenopcion2, imagenopcion3, imagenopcion4;
 function llenarModal(datos){
     d = datos.split('||');
-    id_pregunta = d[0];
+   // id_pregunta = d[0];
     $('#seccion_db').val(d[1]);
     $('#preguntaUpdate').val(d[2]);
     $('#opcion1Update').val(d[4]);
@@ -11,6 +11,7 @@ function llenarModal(datos){
     $('#opcion3Update').val(d[8]);
     $('#opcion4Update').val(d[10]);
     $('#respuesta_db').val(d[12]);
+    $('#id_pregunta').val(d[0]);
     id_seccion = d[13];
     imagenPregunta = d[3]; 
     imagenopcion1 = d[5];

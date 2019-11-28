@@ -168,9 +168,9 @@
                     ?>
                     <td><?php echo $resultado['respuesta']; ?></td>
                     <td>
-                        <button type="button" class="btn btn-success editbtn">Editar</button>
-                        <!--<a href="#EditarPregunta" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
-                        <a href="#EliminarPregunta" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar" onclick="obtenerID('<?php echo $resultado['id_pregunta'] ?>');">&#xE872;</i></a>-->
+                       <!-- <button type="button" class="btn btn-success editbtn">Editar</button> -->
+                        <a href="#EditarPregunta" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Editar" onclick="llenarModal('<?php echo $datos ?>');">&#xE254;</i></a>
+                        <a href="#EliminarPregunta" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar" onclick="obtenerID('<?php echo $resultado['id_pregunta'] ?>');">&#xE872;</i></a>
                     </td>
                 </tr>
         <?php
@@ -181,7 +181,7 @@
 </table>
 
 <!-- Edit Modal HTML -->
-    <div id="editmodal" class="modal fade">
+    <div id="EditarPregunta" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                     <div class="modal-header">                      
@@ -190,10 +190,11 @@
                     </div>
                     <div class="modal-body">
                         <form action="editar.php" method="POST">
-                            <input type="hidden" name="editar_id" id="editar_id">
+
                         <div class="form-group">
                             <label style="color: black;">Sección</label>
-                            <input type="text" class="form-control" name="nombre" id="nombre" value="" disabled>
+                            <input type="hidden" name="id_pregunta"  id="id_pregunta">
+                            <input type="text" class="form-control" name="nombre" id="seccion_db" value="" disabled>
                         </div>                    
                         <label for="sel1" style="color: black;">Sección Nueva</label>
                             <select class="form-control" name="sel_asignatura_nueva" id="sel_asignatura_nueva">
@@ -211,37 +212,37 @@
                             </select>
                         <div class="form-group">
                             <label style="color: black;">Pregunta</label>
-                            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="pregunta" id="pregunta" placeholder="Escribe la pregunta" value="">
+                            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="pregunta" id="preguntaUpdate" placeholder="Escribe la pregunta" value="">
                             <p style="color: black;">-Y/O-</p>
                             <input type="file" name="EditarImagen" name="imagenPregunta" id="imagenPregunta" placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenPregunta')">
                         </div>
                         <div class="form-group">
                             <label style="color: black;">Opción 1</label>
-                            <input type="text" class="form-control" name="opcion1" id="opcion1"  placeholder="Escribe la opción 1" value="" >
+                            <input type="text" class="form-control" name="opcion1" id="opcion1Update"  placeholder="Escribe la opción 1" value="" >
                             <p style="color: black;">-Y/O-</p>
                             <input type="file" name="EditarImagen" name="imagenOpcion1" id="imagenOpcion1" placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenOpcion1')" >
                         </div>
                         <div class="form-group">
                             <label style="color: black;">Opción 2</label>
-                            <input type="text" class="form-control" name="opcion2" id="opcion2" placeholder="Escribe la opción 2" value="" >
+                            <input type="text" class="form-control" name="opcion2" id="opcion2Update" placeholder="Escribe la opción 2" value="" >
                             <p style="color: black;">-Y/O-</p>
-                            <input type="file" name="EditarImagen" name="imagenOpcion2" id="imagenOpcion2"placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenOpcion2')">
+                            <input type="file" name="EditarImagen" name="imagenOpcion2" id=""placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenOpcion2')">
                         </div>
                         <div class="form-group">
                             <label style="color: black;">Opción 3</label>
-                            <input type="text" class="form-control" name="opcion3" id="opcion3" placeholder="Escribe la opción 3" value="" >
+                            <input type="text" class="form-control" name="opcion3" id="opcion3Update" placeholder="Escribe la opción 3" value="" >
                             <p style="color: black;">-Y/O-</p>
                             <input type="file" name="EditarImagen" name="ImagenOpcion3" id="imagenOpcion3"placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenOpcion3')">
                         </div>
                         <div class="form-group">
                             <label style="color: black;">Opción 4</label>
-                            <input type="text" class="form-control" name="opcion4" id="opcion4" placeholder="Escribe la opción 4" value="" >
+                            <input type="text" class="form-control" name="opcion4" id="opcion4Update" placeholder="Escribe la opción 4" value="" >
                             <p style="color: black;">-Y/O-</p>
                             <input type="file" name="EditarImagen" id="imagenOpcion4" placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenOpcion4')">
                         </div>
                         <div class="form-group">
                             <label style="color: black;">Respuesta</label>
-                            <input type="text" class="form-control" name="respuesta" id="respuesta" value="" disabled>
+                            <input type="text" class="form-control" name="respuesta" id="respuesta_db" value="" disabled>
                         </div>
                         <div class="form-group">
                             <label style="color: black;">Nueva Respuesta</label>
@@ -255,6 +256,7 @@
                         </div>
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
                         <input type="submit" class="btn btn-info"  name="editardatos" value="Guardar">
+
                         </form>              
                     </div>
                     <div class="modal-footer">
