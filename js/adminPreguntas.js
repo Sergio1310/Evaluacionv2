@@ -3,7 +3,7 @@ var id_pregunta = "";
 var imagenPregunta, imagenopcion1, imagenopcion2, imagenopcion3, imagenopcion4;
 function llenarModal(datos){
     d = datos.split('||');
-   // id_pregunta = d[0];
+    id_pregunta = d[0];
     $('#seccion_db').val(d[1]);
     $('#preguntaUpdate').val(d[2]);
     $('#opcion1Update').val(d[4]);
@@ -12,6 +12,17 @@ function llenarModal(datos){
     $('#opcion4Update').val(d[10]);
     $('#respuesta_db').val(d[12]);
     $('#id_pregunta').val(d[0]);
+    $('#id_asignatura').val(d[13]);
+    $('#imgModalEditPregunta').attr("src", "../imagenes/"+id_pregunta+"/"+d[3]+"");
+    $('#imgModalEditOpcion1').attr("src", "../imagenes/"+id_pregunta+"/"+d[5]+"");
+    $('#imgModalEditOpcion2').attr("src", "../imagenes/"+id_pregunta+"/"+d[7]+"");
+    $('#imgModalEditOpcion3').attr("src", "../imagenes/"+id_pregunta+"/"+d[9]+"");
+    $('#imgModalEditOpcion4').attr("src", "../imagenes/"+id_pregunta+"/"+d[11]+"");
+    $('#EditImagenPregunta').val(d[3]);
+    $('#EditImagenOpcion1').val(d[5]);
+    $('#EditImagenOpcion2').val(d[7]);
+    $('#EditImagenOpcion3').val(d[9]);
+    $('#EditImagenOpcion4').val(d[11]);
     id_seccion = d[13];
     imagenPregunta = d[3]; 
     imagenopcion1 = d[5];
@@ -40,6 +51,7 @@ function eliminar(){
             }
         });
 }
+
 $(document).ready(function(){
 	$('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
 	
@@ -61,7 +73,7 @@ $(document).ready(function(){
 		var opcion2Imagen = $('#CrearImagenOpcion2')[0].files[0];
 		var opcion3Imagen = $('#CrearImagenOpcion3')[0].files[0];
 		var opcion4Imagen = $('#CrearImagenOpcion4')[0].files[0];
-
+		
 		if((preguntaImagen == null && pregunta == "") || 
 		   (opcion1Imagen == null && opcion1 == "") || 
 		   (opcion2Imagen == null && opcion2 == "") || 
@@ -76,6 +88,7 @@ $(document).ready(function(){
 				timer: 2500
 			})
 		}else{
+
 			formData.append('preguntaImagen', preguntaImagen);
 			formData.append('opcion1Imagen', opcion1Imagen);
 			formData.append('opcion2Imagen', opcion2Imagen);
@@ -108,6 +121,7 @@ $(document).ready(function(){
 	            }
 			});	
 		}
+	
 	});
 });
 function fileValidation(id){
