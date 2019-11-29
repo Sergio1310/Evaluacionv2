@@ -16,6 +16,8 @@ a:hover{
     text-decoration: none;
 }
 table,tbody, tr, td{
+    color: white;
+    font-size: 16px;
 	border: solid 2px white;
 	border-collapse:collapse;
     
