@@ -7,7 +7,7 @@ body{
 }
 
 .principal-content {
-	height: 100vh;
+	height: 100%;
 	font-family: Verdana,sans-serif;
 }
 
@@ -46,10 +46,16 @@ body{
 }
 
 .black-containerQ {
-	background-color: rgba(0, 0, 0, 0.4);
-	width: 75%;
+
+	background-color: rgba(0, 0, 0, 0.8);
 	border-radius: 6px;
-	padding: 50px 0 60px 0;
+	width: 95%;
+	margin: 2.5%;
+	padding-top: 25%
+
+	
+	padding: 0px 0 40px 0;
+	align-content: center;
 }
 
 .black-containerCedu {
@@ -154,7 +160,15 @@ body{
 
 .btn-eval {
 	width: 40%;
-	padding: 10px;
+	padding: 10px ; 
+	color: white;
+	background-color:#4185b1;
+	border-radius: 4px;
+	cursor: pointer;
+}
+.btn-eval2 {
+	width: 40%;
+	padding: 15px 60px;
 	color: white;
 	background-color:#4185b1;
 	border-radius: 4px;
