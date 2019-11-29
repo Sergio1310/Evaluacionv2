@@ -8,7 +8,7 @@
 
 <h1 style="text-align: center; ">Resultados de Evaluacion de Egresados</h1>
 <br>
-<p><h2 style="color: black; text-anchor: 10px; ">Nombre del Alumno: </h2><?php  echo $_SESSION['matricula'] ?></p>
+<p><h2 style="color: black; text-anchor: 10px; ">Nombre del Alumno: </h2><?php  echo $_SESSION['nombre_dbf'] ?></p>
 <p><h2 style="color: black">Generacion Escolar: </h2>2017</p>
 <p style="size: 10px;"><h2 style="color: black">Matricula: </h2><?php echo $_SESSION['matricula'] ?></p>
 <br>

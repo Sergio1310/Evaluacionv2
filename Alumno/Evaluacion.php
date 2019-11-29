@@ -46,8 +46,6 @@
 	<!-- <input type ='button' class="btn btn-outline-warning" value = 'Cerrar Sesión' onclick="window.location='../php/cerrarSesion.php';"/> -->
 </nav>
 	<div class="principal-content justify-center">
-
-
 						<div class="justify-center">
 					
 						<div class="black-containerQ">
@@ -64,30 +62,96 @@
 								    <tbody>
 								    	<?php 
 								    		// require('../php/conexion.php');
-											$consulta2 = $mysqli->query("SELECT * FROM preguntas WHERE asignatura_idasignatura=".$id);
+											$consulta2 = $mysqli->query("SELECT * FROM preguntas WHERE asignatura_idasignatura=".$id."  LIMIT 30");
+											// ORDER BY rand()
 											while ($resultado = mysqli_fetch_assoc($consulta2)) {
 								    	?>
 								        <tr style="height: 200px; width:100px;">
 								        	<td >
 								        		<?php
-								        			echo $resultado['pregunta']; 
+								        			if($resultado['pregunta'] == null){
+								        		?>
+												
+								        		<?php
+								        			}else{
+								        				echo $resultado['pregunta']; 
+								        			}
+								        			if($resultado['imagenPregunta'] == null){
+
+								        			}else{
+								        		?>
+														<img src="../imagenes/<?php echo $resultado['id_pregunta']; ?>/<?php echo $resultado['imagenPregunta']; ?>" alt="" style="width: 150px;">	
+								        		<?php
+								        			}
 								        		?>
 								        	</td>
 											<td>
-								        		<input  type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="1" onclick="capturar(this);"><?php echo $resultado['opcion1']; ?>
-								        		<img src="../imagenes/<?php echo $resultado['id_pregunta']; ?>/<?php echo $resultado['imagenOpcion1']; ?>" alt="" style="width: 150px;">
+								        		<input  type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="1" onclick="capturar(this);">
+								        		<?php 
+								        			if($resultado['opcion1'] == null){
+
+								        			}else{
+								        				echo $resultado['opcion1'];
+								        			}
+								        			if($resultado['imagenOpcion1'] == null){
+
+								        			}else{
+								        		?>
+														<img src="../imagenes/<?php echo $resultado['id_pregunta']; ?>/<?php echo $resultado['imagenOpcion1']; ?>" alt="" style="width: 150px;">
+												<?php
+								        			}
+								        		?>
 								        	</td>
 											<td>
-								        		<input type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="2" onclick="capturar(this);"><?php echo $resultado['opcion2']; ?>
-								        		<img src="../imagenes/<?php echo $resultado['id_pregunta']; ?>/<?php echo $resultado['imagenOpcion2']; ?>" alt="" style="width: 150px;">
+								        		<input type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="2" onclick="capturar(this);">
+								        		<?php 
+								        			if($resultado['opcion2'] == null){
+
+								        			}else{
+								        				echo $resultado['opcion2'];
+								        			}
+								        			if($resultado['imagenOpcion2'] == null){
+
+								        			}else{
+								        		?>
+														<img src="../imagenes/<?php echo $resultado['id_pregunta']; ?>/<?php echo $resultado['imagenOpcion2']; ?>" alt="" style="width: 150px;">		
+												<?php
+								        			}
+								        		?>
 								        	</td>
 											<td>
-								        		<input type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="3" onclick="capturar(this);"><?php echo $resultado['opcion3']; ?>
-								        		<img src="../imagenes/<?php echo $resultado['id_pregunta']; ?>/<?php echo $resultado['imagenOpcion3']; ?>" alt="" style="width: 150px;">
+								        		<input type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="3" onclick="capturar(this);">
+								        		<?php 
+								        			if($resultado['opcion3'] == null){
+
+								        			}else{
+								        				echo $resultado['opcion3'];
+								        			}
+								        			if($resultado['imagenOpcion3'] == null){
+
+								        			}else{
+								        		?>
+														<img src="../imagenes/<?php echo $resultado['id_pregunta']; ?>/<?php echo $resultado['imagenOpcion3']; ?>" alt="" style="width: 150px;">
+								        		<?php
+								        			}
+								        		?>
 								        	</td>
 											<td>
-								        		<input type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="4" onclick="capturar(this);"><?php echo $resultado['opcion4']; ?>
-								        		<img src="../imagenes/<?php echo $resultado['id_pregunta']; ?>/<?php echo $resultado['imagenOpcion4']; ?>" alt="" style="width: 150px;">
+								        		<input type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="4" onclick="capturar(this);">
+								        		<?php
+								        			if($resultado['opcion4'] == null){
+
+								        			}else{
+								        				echo $resultado['opcion4'];
+								        			}
+								        			if($resultado['imagenOpcion4'] == null){
+
+								        			}else{
+								        		?>
+														<img src="../imagenes/<?php echo $resultado['id_pregunta']; ?>/<?php echo $resultado['imagenOpcion4']; ?>" alt="" style="width: 150px;">
+												<?php
+								        			}
+								        		?>
 								        	</td>
 								        </tr>
 								        <?php } $mysqli->close();?>
@@ -95,8 +159,7 @@
 								</table>
 								<br>
 								<div class="cedula " style="margin-left: 570px;">
-						   <a class="btn-eval2 text-center " href="dashboard.php" style="text-decoration: none" >Finalizar</a>
-						   (<?php echo $id ?>);
+						   <a class="btn-eval2 text-center" style="text-decoration: none" onclick="redireccion(<?php echo $id ?>);">Finalizar</a>
 						</div>
 								
 					</div>

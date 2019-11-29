@@ -12,14 +12,14 @@ $(document).ready(function(){
 				timer: 1500
 			})
 		}else{
-			if(matricula.length > 9){
+			if(matricula.length > 9 || matricula.length < 9){
 				Swal.fire({
 					icon: 'error',
-					title: 'La matricula es demasiado larga!',
+					title: 'La matricula tiene que ser de 9 digitos!',
 					showConfirmButton: false,
-					timer: 1500
+					timer: 2500
 				})
-				$('#input_matricula').val() = "";
+				$('#input_matricula').val("");
 			}else{
 				var route = "../php/buscarMatricula.php";
 		
@@ -50,6 +50,7 @@ $(document).ready(function(){
 											showConfirmButton: false,
 											timer: 1500
 										})
+									// console.log(data);
 									$('#input_matricula').val("");
 								}
 							});
