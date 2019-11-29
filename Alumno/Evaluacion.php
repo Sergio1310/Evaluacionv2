@@ -1,8 +1,7 @@
 <?php 
     session_start();
 
-    $id = "";
-    if((!isset($_SESSION['matricula']) && !isset($_SESSION['tipo_user'])) || $_SESSION['tipo_user'] != 2){
+  if((!isset($_SESSION['matricula']) && !isset($_SESSION['tipo_user'])) || $_SESSION['tipo_user'] != 2){
         header("Location: ../index.php");
     }
     if(!isset($_GET['id'])){
@@ -40,19 +39,18 @@
     <link rel="stylesheet" type="text/css" href="../sweetalert2-9.4.0/package/src/sweetalert2.min.css">
 </head>
 <body>
-<nav class="navbar navbar-dark bg-dark justify-content-between">
-	<a class="navbar-brand" style="color: white;"> <i class="fas fa-user-circle"> </i> <?php echo $_SESSION['matricula']; ?></a>
+ <nav class="navbar navbar-dark bg-dark justify-content-between" style="border-radius: 0px;">
+ <a class="navbar-brand" style="color: white; margin-right: 60rem;"> <i class="fas fa-user-circle"> </i> <?php echo $_SESSION['matricula']; ?>  </a>
+
+  <i style="color: white; font-size: 25px;"> <?php  echo strtoupper($asignatura) ; ?></i> 
 	<!-- <input type ='button' class="btn btn-outline-warning" value = 'Cerrar Sesión' onclick="window.location='../php/cerrarSesion.php';"/> -->
 </nav>
-	<div class="principal-content">
-		<div class="p-content column justify-center">
-			<div class="title justify-center">
-				<h1 class="h1 text-center "><?php echo $asignatura; ?></h1>
-			</div>
-			<div class="justify-center">
-				<div class="black-containerQ column">	
-						<div class="math-question align-center justify-center">
-							<div class="math-card column align-center">
+	<div class="principal-content justify-center">
+
+
+						<div class="justify-center">
+					
+						<div class="black-containerQ">
 								<table id="table_id" class="display">
 								    <thead>
 								        <tr>
@@ -69,14 +67,14 @@
 											$consulta2 = $mysqli->query("SELECT * FROM preguntas WHERE asignatura_idasignatura=".$id);
 											while ($resultado = mysqli_fetch_assoc($consulta2)) {
 								    	?>
-								        <tr style="height: 400px;">
-								        	<td>
+								        <tr style="height: 200px; width:100px;">
+								        	<td >
 								        		<?php
 								        			echo $resultado['pregunta']; 
 								        		?>
 								        	</td>
 											<td>
-								        		<input type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="1" onclick="capturar(this);"><?php echo $resultado['opcion1']; ?>
+								        		<input  type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="1" onclick="capturar(this);"><?php echo $resultado['opcion1']; ?>
 								        		<img src="../imagenes/<?php echo $resultado['id_pregunta']; ?>/<?php echo $resultado['imagenOpcion1']; ?>" alt="" style="width: 150px;">
 								        	</td>
 											<td>
@@ -95,12 +93,13 @@
 								        <?php } $mysqli->close();?>
 								    </tbody>
 								</table>
-								<button type="button" id="btnFinalizar" onclick="redireccion(<?php echo $id ?>);">Finalizar</button>
-							</div>
+								<br>
+								<div class="cedula " style="margin-left: 570px;">
+						   <a class="btn-eval2 text-center " href="dashboard.php" style="text-decoration: none" >Finalizar</a>
+						   (<?php echo $id ?>);
 						</div>
+								
 					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 </body>
