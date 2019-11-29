@@ -42,18 +42,18 @@
 </head>
 <body>
 	<nav class="navbar navbar-dark bg-dark justify-content-between">
- <a class="navbar-brand" style="color: white;"> <i class="fas fa-user-circle"> </i> <?php echo $_SESSION['matricula']; ?></a>
+ <a class="navbar-brand" style="color: white;"> <i class="fas fa-user-circle"> </i> <?php echo $_SESSION['matricula']; ?> <a class=" text-center" style="color: white; font-size: 25px;">EVALUACIONES</a></a>
  <input type ='button' class="btn btn-outline-warning" value = 'Cerrar Sesión' onclick="window.location='../php/cerrarSesion.php';"/>
+ 
 </nav>
-
+<br>
+<br>
 	<div class="principal-content flex">
 		<div class="p-content column justify-center">
 			
 				
 			
-			<div class="title justify-center">
-				<h1 class="h1 text-center">EVALUACIONES</h1>
-			</div>
+			
 			<div class="justify-center">
 				<div class="black-container column">
 					<div class="subjects-content">
