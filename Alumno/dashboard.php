@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
+	<meta charset="ISO-8859-1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,7 +38,7 @@
 			})
 		}
     </script>
-	<title>Evaluaciones</title>
+	<title>Dashboard</title>
 </head>
 <body>
 	<nav class="navbar navbar-dark bg-dark justify-content-between">
@@ -79,7 +79,7 @@
 											?>
 										<div class="card-subject column">
 											<div class="subject-name align-center justify-center">
-												<h2 class="text-center"><?php echo $resultado['asignatura']; ?></h2>
+												<h2 class="text-center"><?php echo utf8_encode($resultado['asignatura']); ?></h2>
 											</div>
 											<?php
 												if($resultado['status'] == 1){
