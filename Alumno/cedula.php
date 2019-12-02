@@ -26,7 +26,7 @@
  <a class="navbar-brand" style="color: white;"> <i class="fas fa-user-circle"> </i> <?php echo $_SESSION['matricula']; ?></a>
  
 </nav>
-
+	<form method="post" action="../php/crearCedula.php">
 	<div class="principal-content flex">
 	<div class=" column ">
 			<br>
@@ -49,52 +49,53 @@
 				<div class="main row ">
 				   <div class="col-md-3 ci " class="ci row justify-center">
 							
-								<input type="text" placeholder="Apellido Paterno" id="apellidoP" name="user_apeP">
+								<input type="text" pattern="^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$" placeholder="Apellido Paterno" id="apellidoP" name="user_apeP" required>
 					</div>
 				   <div class="col-md-3  ci" class="ci row justify-center">
 				             
-								<input type="text" placeholder="Apellido Materno" id="ApellidoM" name="user_apeM">		
+								<input type="text" pattern="^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$" placeholder="Apellido Materno" id="ApellidoM" name="user_apeM" required>		
 				   </div>
 				    <div class="col-md-3  ci" class="ci row justify-center">
 				             
-								<input type="text" placeholder="Nombre" id="name" name="user_name">		
+								<input type="text" pattern="^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$" placeholder="Nombre" id="name" name="user_name" required>		
 				   </div>
 				    <div class=" col-md-3  ci" class="ci row justify-center">
-				    	<form action="">
+				    	
 				    	<div class="radio">
 				    		<label for="radio1">Sexo:  
 				    			
-				    			<input type="radio" name="opc" id="radio1">M
+				    			<input type="radio" name="sexo" id="radio1" value="Masculino" checked>M
 				    		</label>
 
 				    		<label for="radio2">
-				    			<input type="radio" name="opc2" id="radio2">F
+				    			<input type="radio" name="sexo" id="radio2" value="Femenino" >F
 				    		</label>
 				    		
 				    	</div>
-				    	</form>
+				    	
 				   </div>
 			    </div>
 					<br>
 					<div class="main row">
 						<div  class="col-md-3  ci" class="ci row justify-center">
 			
-								<input type="text" placeholder="Curp" id="curp" name="user_curp">		
+								<input type="text" placeholder="Curp" id="curp" pattern="([A-Z]{4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[HM](AS|BC|BS|CC|CL|CM|CS|CH|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)[A-Z]{3}[0-9A-Z]\d)" name="user_curp" required>		
 								</div>
 						<div  class="col-md-3  ci" class="ci row justify-center">
 						<label for="option" class="ci">Estado Civil: </label>
-								<select class="" id="option" name="user_est">
-									<option value="" >Soltero</option>
-									<option value="" >Casado</option>
-									<option value="" >Bla Bla</option>
+								<select class="" id="option" name="user_est" >
+									<option value="Solter@" >Solter@</option>
+									<option value="Casad@" >Casad@</option>
+									<option value="Viud@" >Viud@</option>
 								</select>	 	
 						</div>
 						<div  class="col-md-3  ci" class="ci row justify-center">
 						<label for="option" class="ci">Status: </label>
-								<select class="" id="option2" name="user_status">
-									<option value="" >Estudio</option>
-									<option value="" >Trabajo</option>
-									<option value="" >Estudio y Trabajo</option>
+								<select class="" id="option2" name="user_status" >
+									<option value="Sin ocupación" >Sin ocupación</option>
+									<option value="Estudio" >Estudio</option>
+									<option value="Trabajo" >Trabajo</option>
+									<option value="Estudio y Trabajo" >Estudio y Trabajo</option>
 								</select>	 	
 						</div>
 					</div>
@@ -114,23 +115,23 @@
 
 						<div  class="col-md-3  ci" class="ci row justify-center">
 
-								<input type="text" placeholder="Calle y Numero" id="numero" name="user_calle">		
+								<input type="text" placeholder="Calle y Numero" id="cnumero" name="user_calle" required>		
 								</div>
 
 						<div  class="col-md-3  ci" class="ci row justify-center">
 
 				
-								<input type="text" placeholder="Colonia o Region" id="coloni" name="user_col">		
+								<input type="text" placeholder="Colonia o Region" id="coloni" name="user_col" required>		
 								</div>
 
 							<div  class="col-md-3  ci" class="ci row justify-center">
 
 						<label class="ci"> </label>
-								<input type="text" placeholder="Avenida" id="Ave" name="user_ave">		
+								<input type="text" placeholder="Avenida" id="Ave" name="user_ave" required>		
 								</div>		
 						<div  class="col-md-3  ci" class="ci row justify-center">
 
-								<input type="text" placeholder="Codigo Postal" id="CodP" name="user_cod">		
+								<input type="text" placeholder="Codigo Postal" id="CodP" name="user_cod" pattern="^\d{5}$" required>		
 								</div>	
 					</div>	
 					<br>
@@ -140,50 +141,50 @@
 
 						<div  class="col-md-3  ci" class="ci row justify-center">
 
-								<input type="text" placeholder="Municipio" id="mun" name="user_calle">		
+								<input type="text" placeholder="Municipio" id="mun" pattern="^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$" name="user_municipio" required>		
 								</div>
 
 							<div  class="col-md-3  ci" class="ci row justify-center">
 						<label for="option" class="ci">Estado: </label>
-								<select class="" id="option2" name="user_status">
-									<option value="" >Aguascalientes</option>
-									<option value="" >Baja California</option>
-									<option value="" >Baja California Sur</option>
-									<option value="" >Campeche</option>
-									<option value="" >Coahuila</option>
-									<option value="" >Colima</option>
-									<option value="" >Chiapas</option>
-									<option value="" >Chihuahua</option>
-									<option value="" >Distrito Federal</option>
-									<option value="" >Durango</option>
-									<option value="" >Guanajuato</option>
-									<option value="" >Guerrero</option>
-									<option value="" >Hidalgo</option>
-									<option value="" >Jalisco</option>
-									<option value="" >México</option>
-									<option value="" >Michoacán</option>
-									<option value="" >Morelos</option>
-									<option value="" >Nayarit</option>
-									<option value="" >Nuevo León</option>
-									<option value="" >Oaxaca</option>
-									<option value="" >Puebla</option>
-									<option value="" >Querétaro</option>
-									<option value="" >Quintana Roo</option>
-									<option value="" >San Luis Potosí</option>
-									<option value="" >Sinaloa</option>
-									<option value="" >Sonora</option>
-									<option value="" >Tabasco</option>
-									<option value="" >Tamaulipas</option>
-									<option value="" >Tlaxcala</option>
-									<option value="" >Veracruz</option>
-									<option value="" >Yucatán</option>
-									<option value="" >Zacatecas</option>
+								<select class="" id="option3" name="user_estado">
+									<option value="Aguascalientes" >Aguascalientes</option>
+									<option value="Baja California" >Baja California</option>
+									<option value="Baja California Sur" >Baja California Sur</option>
+									<option value="Campeche" >Campeche</option>
+									<option value="Coahuila" >Coahuila</option>
+									<option value="Colima" >Colima</option>
+									<option value="Chiapas" >Chiapas</option>
+									<option value="Chihuahua" >Chihuahua</option>
+									<option value="Distrito Federal" >Distrito Federal</option>
+									<option value="Durango" >Durango</option>
+									<option value="Guanajuato" >Guanajuato</option>
+									<option value="Guerrero" >Guerrero</option>
+									<option value="Hidalgo" >Hidalgo</option>
+									<option value="Jalisco" >Jalisco</option>
+									<option value="México" >México</option>
+									<option value="Michoacán" >Michoacán</option>
+									<option value="Morelos" >Morelos</option>
+									<option value="Nayarit" >Nayarit</option>
+									<option value="Nuevo León" >Nuevo León</option>
+									<option value="Oaxaca" >Oaxaca</option>
+									<option value="Puebla" >Puebla</option>
+									<option value="Querétaro" >Querétaro</option>
+									<option value="Quintana Roo" >Quintana Roo</option>
+									<option value="San Luis Potosí" >San Luis Potosí</option>
+									<option value="Sinaloa" >Sinaloa</option>
+									<option value="Sonora" >Sonora</option>
+									<option value="Tabasco" >Tabasco</option>
+									<option value="Tamaulipas" >Tamaulipas</option>
+									<option value="Tlaxcala" >Tlaxcala</option>
+									<option value="Veracruz" >Veracruz</option>
+									<option value="Yucatán" >Yucatán</option>
+									<option value="Zacatecas" >Zacatecas</option>
 								</select>	 	
 						</div>
 
 							<div  class="col-md-6  ci" class="ci row justify-center">
 
-								<input type="text" placeholder="Ciudad" id="Ciu" name="user_calle">		
+								<input type="text" placeholder="Ciudad" id="Ciu" name="user_ciudad" pattern="^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$" required>		
 								</div>
 					</div>
 							<br>
@@ -194,12 +195,12 @@
 						<div  class="col-md-3  ci" class="ci row justify-center">
 
 					
-								<input type="text" placeholder="Telefono" id="tel" name="user_calle">		
+								<input type="text" placeholder="Telefono" id="tel" pattern="^[\(]?[\+]?(\d{2}|\d{3})[\)]?[\s]?((\d{6}|\d{8})|(\d{3}[\*\.\-\s]){2}\d{3}|(\d{2}[\*\.\-\s]){3}\d{2}|(\d{4}[\*\.\-\s]){1}\d{4})|\d{8}|\d{10}|\d{12}$" name="user_tele" required>		
 								</div>
 
 							<div  class="col-md-3  ci" class="ci row justify-center">
 
-								<input type="text" placeholder="Correo Electronico" id="correo" name="user_calle">		
+								<input type="email" placeholder="Correo Electronico" id="correo" name="user_correo" required>		
 								</div>
 					</div>
 					<br>
@@ -209,31 +210,31 @@
 					<div class="main row">
 						
 						<div  class="col-md-6  ci" class="ci row justify-center">
-						<form action="">
+						
 				    	    <div class="radio">
 				    		<label for="radio1">Actualmente ¿Te encuentras trabajando?
 				    			<br>
-				    			<input type="radio" name="opc" id="radio4">Si
+				    			<input type="radio" name="actualmen" id="radio4" value="Si" required checked>Si
 				    	<br>
-				    			<input type="radio" name="opc2" id="radio5">No
+				    			<input type="radio" name="actualmen" id="radio5" value="No" required >No
 				    		</label>
 				    		
 				    	    </div>
-				    	</form>
+				    	
 								
 						</div>
 						<div  class="col-md-6  ci" class="ci row justify-center">
-						<form action="">
+						
 				    	    <div class="radio">
 				    		<label for="radio1">¿Trabajas en algo relacionado a tu carrera?
 				    			<br>
-				    			<input type="radio" name="opc" id="radio4">Si
+				    			<input type="radio" name="relac" id="radio6" value="Si" checked>Si
 				    	<br>
-				    			<input type="radio" name="opc2" id="radio5">No
+				    			<input type="radio" name="relac" value="No" id="radio7">No
 				    		</label>
 				    		
 				    	    </div>
-				    	</form>
+				    	
 								
 						</div>
 						<br>
@@ -252,17 +253,17 @@
 					<div class="main row">
 						<div  class="col-md-3  ci" class="ci row justify-center">
 
-								<input type="text" placeholder="Nombre de Empresa" id="Empre" name="user_empres">		
+								<input type="text" placeholder="Nombre de Empresa" id="Empre_nombre" name="nombre_emp">		
 								</div>
 
 						<div  class="col-md-3  ci" class="ci row justify-center">
 
-								<input type="text" placeholder="Domicilio" id="Empre" name="user_empres">		
+								<input type="text" placeholder="Direccion" id="Empre_direccion" name="direccion_emp" >		
 						</div>		
 						
 						<div  class="col-md-3  ci" class="ci row justify-center">
 
-								<input type="text" placeholder="Puesto" id="Pues" name="user_pues">		
+								<input type="text" placeholder="Puesto" id="Empre_puesto" name="user_pues" >		
 						</div>
 					</div>
 					<br>
@@ -271,21 +272,22 @@
 						
 						<div  class="col-md-3  ci" class="ci row justify-center">
 
-								<input type="text" placeholder="Nombre de Jefe" id="jefe" name="user_jef">		
+								<input type="text" placeholder="Nombre de Jefe" id="jefe" name="user_jef" pattern="^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$">		
 						</div>	
 
 						<div  class="col-md-3 ci" class="ci row justify-center">
 
-								<input type="text" placeholder="Telefono" id="Tele" name="user_Tel">		
+								<input type="text" placeholder="Telefono" id="Tele" name="Emp_Tel" pattern="^[\(]?[\+]?(\d{2}|\d{3})[\)]?[\s]?((\d{6}|\d{8})|(\d{3}[\*\.\-\s]){2}\d{3}|(\d{2}[\*\.\-\s]){3}\d{2}|(\d{4}[\*\.\-\s]){1}\d{4})|\d{8}|\d{10}|\d{12}$">		
 						</div>		
 						
 							<div  class="col-md-6  ci" class="ci row justify-center">
                                 <label for="option" class="ci">Tiempo coloborado:</label>
 								<select class="" id="op" name="user_cola">
-									<option value="" >1 año</option>
-									<option value="" >3 a 6 meses</option>		
-									<option value="" >6 a 9 meses</option>	
-									<option value="" >9 a 12 meses</option>	
+									<option value="" ></option>
+									<option value="3 a 6 meses" >3 a 6 meses</option>		
+									<option value="6 a 9 meses" >6 a 9 meses</option>	
+									<option value="9 a 12 meses" >9 a 12 meses</option>	
+									<option value="Más de un año" >Más de un año</option>
 								</select>
 						</div>	
 					</div>
@@ -297,20 +299,22 @@
 						<div  class="col-md-5  ci" class="ci row justify-center">
                                 <label for="option" class="ci">Sueldo Mensual (aprox.):</label>
 								<select class="" id="op2" name="user_suel">
-									<option value="" >2 a 4 mil pesos</option>
-									<option value="" >4 a 8 mil pesos</option>		
-									<option value="" >8 a 10 mil pesos</option>	
-									<option value="" >Mas de 10 mil</option>
+									<option value="" ></option>
+									<option value="2 a 4 mil pesos" >2 a 4 mil pesos</option>
+									<option value="4 a 8 mil pesos" >4 a 8 mil pesos</option>		
+									<option value="8 a 10 mil pesos" >8 a 10 mil pesos</option>	
+									<option value="Mas de 10 mil" >Mas de 10 mil</option>
 								</select>	
 						</div>	
 
 						<div  class="col-md-5  ci" class="ci row justify-center">
                                 <label for="option" class="ci">Como consiguio el empleo:</label>
 								<select class="" id="cons" name="user_consig">
-									<option value="" >Estancias y estadias</option>
-									<option value="" >Por mi cuenta</option>		
-									<option value="" >Beca escolar</option>	
-									<option value="" >Muestra de proyectos</option>	
+									<option value="" ></option>
+									<option value="Estancias y estadias" >Estancias y estadias</option>
+									<option value="Por mi cuenta" >Por mi cuenta</option>		
+									<option value="Beca escolar" >Beca escolar</option>	
+									<option value="Muestra de proyectos" >Muestra de proyectos</option>	
 								</select>
 						</div>	
 					</div>
@@ -322,9 +326,10 @@
 						<div  class="col-md-5  ci" class="ci row justify-center">
                                 <label for="option" class="ci">Tamaño de la empresa:</label>
 								<select class="" id="emp" name="user_empre">
-									<option value="" >Micro Empresa</option>
-									<option value="" >Mediana Empresa</option>		
-									<option value="" >Gran Empresa</option>	
+									<option value="" ></option>
+									<option value="Micro Empresa" >Micro Empresa</option>
+									<option value="Mediana Empresa" >Mediana Empresa</option>		
+									<option value="Gran Empresa" >Gran Empresa</option>	
 									
 								</select>	
 						</div>	
@@ -333,8 +338,9 @@
 						<div  class="col-md-4  ci" class="ci row justify-center">
                                 <label for="option" class="ci">Tipo de empresa:</label>
 								<select class="" id="org" name="user_org">
-									<option value="" >Publica</option>
-									<option value="" >Privada</option>		
+									<option value="" ></option>
+									<option value="Publica" >Publica</option>
+									<option value="Privada" >Privada</option>		
 								
 								</select>
 							</div>
@@ -349,14 +355,14 @@
 
 						 <label class="ci">¿Qué temas consideras que necesitan reforzarse durante el desarrollo de la carrera?</label>
 						 <br>
-						        <textarea class="col-md-8" placeholder="Escribe aqui" name="user_tel" id="ans" rows="10" cols="40"></textarea>						
+						        <textarea class="col-md-8" placeholder="Escribe aqui" name="user_temas" id="ans1" rows="10" cols="40" required></textarea>						
 						</div>
 					<br>
 						<div  class="col-md-12  ci" class="ci row justify-center">
 
 						 <label class="ci">¿Qué temas consideras que necesitas fortalecer con algún curso o diplomado?</label>
 						 <br>
-							 <textarea class="col-md-8" placeholder="Escribe aqui" name="user_tel" id="ans" rows="10" cols="40"></textarea>		
+							 <textarea class="col-md-8" placeholder="Escribe aqui" name="user_curso" id="ans2" rows="10" cols="40" required></textarea>		
 						</div>
 					<br>
 
@@ -364,7 +370,7 @@
 
 						 <label class="ci">¿Consideras importantes las certificaciones y a cuáles te gustaria aplicar?</label>
 						 <br>
-						   	<textarea class="col-md-8 " placeholder="Escribe aqui" name="user_tel" id="ans" rows="10" cols="40"></textarea>		
+						   	<textarea class="col-md-8 " placeholder="Escribe aqui" name="user_certificaciones" id="ans3" rows="10" cols="40" required></textarea>		
 						</div>
 					<br>
 
@@ -372,15 +378,16 @@
 
 						 <label class="ci">Proporciona algún tema o tópico que consideres que debería incluirse durante la formación de los alumnos</label>
 						 <br>
-								<textarea class="col-md-8 " placeholder="Escribe aqui" name="user_tel" id="ans" rows="10" cols="40"></textarea>		
+								<textarea class="col-md-8 " placeholder="Escribe aqui" name="user_topico" id="ans4" rows="10" cols="40" required></textarea>		
 						</div>	
 					<div class="cedula justify-right ">
-						   <a class="btn-eval text-center " href="dashboard.php" style="text-decoration: none; " ><i class="fas fa-pen"></i>&nbsp;Finalizar</a>
+						   <input type="submit" class="btn btn-success"  id="Finalizar" value="Finalizar">
 						</div>
 			</div>
 			</div>
 			<br>
 	</div>
     </div>
+    </form>
 </body>
 </html>
