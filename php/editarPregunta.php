@@ -28,30 +28,31 @@
 	}else{
 		$opcion4 = $_POST['opcion4'];
 	}
-	if(!iseet($_POST['preguntaImagen'])){
+	if(isset($_FILE['preguntaImagen'])){
+		//$preguntaImagen = $_POST['preguntaImagen'];
 
 	}else{
-
+		$preguntaImagen = $_FILES['preguntaImagen']['name'];
 	}
-	if(!iseet($_POST['opcion1Imagen'])){
-
+	if(isset($_FILE['opcion1Imagen'])){
+		//$opcion1Imagen = $_POST['opcion1Imagen'];
 	}else{
-
+		$opcion1Imagen = $_FILES['opcion1Imagen']['name'];
 	}
-	if(!iseet($_POST['opcion2Imagen'])){
-
+	if(isset($_FILE['opcion2Imagen'])){
+		//$opcion2Imagen = $_POST['opcion2Imagen'];
 	}else{
-
+		$opcion2Imagen = $_FILES['opcion2Imagen']['name'];	
 	}
-	if(!iseet($_POST['opcion3Imagen'])){
-
+	if(isset($_FILE['opcion3Imagen'])){
+		//$opcion3Imagen =$_POST['opcion3Imagen'];
 	}else{
-
+		$opcion3Imagen = $_FILES['opcion3Imagen']['name'];
 	}
-	if(!iseet($_POST['opcion4Imagen'])){
-
+	if(isset($_FILE['opcion4Imagen'])){
+		//$opcion4Imagen = $_POST['opcion4Imagen'];
 	}else{
-
+		$opcion4Imagen = $_FILES['opcion4Imagen']['name'];
 	}
 
 	$respuesta = $_POST['respuesta'];
@@ -59,38 +60,36 @@
 
 
 	$mysqli->set_charset('utf8');
-	$stmt = $mysqli->prepare("UPDATE preguntas SET pregunta=".$pregunta.", imagenPregunta=".$preguntaImagen.", opcion1=".$opcion1.", imagenOpcion1=".$opcion1Imagen.", opcion2=".$opcion2.", imagenOpcion2=".$opcion2Imagen.", opcion3=".$opcion3.", imagenOpcion3=".$opcion3Imagen.", opcion4=".$opcion4.", imagenOpcion4=".$opcion4Imagen.", respuesta=".$respuesta.", asignatura_idasignatura=".$asignatura."");	
-	$stmt->bind_param("sssssssssssi", $pregunta, $preguntaImagen, $opcion1, $opcion1Imagen, $opcion2, $opcion2Imagen, $opcion3, $opcion3Imagen, $opcion4, $opcion4Imagen, $respuesta, $asignatura);
+	$stmt = $mysqli->prepare("UPDATE preguntas SET pregunta=?, imagenPregunta=?, opcion1=?, imagenOpcion1=?, opcion2=?, imagenOpcion2=?, opcion3=?, imagenOpcion3=?, opcion4=?, imagenOpcion4=?, respuesta=?, asignatura_idasignatura=? WHERE id_pregunta=? ");	
+	$stmt->bind_param("sssssssssssii", $pregunta, $preguntaImagen, $opcion1, $opcion1Imagen, $opcion2, $opcion2Imagen, $opcion3, $opcion3Imagen, $opcion4, $opcion4Imagen, $respuesta, $asignatura, $id);
 	echo $stmt->execute();
-	$sql = "SELECT id_pregunta FROM preguntas ORDER BY id_pregunta DESC LIMIT 1";
-	$resultado = $mysqli->query($sql);
-	$row = mysqli_fetch_assoc($resultado);
-	mkdir("../imagenes/".$row['id_pregunta'], 0700);
-
+	
+	
+	
 	if(isset($_FILE['preguntaImagen'])){
-		
+			
 	}else{
-		move_uploaded_file($_FILES["preguntaImagen"]["tmp_name"], "../imagenes/".$row['id_pregunta']."/".$_FILES['preguntaImagen']['name']);
+		move_uploaded_file($_FILES["preguntaImagen"]["tmp_name"], "../imagenes/".$id."/".$_FILES['preguntaImagen']['name']);
 	}		
 	if(isset($_FILE['opcion1Imagen'])){
 		
 	}else{
-		move_uploaded_file($_FILES["opcion1Imagen"]["tmp_name"], "../imagenes/".$row['id_pregunta']."/".$_FILES['opcion1Imagen']['name']);
+		move_uploaded_file($_FILES["opcion1Imagen"]["tmp_name"], "../imagenes/".$id."/".$_FILES['opcion1Imagen']['name']);
 	}
 	if(isset($_FILE['opcion2Imagen'])){
 		
 	}else{
-		move_uploaded_file($_FILES["opcion2Imagen"]["tmp_name"], "../imagenes/".$row['id_pregunta']."/".$_FILES['opcion2Imagen']['name']);
+		move_uploaded_file($_FILES["opcion2Imagen"]["tmp_name"], "../imagenes/".$id."/".$_FILES['opcion2Imagen']['name']);
 	}
 	if(isset($_FILE['opcion3Imagen'])){
 		
 	}else{
-		move_uploaded_file($_FILES["opcion3Imagen"]["tmp_name"], "../imagenes/".$row['id_pregunta']."/".$_FILES['opcion3Imagen']['name']);
+		move_uploaded_file($_FILES["opcion3Imagen"]["tmp_name"], "../imagenes/".$id."/".$_FILES['opcion3Imagen']['name']);
 	}
 	if(isset($_FILE['opcion4Imagen'])){
 		
 	}else{
-		move_uploaded_file($_FILES["opcion4Imagen"]["tmp_name"], "../imagenes/".$row['id_pregunta']."/".$_FILES['opcion4Imagen']['name']);
+		move_uploaded_file($_FILES["opcion4Imagen"]["tmp_name"], "../imagenes/".$id."/".$_FILES['opcion4Imagen']['name']);
 	}
 
 	$stmt->close();

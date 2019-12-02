@@ -21,7 +21,7 @@
 			if($resultado->num_rows == 1){
 				$datos = mysqli_fetch_assoc($resultado);
 
-				// $fichero_dbf = 'C:/xampp/htdocs/Evaluacionv2/Alumno/DALUMN.dbf';
+				// $fichero_dbf = '../Alumno/DALUMN.dbf';
 				// $conex       = dbase_open($fichero_dbf, 0);
 				// //$con = $this->DB->DBFconnect('DALUMN');
 				// $aux = null;

@@ -189,11 +189,12 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <form action="editar.php" method="POST">
+                        <form method="post" action="#" enctype="multipart/form-data">
 
                         <div class="form-group">
                             <label style="color: black;">Sección</label>
-                            <input type="hidden" name="id_pregunta"  id="id_pregunta">
+                            <input type="hidden"  name="id_pregunta"  id="id_pregunta" value="">
+                            <input type="hidden" name="id_asignatura" id="id_asignatura" value="">
                             <input type="text" class="form-control" name="nombre" id="seccion_db" value="" disabled>
                         </div>                    
                         <label for="sel1" style="color: black;">Sección Nueva</label>
@@ -214,31 +215,51 @@
                             <label style="color: black;">Pregunta</label>
                             <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="pregunta" id="preguntaUpdate" placeholder="Escribe la pregunta" value="">
                             <p style="color: black;">-Y/O-</p>
-                            <input type="file" name="EditarImagen" name="imagenPregunta" id="imagenPregunta" placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenPregunta')">
+                            <img id="imgModalEditPregunta" style="width: 60px;">
+                            <input type="file" name="EditarImagen"  id="EditarImagenPregunta" value="" placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenPregunta')">
+                            <label><input type="checkbox" name="pregunta"></label>
+                            <br>
+                            <input type="hidden" name="EditImagenPregunta" id="EditImagenPregunta">
                         </div>
                         <div class="form-group">
                             <label style="color: black;">Opción 1</label>
                             <input type="text" class="form-control" name="opcion1" id="opcion1Update"  placeholder="Escribe la opción 1" value="" >
                             <p style="color: black;">-Y/O-</p>
-                            <input type="file" name="EditarImagen" name="imagenOpcion1" id="imagenOpcion1" placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenOpcion1')" >
+                            <img id="imgModalEditOpcion1" style="width: 60px;">
+                            <input type="file" name="EditarImagen" name="imagenOpcion1" id="EditarImagenOpcion1" placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenOpcion1')" >
+                            <label><input type="checkbox" name="Opcion1"></label>
+                            <br>
+                            <input type="hidden" name="" id="EditImagenOpcion1" value="" >
                         </div>
                         <div class="form-group">
                             <label style="color: black;">Opción 2</label>
                             <input type="text" class="form-control" name="opcion2" id="opcion2Update" placeholder="Escribe la opción 2" value="" >
                             <p style="color: black;">-Y/O-</p>
-                            <input type="file" name="EditarImagen" name="imagenOpcion2" id=""placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenOpcion2')">
+                            <img id="imgModalEditOpcion2" style="width: 60px;">
+                            <input type="file" name="EditarImagen" name="imagenOpcion2" id="EditarImagenOpcion2" placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenOpcion2')">
+                            <label><input type="checkbox" name="Opcion2"></label>
+                            <br>
+                            <input type="hidden" name="" id="EditImagenOpcion2" value="" >
                         </div>
                         <div class="form-group">
                             <label style="color: black;">Opción 3</label>
                             <input type="text" class="form-control" name="opcion3" id="opcion3Update" placeholder="Escribe la opción 3" value="" >
                             <p style="color: black;">-Y/O-</p>
-                            <input type="file" name="EditarImagen" name="ImagenOpcion3" id="imagenOpcion3"placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenOpcion3')">
+                            <img id="imgModalEditOpcion3" style="width: 60px;">
+                            <input type="file" name="EditarImagen" name="ImagenOpcion3" id="EditarImagenOpcion3" placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenOpcion3')">
+                            <label><input type="checkbox" name="Opcion3"></label>
+                            <br>
+                            <input type="hidden" name="" id="EditImagenOpcion3" value="" >
                         </div>
                         <div class="form-group">
                             <label style="color: black;">Opción 4</label>
                             <input type="text" class="form-control" name="opcion4" id="opcion4Update" placeholder="Escribe la opción 4" value="" >
                             <p style="color: black;">-Y/O-</p>
-                            <input type="file" name="EditarImagen" id="imagenOpcion4" placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenOpcion4')">
+                            <img id="imgModalEditOpcion4" style="width: 60px;">
+                            <input type="file" name="EditarImagen" id="EditarImagenOpcion4" placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenOpcion4')">
+                            <label><input type="checkbox" name="Opcion4"></label>
+                            <br>
+                            <input type="hidden" name="" id="EditImagenOpcion4" value="" >
                         </div>
                         <div class="form-group">
                             <label style="color: black;">Respuesta</label>
@@ -255,7 +276,7 @@
                             </select>
                         </div>
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
-                        <input type="submit" class="btn btn-info"  name="editardatos" value="Guardar">
+                        <input type="submit" class="btn btn-info"  id="editardatos" value="Guardar">
 
                         </form>              
                     </div>
@@ -288,7 +309,7 @@
             </div>
         </div>
     </div>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     
     $(document).ready(function() {
             $('.editbtn').on('click', function(){
@@ -312,7 +333,7 @@
                  $('#respuesta').val(data[12]);          
             });
     });
-</script>
+</script> -->
 <script type="text/javascript">
     $('#preguntas').DataTable({
         language: {
@@ -339,5 +360,84 @@
         // "paging": false
         "order": false,
         "ordering": false
+    });
+    $('#editardatos').on('click', function(){
+        //alert("sadsad");
+        var formData = new FormData();
+
+        var asignatura = $('#sel_asignatura_nueva').val();
+        var pregunta = $('#preguntaUpdate').val();
+        var opcion1 = $('#opcion1Update').val();
+        var opcion2 = $('#opcion2Update').val();
+        var opcion3 = $('#opcion3Update').val();
+        var opcion4 = $('#opcion4Update').val();
+        var respuesta = $('#respuesta_nueva').val();
+        var id = $('#id_pregunta').val();
+
+        var preguntaImagen = $('#EditarImagenPregunta')[0].files[0];
+        var opcion1Imagen = $('#EditarImagenOpcion1')[0].files[0];
+        var opcion2Imagen = $('#EditarImagenOpcion2')[0].files[0];
+        var opcion3Imagen = $('#EditarImagenOpcion3')[0].files[0];
+        var opcion4Imagen = $('#EditarImagenOpcion4')[0].files[0];
+
+
+        if(asignatura == 0)
+        {
+            asignatura = $('#id_asignatura').val();
+        }
+
+        if(respuesta == 0)
+        {
+            respuesta = $('#respuesta_db').val();
+        }
+
+        if((preguntaImagen == null && pregunta == "") || 
+           (opcion1Imagen == null && opcion1 == "") || 
+           (opcion2Imagen == null && opcion2 == "") || 
+           (opcion3Imagen == null && opcion3 == "") ||
+           (opcion4Imagen == null && opcion4 == ""))
+        {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Dejaste dos campos vacios del mismo tipo!',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
+        else{
+            formData.append('id_pregunta', id);
+            formData.append('preguntaImagen', preguntaImagen);
+            formData.append('opcion1Imagen', opcion1Imagen);
+            formData.append('opcion2Imagen', opcion2Imagen);
+            formData.append('opcion3Imagen', opcion3Imagen);
+            formData.append('opcion4Imagen', opcion4Imagen);
+
+
+            formData.append('asignatura', asignatura);
+            formData.append('pregunta', pregunta);
+            formData.append('opcion1', opcion1);
+            formData.append('opcion2', opcion2);
+            formData.append('opcion3', opcion3);
+            formData.append('opcion4', opcion4);
+            formData.append('respuesta', respuesta);
+            
+            $.ajax({
+                url: '../php/editarPregunta.php',
+                type: 'post',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'La pregunta se actualizo satisfactoriamente!',
+                            showConfirmButton: false,
+                            timer: 15500
+                        })
+                }
+            }); 
+        }
+
     });
 </script>

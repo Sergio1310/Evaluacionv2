@@ -374,8 +374,8 @@
 						 <br>
 								<textarea class="col-md-8 " placeholder="Escribe aqui" name="user_tel" id="ans" rows="10" cols="40"></textarea>		
 						</div>	
-					<div class="cedula justify-center ">
-						   <a class="btn-eval text-center " href="dashboard.php" style="text-decoration: none" ><i class="fas fa-pen"></i>&nbsp;Finalizar</a>
+					<div class="cedula justify-right ">
+						   <a class="btn-eval text-center " href="dashboard.php" style="text-decoration: none; " ><i class="fas fa-pen"></i>&nbsp;Finalizar</a>
 						</div>
 			</div>
 			</div>

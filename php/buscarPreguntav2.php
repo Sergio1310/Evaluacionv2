@@ -6,6 +6,9 @@
 	$array_op = explode(",", $_GET['OPARRAY']);
 	$id_asignatura = $_GET['ASIGNATURA'];
 
+	// print_r($array_id);
+	// print_r($array_op);
+
 	$calificacion = 0;
 	$nombre_A = "";
 
@@ -18,11 +21,11 @@
 		}
 	}
 
-	echo $promedio = ($calificacion * 100)/9;
+	$promedio = ($calificacion * 100)/30;
 
-	echo $sql = "UPDATE calificaciones SET calificacion=".$promedio.", status=1 WHERE id_asignatura=".$id_asignatura." AND id_usuario=".$_SESSION['matricula'];
+	$sql = "UPDATE calificaciones SET calificacion=".$promedio.", status=1 WHERE id_asignatura=".$id_asignatura." AND id_usuario=".$_SESSION['matricula'];
 
-	echo $insertar = $mysqli->query($sql);
+	$insertar = $mysqli->query($sql);
 
 	header("Location: ../Alumno/dashboard.php");
 	$mysqli->close();
