@@ -4,6 +4,15 @@
     if((!isset($_SESSION['matricula']) && !isset($_SESSION['tipo_user'])) || $_SESSION['tipo_user'] != 2){
         header("Location: ../index.php");
     }
+
+    require('../php/conexion.php');
+	$consulta = $mysqli->query("SELECT status FROM cedula WHERE id_user=".$_SESSION['matricula']);
+
+	$result = mysqli_fetch_assoc($consulta);
+	
+	if($result['status'] == 1){
+		header("Location: dashboard.php");
+	}
 ?>
 <!DOCTYPE html>
 <html>

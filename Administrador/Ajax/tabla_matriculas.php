@@ -1,6 +1,6 @@
 <div style="padding: 1% 15%" class="card-body d-flex justify-content-between align-items-center">
     <!--Table-->
-	<table class="table-bordered table pull-right" id="mytable"  style="background-color: rgba(0,0,0,0.7)">
+	<table class="table-bordered table pull-right" id="mytable"  style="background-color: rgba(0,0,0,0.7)" id="matr_table">
 	  <!--Table body-->
 	  <tbody>
 	   <thead>

@@ -6,29 +6,21 @@ var flag = false;
 	if(i == 0){
 		array_id[i]=objeto.name;
 		array_op[i]=objeto.value;
-		// alert("se guardo el primer elemento");
-		// alert(i);
 		i++;
-		// alert(i);
 	}else{
 		id = objeto.name;
 		for(x=0;x<30;x++){
 			if(id==array_id[x]){
 				array_op[x]=objeto.value;
-				// alert("Se hizo un cambio");
-				// alert("valor for: "+x);
-				// alert(i);
 				flag=true;
 			}
 		}
 		if(flag==true){
 
 		}else{
-			i++;
-			// alert(i);
 			array_id[i]=objeto.name;
 			array_op[i]=objeto.value;
-			// alert("Elemento nuevo");
+			i++;
 		}
 	}
 }

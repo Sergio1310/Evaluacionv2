@@ -14,7 +14,7 @@
 
 	$consulta = $mysqli->query("SELECT * FROM preguntas WHERE asignatura_idasignatura=".$id_asignatura);
 	while ($resultado = mysqli_fetch_assoc($consulta)) {
-		for($i = 0; $i < 9; $i++){
+		for($i = 0; $i < 31; $i++){
 			if($array_id[$i] == $resultado['id_pregunta'] && $array_op[$i] == $resultado['respuesta']){
 				$calificacion = $calificacion + 1;
 			}
