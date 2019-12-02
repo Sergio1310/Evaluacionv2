@@ -20,7 +20,7 @@
     <tbody>
         <?php
 			require('../../php/conexion.php');
-			$consulta = $mysqli->query("SELECT * FROM preguntas as P INNER JOIN asignaturas as A ON P.asignatura_idasignatura = A.id_asignatura ORDER BY ASC");
+			$consulta = $mysqli->query("SELECT * FROM preguntas as P INNER JOIN asignaturas as A ON P.asignatura_idasignatura = A.id_asignatura ORDER BY id_pregunta asc");
             while($resultado = mysqli_fetch_assoc($consulta)){
                 $datos=$resultado['id_pregunta']."||".
                            $resultado['nombre']."||".
