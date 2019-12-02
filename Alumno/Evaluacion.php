@@ -62,8 +62,7 @@
 								    <tbody>
 								    	<?php 
 								    		// require('../php/conexion.php');
-											$consulta2 = $mysqli->query("SELECT * FROM preguntas WHERE asignatura_idasignatura=".$id."  LIMIT 30");
-											// ORDER BY rand()
+											$consulta2 = $mysqli->query("SELECT * FROM preguntas WHERE asignatura_idasignatura=".$id."  ORDER BY rand() LIMIT 30");
 											while ($resultado = mysqli_fetch_assoc($consulta2)) {
 								    	?>
 								        <tr style="height: 200px; width:100px;">

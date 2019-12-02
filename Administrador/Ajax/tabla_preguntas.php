@@ -20,7 +20,7 @@
     <tbody>
         <?php
 			require('../../php/conexion.php');
-			$consulta = $mysqli->query("SELECT * FROM preguntas as P INNER JOIN asignaturas as A ON P.asignatura_idasignatura = A.id_asignatura");
+			$consulta = $mysqli->query("SELECT * FROM preguntas as P INNER JOIN asignaturas as A ON P.asignatura_idasignatura = A.id_asignatura ORDER BY ASC");
             while($resultado = mysqli_fetch_assoc($consulta)){
                 $datos=$resultado['id_pregunta']."||".
                            $resultado['nombre']."||".
@@ -217,7 +217,7 @@
                             <p style="color: black;">-Y/O-</p>
                             <img id="imgModalEditPregunta" style="width: 60px;">
                             <input type="file" name="EditarImagen"  id="EditarImagenPregunta" value="" placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenPregunta')">
-                            <label><input type="checkbox" name="pregunta"></label>
+                            <label><input type="checkbox" name="pregunta" id="preguntacheck">Quitar Imagen</label>
                             <br>
                             <input type="hidden" name="EditImagenPregunta" id="EditImagenPregunta">
                         </div>
@@ -227,7 +227,7 @@
                             <p style="color: black;">-Y/O-</p>
                             <img id="imgModalEditOpcion1" style="width: 60px;">
                             <input type="file" name="EditarImagen" name="imagenOpcion1" id="EditarImagenOpcion1" placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenOpcion1')" >
-                            <label><input type="checkbox" name="Opcion1"></label>
+                            <label><input type="checkbox" name="Opcion1" id="opcion1check">Quitar Imagen</label>
                             <br>
                             <input type="hidden" name="" id="EditImagenOpcion1" value="" >
                         </div>
@@ -237,7 +237,7 @@
                             <p style="color: black;">-Y/O-</p>
                             <img id="imgModalEditOpcion2" style="width: 60px;">
                             <input type="file" name="EditarImagen" name="imagenOpcion2" id="EditarImagenOpcion2" placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenOpcion2')">
-                            <label><input type="checkbox" name="Opcion2"></label>
+                            <label><input type="checkbox" name="Opcion2" id="opcion2check">Quitar Imagen</label>
                             <br>
                             <input type="hidden" name="" id="EditImagenOpcion2" value="" >
                         </div>
@@ -247,7 +247,7 @@
                             <p style="color: black;">-Y/O-</p>
                             <img id="imgModalEditOpcion3" style="width: 60px;">
                             <input type="file" name="EditarImagen" name="ImagenOpcion3" id="EditarImagenOpcion3" placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenOpcion3')">
-                            <label><input type="checkbox" name="Opcion3"></label>
+                            <label><input type="checkbox" name="Opcion3" id="opcion3check">Quitar Imagen</label>
                             <br>
                             <input type="hidden" name="" id="EditImagenOpcion3" value="" >
                         </div>
@@ -257,7 +257,7 @@
                             <p style="color: black;">-Y/O-</p>
                             <img id="imgModalEditOpcion4" style="width: 60px;">
                             <input type="file" name="EditarImagen" id="EditarImagenOpcion4" placeholder="Selecciona Imagen" onchange="return fileValidation('EditarImagenOpcion4')">
-                            <label><input type="checkbox" name="Opcion4"></label>
+                            <label><input type="checkbox" name="Opcion4" id="opcion4check">Quitar Imagen</label>
                             <br>
                             <input type="hidden" name="" id="EditImagenOpcion4" value="" >
                         </div>
@@ -309,31 +309,6 @@
             </div>
         </div>
     </div>
-<!-- <script type="text/javascript">
-    
-    $(document).ready(function() {
-            $('.editbtn').on('click', function(){
-                $('#editmodal').modal('show');
-                $tr= $(this).closest('tr');
-                 var data = $tr.children("td").map(function(){
-                    return $(this).text();
-                 }).get();
-                 console.log(data);
-                 $('#nombre').val(data[1]);
-                 $('#pregunta').val(data[2]);
-                 $('#imagenPregunta').val(data[3]);
-                 $('#opcion1').val(data[4]);
-                 $('#imagenOpcion1').val(data[5]);
-                 $('#opcion2').val(data[6]);
-                 $('#imagenOpcion2').val(data[7]);
-                 $('#opcion3').val(data[8]);
-                 $('#imagenOpcion3').val(data[9]);
-                 $('#opcion4').val(data[10]);
-                 $('#imagenOpcion4').val(data[11]);
-                 $('#respuesta').val(data[12]);          
-            });
-    });
-</script> -->
 <script type="text/javascript">
     $('#preguntas').DataTable({
         language: {
@@ -380,17 +355,6 @@
         var opcion3Imagen = $('#EditarImagenOpcion3')[0].files[0];
         var opcion4Imagen = $('#EditarImagenOpcion4')[0].files[0];
 
-
-        if(asignatura == 0)
-        {
-            asignatura = $('#id_asignatura').val();
-        }
-
-        if(respuesta == 0)
-        {
-            respuesta = $('#respuesta_db').val();
-        }
-
         if((preguntaImagen == null && pregunta == "") || 
            (opcion1Imagen == null && opcion1 == "") || 
            (opcion2Imagen == null && opcion2 == "") || 
@@ -405,6 +369,17 @@
             })
         }
         else{
+
+            if(asignatura == 0)
+            {
+                asignatura = $('#id_asignatura').val();
+            }
+
+            if(respuesta == 0)
+            {
+                respuesta = $('#respuesta_db').val();
+            }
+
             formData.append('id_pregunta', id);
             formData.append('preguntaImagen', preguntaImagen);
             formData.append('opcion1Imagen', opcion1Imagen);
@@ -429,15 +404,14 @@
                 processData: false,
                 success: function(response) {
                     $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'La pregunta se actualizo satisfactoriamente!',
-                            showConfirmButton: false,
-                            timer: 15500
-                        })
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'La pregunta se actualizo satisfactoriamente!',
+                        showConfirmButton: false,
+                        timer: 15500
+                    })
                 }
             }); 
         }
-
     });
 </script>

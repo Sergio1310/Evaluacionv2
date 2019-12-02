@@ -1,5 +1,9 @@
-<?php 
+<?php
 	require 'conexion.php';
+	$id = $_POST['id_pregunta'];
+
+	$consulta = $mysqli->query("SELECT * FROM preguntas WHERE id_pregunta=".$id);
+	$result = mysqli_fetch_assoc($consulta);
 
 	$asignatura = $_POST['asignatura'];
 	
@@ -28,43 +32,39 @@
 	}else{
 		$opcion4 = $_POST['opcion4'];
 	}
-	if(isset($_FILE['preguntaImagen'])){
-		//$preguntaImagen = $_POST['preguntaImagen'];
 
+	if(isset($_FILE['preguntaImagen'])){
+		$preguntaImagen = $result['imagenPregunta'];
 	}else{
 		$preguntaImagen = $_FILES['preguntaImagen']['name'];
 	}
 	if(isset($_FILE['opcion1Imagen'])){
-		//$opcion1Imagen = $_POST['opcion1Imagen'];
+		$opcion1Imagen = $result['imagenOpcion1'];
 	}else{
 		$opcion1Imagen = $_FILES['opcion1Imagen']['name'];
 	}
 	if(isset($_FILE['opcion2Imagen'])){
-		//$opcion2Imagen = $_POST['opcion2Imagen'];
+		$opcion2Imagen = $result['imagenOpcion2'];
 	}else{
 		$opcion2Imagen = $_FILES['opcion2Imagen']['name'];	
 	}
 	if(isset($_FILE['opcion3Imagen'])){
-		//$opcion3Imagen =$_POST['opcion3Imagen'];
+		$opcion3Imagen =$result['imagenOpcion3'];
 	}else{
 		$opcion3Imagen = $_FILES['opcion3Imagen']['name'];
 	}
 	if(isset($_FILE['opcion4Imagen'])){
-		//$opcion4Imagen = $_POST['opcion4Imagen'];
+		$opcion4Imagen = $result['imagenOpcion4'];
 	}else{
 		$opcion4Imagen = $_FILES['opcion4Imagen']['name'];
 	}
 
 	$respuesta = $_POST['respuesta'];
-	$id = $_POST['id_pregunta'];
-
 
 	$mysqli->set_charset('utf8');
 	$stmt = $mysqli->prepare("UPDATE preguntas SET pregunta=?, imagenPregunta=?, opcion1=?, imagenOpcion1=?, opcion2=?, imagenOpcion2=?, opcion3=?, imagenOpcion3=?, opcion4=?, imagenOpcion4=?, respuesta=?, asignatura_idasignatura=? WHERE id_pregunta=? ");	
 	$stmt->bind_param("sssssssssssii", $pregunta, $preguntaImagen, $opcion1, $opcion1Imagen, $opcion2, $opcion2Imagen, $opcion3, $opcion3Imagen, $opcion4, $opcion4Imagen, $respuesta, $asignatura, $id);
-	echo $stmt->execute();
-	
-	
+	$stmt->execute();
 	
 	if(isset($_FILE['preguntaImagen'])){
 			
