@@ -37,6 +37,11 @@
    					<br/>
     				<span class="botonP"><a href="Preguntas.php">Preguntas</a></span>
         		</div>
+
+    <div id="separar" class="marginS">
+                    <br/>
+                    <span class="botonA"><a href="Asignaturas.php">Asignaturas</a></span>
+                </div>
             </div>
         </section>
     </div>
