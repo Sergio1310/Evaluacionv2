@@ -49,7 +49,7 @@
 						<div class="justify-center">
 					
 						<div class="black-containerQ">
-								<table id="table_id" class="display">
+								<table id="table_id" class="display" style="border-radius: 20px;">
 								    <thead>
 								        <tr>
 								            <th></th>
