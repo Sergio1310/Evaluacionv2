@@ -5,6 +5,8 @@
 
 	require 'conexion.php';
 
+	$mysqli->set_charset("utf8");
+
 	$user_apeP = $_POST['user_apeP'];
 	
 	$user_apeM = $_POST['user_apeM'];

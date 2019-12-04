@@ -2,6 +2,7 @@
 	$id = $_REQUEST['id'];
 
 	require('../php/conexion.php');
+	$mysqli->set_charset("utf8");
 	$consulta = $mysqli->query("SELECT status FROM calificaciones WHERE id_usuario=".$id);
 
 	$flag = false;

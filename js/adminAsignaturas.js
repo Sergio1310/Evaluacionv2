@@ -47,7 +47,8 @@ $(document).ready(function(){
 	            type: 'post',
 	            data: {asig: asig},
 	            success: function(response) {
-	            	$('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
+	            	// alert(response);
+	            	$('#tabla_asignaturas').load('../Administrador/Ajax/tabla_asignaturas.php');
 		            Swal.fire({
 						icon: 'success',
 						title: 'La asignatura se guardo satisfactoriamente!',

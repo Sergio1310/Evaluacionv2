@@ -1,6 +1,8 @@
 <?php
 	require 'conexion.php';
 
+	$mysqli->set_charset("utf8");
+
 	$asignatura = $_POST['asignatura'];
 	
 	if(!isset($_POST['pregunta'])){

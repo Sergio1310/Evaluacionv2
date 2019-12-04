@@ -1,6 +1,7 @@
 <?php 
 	require 'conexion.php';
 
+	$mysqli->set_charset("utf8");
 
 	$user_apeP = null;
 	

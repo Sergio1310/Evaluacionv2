@@ -1,6 +1,8 @@
 <?php
 	require 'conexion.php';
 
+	$mysqli->set_charset("utf8");
+	
 	$id = $_REQUEST['id'];
 	$asignatura = $_REQUEST['asig'];
 

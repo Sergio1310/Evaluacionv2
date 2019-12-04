@@ -1,5 +1,6 @@
 <?php
 	require 'conexion.php';
+	$mysqli->set_charset("utf8");
 	$id = $_POST['id_pregunta'];
 
 	$consulta = $mysqli->query("SELECT * FROM preguntas WHERE id_pregunta=".$id);

@@ -25,7 +25,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title><?php echo $asignatura; ?></title>
+	<title><?php echo utf8_encode($asignatura); ?></title>
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="../bootstrap4/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../fontawesome-free-5.11.2-web/css/all.css">
@@ -42,7 +42,7 @@
  <nav class="navbar navbar-dark bg-dark justify-content-between" style="border-radius: 0px;">
  <a class="navbar-brand" style="color: white; margin-right: 60rem;"> <i class="fas fa-user-circle"> </i> <?php echo $_SESSION['matricula']; ?>  </a>
 
-  <i style="color: white; font-size: 25px;"> <?php  echo strtoupper($asignatura) ; ?></i> 
+  <i style="color: white; font-size: 25px;"> <?php  echo utf8_encode($asignatura) ; ?></i> 
 	<!-- <input type ='button' class="btn btn-outline-warning" value = 'Cerrar Sesión' onclick="window.location='../php/cerrarSesion.php';"/> -->
 </nav>
 	<div class="principal-content justify-center">
