@@ -26,7 +26,7 @@
 	<link rel="stylesheet" href="../css/fuentes/MaterialIcons.css">
 	<link rel="stylesheet" href="../bootstrap4/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="../css/AdminPreguntas.css">
-	<script src="../js/adminPreguntas.js"></script>
+	<script src="../js/adminAsignaturas.js"></script>
     
 </head>
 <body>
@@ -43,11 +43,11 @@
 						<h2><b>Asignaturas</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a href="#AgregarPregunta" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Agregar Asignaturas</span></a>						
+						<a href="#AgregarPregunta" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Agregar Asignaturas</span></a> 						
 					</div>
                 </div>
             </div>
-            <div id="tabla_preguntas"></div>
+            <div id="tabla_asignaturas"></div>
 			<!-- <div class="clearfix"></div> -->
         </div>
     </div>
@@ -59,74 +59,19 @@
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">
-                     	<form method="post" action="#" enctype="multipart/form-data">
-                     		<label for="sel1">Sección</label>
-                            <select class="form-control" id="sel_asignatura">
-                            	<option value="0">Elige una Opcion...</option>
-                                <?php
-                                    require('../php/conexion.php');
-                                    $consulta = $mysqli->query("SELECT * FROM asignaturas");
-                                    while($resultado = mysqli_fetch_assoc($consulta)){
-                                ?>
-                                    <option id="seccion" value="<?php echo $resultado['id_asignatura'] ?>"><?php echo $resultado['nombre']; ?></option>
-                                <?php
-                                    } 
-                                ?>
-                            </select>
+                     	<form method="post" action="#">
 							<div class="form-group">
 								<label>Asignatura</label>
-								<input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="input_pregunta" placeholder="Escribe la Asignatura">
-								<p>-Y/O-</p>
-								<input type="file" name="CrearImagen" id="CrearImagenPregunta" placeholder="Selecciona Imagen" onchange="return fileValidation('CrearImagenPregunta')">
-							</div>
-							<div class="form-group">
-								<label>Opción 1</label>
-								<input type="text" class="form-control" id="input_opcion1" placeholder="Escribe la opción 1">
-								<p>-Y/O-</p>
-								<input type="file" name="CrearImagen" id="CrearImagenOpcion1" placeholder="Selecciona Imagen" onchange="return fileValidation('CrearImagenOpcion1')">
-							</div>
-	                        <div class="form-group">
-								<label>Opción 2</label>
-								<input type="text" class="form-control" id="input_opcion2" placeholder="Escribe la opción 2">
-								<p>-Y/O-</p>
-								<input type="file" name="CrearImagen" id="CrearImagenOpcion2" placeholder="Selecciona Imagen" onchange="return fileValidation('CrearImagenOpcion2')">
-							</div>
-	                        <div class="form-group">
-								<label>Opción 3</label>
-								<input type="text" class="form-control" id="input_opcion3" placeholder="Escribe la opción 3">
-								<p>-Y/O-</p>
-								<input type="file" name="CrearImagen" id="CrearImagenOpcion3" placeholder="Selecciona Imagen" onchange="return fileValidation('CrearImagenOpcion3')">
-							</div>
-	                        <div class="form-group">
-								<label>Opción 4</label>
-								<input type="text" class="form-control" id="input_opcion4" placeholder="Escribe la opción 4">
-								<p>-Y/O-</p>
-								<input type="file" name="CrearImagen" id="CrearImagenOpcion4" placeholder="Selecciona Imagen" onchange="return fileValidation('CrearImagenOpcion4')">
-							</div>
-	                        <div class="form-group">
-	                        	<label>Respuesta</label>
-								<select class="form-control" id="sel_respuesta">
-									<option value="0">Elige una Opcion...</option>
-	                                <option value="1">Opcion 1</option>
-	                                <option value="2">Opcion 2</option>
-	                                <option value="3">Opcion 3</option>
-	                                <option value="4">Opcion 4</option>
-	                            </select>
+								<input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id="input_asignatura" placeholder="Escribe la Asignatura">
 							</div>
 							<div class="form-group" style="text-align: right;">
 								<input type="button" class="btn btn-danger" data-dismiss="modal" value="Cancelar">
-								<input type="submit" class="btn btn-success" data-dismiss="modal" id="botonCrear" value="Crear">
+								<input type="submit" class="btn btn-success" data-dismiss="modal" id="btnCrear" value="Crear">
 							</div>
 	                    </form>				
 					</div>
-					<!-- <div class="modal-footer">
-						<input type="button" class="btn btn-danger" data-dismiss="modal" value="Cancelar">
-						<input type="submit" class="btn btn-success" data-dismiss="modal" id="botonCrear" value="Crear">
-					</div> -->
 			</div>
 		</div>
 	</div>
 </body>
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
-	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 </html>
