@@ -59,7 +59,7 @@ $(document).ready(function(){
 	        }
     	},
     	"searching": false,
-    	"lengthMenu": [1],
+    	"lengthMenu": [3],
     	// "paging": false
     	"lengthChange": false,
     	"order": false,

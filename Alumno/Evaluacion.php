@@ -54,9 +54,6 @@
 								        <tr>
 								            <th></th>
 								            <th></th>
-								            <th></th>
-								            <th></th>
-								            <th></th>
 								        </tr>
 								    </thead>
 								    <tbody>
@@ -65,8 +62,8 @@
 											$consulta2 = $mysqli->query("SELECT * FROM preguntas WHERE asignatura_idasignatura=".$id."  ORDER BY rand() LIMIT 30");
 											while ($resultado = mysqli_fetch_assoc($consulta2)) {
 								    	?>
-								        <tr style="height: 200px; width:100px;">
-								        	<td >
+								        <tr style="height: 100px; width:100px;">
+								        	<td style="text-align: center;">
 								        		<?php
 								        			if($resultado['pregunta'] == null){
 								        		?>
@@ -84,6 +81,8 @@
 								        			}
 								        		?>
 								        	</td>
+								        	<td></td>
+								        	<tr>
 											<td>
 								        		<input  type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="1" onclick="capturar(this);">
 								        		<?php 
@@ -118,6 +117,8 @@
 								        			}
 								        		?>
 								        	</td>
+								        </tr>
+								        <tr>
 											<td>
 								        		<input type="radio" name="<?php echo $resultado['id_pregunta'] ?>" value="3" onclick="capturar(this);">
 								        		<?php 
