@@ -1,4 +1,5 @@
-<?php 
+<?php
+	error_reporting(0);
     session_start();
 
     if((!isset($_SESSION['matricula']) && !isset($_SESSION['tipo_user'])) || $_SESSION['tipo_user'] != 1){
