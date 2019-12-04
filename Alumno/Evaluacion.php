@@ -73,7 +73,7 @@
 												
 								        		<?php
 								        			}else{
-								        				echo $resultado['pregunta']; 
+								        				echo utf8_encode($resultado['pregunta']); 
 								        			}
 								        			if($resultado['imagenPregunta'] == null){
 
@@ -90,7 +90,7 @@
 								        			if($resultado['opcion1'] == null){
 
 								        			}else{
-								        				echo $resultado['opcion1'];
+								        				echo utf8_encode($resultado['opcion1']);
 								        			}
 								        			if($resultado['imagenOpcion1'] == null){
 
@@ -107,7 +107,7 @@
 								        			if($resultado['opcion2'] == null){
 
 								        			}else{
-								        				echo $resultado['opcion2'];
+								        				echo utf8_encode($resultado['opcion2']);
 								        			}
 								        			if($resultado['imagenOpcion2'] == null){
 
@@ -124,7 +124,7 @@
 								        			if($resultado['opcion3'] == null){
 
 								        			}else{
-								        				echo $resultado['opcion3'];
+								        				echo utf8_encode($resultado['opcion3']);
 								        			}
 								        			if($resultado['imagenOpcion3'] == null){
 
@@ -141,7 +141,7 @@
 								        			if($resultado['opcion4'] == null){
 
 								        			}else{
-								        				echo $resultado['opcion4'];
+								        				echo utf8_encode($resultado['opcion4']);
 								        			}
 								        			if($resultado['imagenOpcion4'] == null){
 

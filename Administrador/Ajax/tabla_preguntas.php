@@ -40,7 +40,7 @@
             <!-- codigo -->
                 <tr>    
                     <td><?php echo $resultado['id_pregunta']; ?></td>
-                    <td><?php echo $resultado['nombre']; ?></td>
+                    <td><?php echo utf8_encode($resultado['nombre']); ?></td>
                     <?php 
                         if($resultado['pregunta'] == null){
                     ?>
@@ -48,7 +48,7 @@
                     <?php
                         }else{
                     ?>
-                        <td><?php echo $resultado['pregunta']; ?></td>
+                        <td><?php echo utf8_encode($resultado['pregunta']); ?></td>
                     <?php
                         }
                     ?>
@@ -73,7 +73,7 @@
                     <?php
                         }else{
                     ?>
-                        <td><?php echo $resultado['opcion1']; ?></td>
+                        <td><?php echo utf8_encode($resultado['opcion1']); ?></td>
                     <?php
                         }
                     ?>
@@ -98,7 +98,7 @@
                     <?php
                         }else{
                     ?>
-                        <td><?php echo $resultado['opcion2']; ?></td>
+                        <td><?php echo utf8_encode($resultado['opcion2']); ?></td>
                     <?php
                         }
                     ?>
@@ -123,7 +123,7 @@
                     <?php
                         }else{
                     ?>
-                        <td><?php echo $resultado['opcion3']; ?></td>
+                        <td><?php echo utf8_encode($resultado['opcion3']); ?></td>
                     <?php
                         }
                     ?>
@@ -148,7 +148,7 @@
                     <?php
                         }else{
                     ?>
-                        <td><?php echo $resultado['opcion4']; ?></td>
+                        <td><?php echo utf8_encode($resultado['opcion4']); ?></td>
                     <?php
                         }
                     ?>
