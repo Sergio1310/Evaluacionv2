@@ -212,9 +212,11 @@ html,body {
         display: inline-block;
     }
 	.modal .form-control {
-		border-radius: 2px;
+		border-radius: 11px;
 		box-shadow: none;
 		border-color: #dddddd;
+		width: 100%;
+
 	}
 	.modal textarea.form-control {
 		resize: vertical;

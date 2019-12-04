@@ -41,8 +41,8 @@ $(document).ready(function(){
 		language: {
 	        "decimal": "",
 	        "emptyTable": "No hay información",
-	        "info": "Mostrando _START_ de _TOTAL_ Preguntas",
-	        "infoEmpty": "Mostrando 0 to 0 of 0 Preguntas",
+	        "info": "",
+	        "infoEmpty": "",
 	        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
 	        "infoPostFix": "",
 	        "thousands": ",",
