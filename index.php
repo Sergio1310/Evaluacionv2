@@ -48,7 +48,7 @@
               <label>Contraseña</label>
               <input type="password" name="name_password" id="pass_input" class="text-input"  />
             </div>
-            <input type="submit" name="" class="primary-btn" value="Iniciar Sesion" placeholder="">
+            <input type="submit" name="" class="primary-btn" value="Iniciar Sesión" placeholder="">
           </form>
         </div>
        

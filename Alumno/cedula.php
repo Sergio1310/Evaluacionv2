@@ -47,7 +47,7 @@
 					<div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-						<h2 ><b class="justify-center">Cedula de Evaluacion</b></h2>
+						<h2 ><b class="justify-center">Cedula de Evaluación</b></h2>
 					</div>
 				
                 </div>
@@ -130,7 +130,7 @@
 						<div  class="col-md-3  ci" class="ci row justify-center">
 
 				
-								<input type="text" placeholder="Colonia o Region" id="coloni" name="user_col" required>		
+								<input type="text" placeholder="Colonia o Región" id="coloni" name="user_col" required>		
 								</div>
 
 							<div  class="col-md-3  ci" class="ci row justify-center">
@@ -140,7 +140,7 @@
 								</div>		
 						<div  class="col-md-3  ci" class="ci row justify-center">
 
-								<input type="text" placeholder="Codigo Postal" id="CodP" name="user_cod" pattern="^\d{5}$" required>		
+								<input type="text" placeholder="Código Postal" id="CodP" name="user_cod" pattern="^\d{5}$" required>		
 								</div>	
 					</div>	
 					<br>
@@ -204,12 +204,12 @@
 						<div  class="col-md-3  ci" class="ci row justify-center">
 
 					
-								<input type="text" placeholder="Telefono" id="tel" pattern="^[\(]?[\+]?(\d{2}|\d{3})[\)]?[\s]?((\d{6}|\d{8})|(\d{3}[\*\.\-\s]){2}\d{3}|(\d{2}[\*\.\-\s]){3}\d{2}|(\d{4}[\*\.\-\s]){1}\d{4})|\d{8}|\d{10}|\d{12}$" name="user_tele" required>		
+								<input type="text" placeholder="Teléfono" id="tel" pattern="^[\(]?[\+]?(\d{2}|\d{3})[\)]?[\s]?((\d{6}|\d{8})|(\d{3}[\*\.\-\s]){2}\d{3}|(\d{2}[\*\.\-\s]){3}\d{2}|(\d{4}[\*\.\-\s]){1}\d{4})|\d{8}|\d{10}|\d{12}$" name="user_tele" required>		
 								</div>
 
 							<div  class="col-md-3  ci" class="ci row justify-center">
 
-								<input type="email" placeholder="Correo Electronico" id="correo" name="user_correo" required>		
+								<input type="email" placeholder="Correo Electrónico" id="correo" name="user_correo" required>		
 								</div>
 					</div>
 					<br>
@@ -290,7 +290,7 @@
 						</div>		
 						
 							<div  class="col-md-6  ci" class="ci row justify-center">
-                                <label for="option" class="ci">Tiempo coloborado:</label>
+                                <label for="option" class="ci">Tiempo colaborado:</label>
 								<select class="" id="op" name="user_cola">
 									<option value="" ></option>
 									<option value="3 a 6 meses" >3 a 6 meses</option>		
@@ -317,10 +317,10 @@
 						</div>	
 
 						<div  class="col-md-5  ci" class="ci row justify-center">
-                                <label for="option" class="ci">Como consiguio el empleo:</label>
+                                <label for="option" class="ci">Como consiguió el empleo:</label>
 								<select class="" id="cons" name="user_consig">
 									<option value="" ></option>
-									<option value="Estancias y estadias" >Estancias y estadias</option>
+									<option value="Estancias y estadias" >Estancias y estadías</option>
 									<option value="Por mi cuenta" >Por mi cuenta</option>		
 									<option value="Beca escolar" >Beca escolar</option>	
 									<option value="Muestra de proyectos" >Muestra de proyectos</option>	
@@ -357,7 +357,7 @@
 					</div>
 				
 					<br>
-					 	<h5 class="h5">Segun tu experiencia en las estancias, estadias y/o experiencia laboral contesta las siguientes preguntas:</h5>			
+					 	<h5 class="h5">Según tu experiencia en las estancias, estadías y/o experiencia laboral contesta las siguientes preguntas:</h5>			
 						</div>	
 					<br>
 						<div  class="col-md-12  ci" class="ci row justify-center">
@@ -389,9 +389,11 @@
 						 <br>
 								<textarea class="col-md-8 " placeholder="Escribe aqui" name="user_topico" id="ans4" rows="10" cols="40" required></textarea>		
 						</div>	
-					<div class="cedula justify-right ">
-						   <input type="submit" class="btn btn-success"  id="Finalizar" value="Finalizar">
+						<br>
+					<div   >
+						   <input type="submit" class="btn btn-success" style=" justify-content: center; width: 300px ; margin-left: 760px; background-color: #11485a; border-color: #11485a;"  id="Finalizar" value="Finalizar">
 						</div>
+						<br>
 			</div>
 			</div>
 			<br>
