@@ -38,7 +38,8 @@ function eliminar(){
             url: '../php/eliminarPregunta.php',
             type: 'post',
             data: {id: id_pregunta},
-            success:function(data){	
+            success:function(data){
+            alert(data);	
                 if(data == 1){
                     $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
                     Swal.fire({
@@ -111,13 +112,14 @@ $(document).ready(function(){
 	            contentType: false,
 	            processData: false,
 	            success: function(response) {
+	            	// alert(response);
 	                $('#tabla_preguntas').load('../Administrador/Ajax/tabla_preguntas.php');
-	                	Swal.fire({
-							icon: 'success',
-							title: 'La pregunta se guardo satisfactoriamente!',
-							showConfirmButton: false,
-							timer: 1500
-						})
+	                Swal.fire({
+						icon: 'success',
+						title: 'La pregunta se guardo satisfactoriamente!',
+						showConfirmButton: false,
+						timer: 1500
+					})
 	            }
 			});	
 		}
