@@ -22,6 +22,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,7 +49,7 @@
 	<div class="principal-content justify-center">
 						<div class="justify-center">
 					
-						<div class="black-containerQ">
+						<div class="black-containerQ" style="justify-content: center;">
 								<table id="table_id" class="display" style="border-radius: 20px;">
 								    <thead>
 								        <tr>
@@ -63,7 +64,7 @@
 											while ($resultado = mysqli_fetch_assoc($consulta2)) {
 								    	?>
 								        <tr style="height: 100px; width:100px;">
-								        	<td style="text-align: center;">
+								        	<td style="text-align: left;">
 								        		<?php
 								        			if($resultado['pregunta'] == null){
 								        		?>

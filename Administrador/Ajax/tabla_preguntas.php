@@ -1,4 +1,4 @@
-<table class="cell-border" id="preguntas" style="">
+<table class="cell-border" id="preguntas" style="width: 300px;">
     <thead>
         <tr>
             <th>ID</th>
@@ -331,10 +331,11 @@
                 "previous": "Anterior"
             }
         },
-        "lengthMenu": [5],
+        // "lengthMenu": [5],
         // "paging": false
         "order": false,
-        "ordering": false
+        "ordering": false,
+        "scrollX": true
     });
     $('#editardatos').on('click', function(){
         //alert("sadsad");

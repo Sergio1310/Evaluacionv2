@@ -63,6 +63,7 @@ $(document).ready(function(){
     	// "paging": false
     	"lengthChange": false,
     	"order": false,
-    	"ordering": false
+    	"ordering": false,
+    	"scrollX": true
 	});
 });

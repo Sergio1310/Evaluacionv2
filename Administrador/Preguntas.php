@@ -48,7 +48,7 @@
 					</div>
                 </div>
             </div>
-            <div id="tabla_preguntas"></div>
+            <div id="tabla_preguntas" style="width: auto;"></div>
 			<!-- <div class="clearfix"></div> -->
         </div>
     </div>

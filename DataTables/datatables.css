@@ -181,6 +181,7 @@ table.dataTable.display tbody tr:hover.selected > .sorting_3, table.dataTable.or
 }
 table.dataTable.no-footer {
   border-bottom: 1px solid #111;
+  
 }
 table.dataTable.nowrap th, table.dataTable.nowrap td {
   white-space: nowrap;
@@ -283,6 +284,7 @@ table.dataTable td {
   clear: both;
   *zoom: 1;
   zoom: 1;
+  /*width: 100px;*/
 }
 .dataTables_wrapper .dataTables_length {
   float: left;
